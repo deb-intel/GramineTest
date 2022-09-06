@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gramine-manifest – Gramine manifest preprocessor &mdash; Gramine  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/gramine.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gramine-sgx-gen-private-key – Gramine SGX key generator" href="gramine-sgx-gen-private-key.html" />
+    <link rel="prev" title="gramine-argv-serializer – Serialize command line arguments" href="gramine-argv-serializer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/gramine_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud-deployment.html">Cloud Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gramine-users.html">Users of Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container-integration.html">Container integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sgx-intro.html">Introduction to SGX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-arguments">Command line arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-and-constants-available-in-templates">Functions and constants available in templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devel/building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/onboarding.html">Onboarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/contributing.html">Contributing to Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/DCO/index.html">Developer Certificate of Origin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/howto-doc.html">How to write documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/coding-style.html">Coding style guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/setup.html">Development setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/packaging.html">Packaging and distributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libos/libos-init.html">LibOS documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pal/host-abi.html">PAL host ABI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/api.html">Python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gramine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/manpages/gramine-manifest.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+
+           <div itemprop="articleBody">
+             
+  <section id="gramine-manifest-gramine-manifest-preprocessor">
+<span id="gramine-manifest"></span><h1><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor<a class="headerlink" href="#gramine-manifest-gramine-manifest-preprocessor" title="Permalink to this headline"></a></h1>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline"></a></h2>
+<p><strong class="command">gramine-manifest</strong> [<em>OPTION</em>]… [<em>SOURCE-FILE</em> [<em>OUTPUT-FILE</em>]]</p>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+<p><strong class="program">gramine-manifest</strong> is used to preprocess manifests for Gramine using
+<a class="reference external" href="https://jinja.palletsprojects.com/">Jinja markup</a>.</p>
+</section>
+<section id="command-line-arguments">
+<h2>Command line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline"></a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-gramine-manifest-define">
+<span id="cmdoption-gramine-manifest-D"></span><span id="cmdoption-gramine-manifest-d"></span><span class="sig-name descname"><span class="pre">--define</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;=&lt;value&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-gramine-manifest-define" title="Permalink to this definition"></a></dt>
+<dd><p>Have a variable available in the template.</p>
+</dd></dl>
+
+</section>
+<section id="functions-and-constants-available-in-templates">
+<h2>Functions and constants available in templates<a class="headerlink" href="#functions-and-constants-available-in-templates" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="gramine.libos">
+<span class="sig-prename descclassname"><span class="pre">gramine.</span></span><span class="sig-name descname"><span class="pre">libos</span></span><a class="headerlink" href="#gramine.libos" title="Permalink to this definition"></a></dt>
+<dd><p>Path to <code class="file docutils literal notranslate"><span class="pre">libsysdb.so</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gramine.runtimedir">
+<span class="sig-prename descclassname"><span class="pre">gramine.</span></span><span class="sig-name descname"><span class="pre">runtimedir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">libc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'glibc'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gramine.runtimedir" title="Permalink to this definition"></a></dt>
+<dd><p>The path to runtime directory with patched libc. Currently supported options
+are: <code class="docutils literal notranslate"><span class="pre">'glibc'</span></code> and <code class="docutils literal notranslate"><span class="pre">'musl'</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="python.stdlib">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">stdlib</span></span><a class="headerlink" href="#python.stdlib" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">stdlib</span></code> installation path from <a class="reference external" href="https://docs.python.org/library/3/sysconfig.html#installation-paths">sysconfig module</a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="python.platstdlib">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">platstdlib</span></span><a class="headerlink" href="#python.platstdlib" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">platstdlib</span></code> installation path from <a class="reference external" href="https://docs.python.org/library/3/sysconfig.html#installation-paths">sysconfig module</a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="python.purelib">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">purelib</span></span><a class="headerlink" href="#python.purelib" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">purelib</span></code> installation path from <a class="reference external" href="https://docs.python.org/library/3/sysconfig.html#installation-paths">sysconfig module</a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="python.distlib">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">distlib</span></span><a class="headerlink" href="#python.distlib" title="Permalink to this definition"></a></dt>
+<dd><p>On Debian systems, this is <code class="file docutils literal notranslate"><span class="pre">/usr/lib/python3/dist-packages</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python.get_path">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">get_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">...</span></em><span class="sig-paren">)</span><a class="headerlink" href="#python.get_path" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/sysconfig.html#sysconfig.get_path">sysconfig.get_path</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python.get_paths">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">get_paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">...</span></em><span class="sig-paren">)</span><a class="headerlink" href="#python.get_paths" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/sysconfig.html#sysconfig.get_paths">sysconfig.get_paths</a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="python.implementation">
+<span class="sig-prename descclassname"><span class="pre">python.</span></span><span class="sig-name descname"><span class="pre">implementation</span></span><a class="headerlink" href="#python.implementation" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.implementation">sys.implementation</a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">env.[ENVVAR]</span></span></dt>
+<dd><p>The content of <code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> environment variable.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ldd">
+<span class="sig-name descname"><span class="pre">ldd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">\*executables</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ldd" title="Permalink to this definition"></a></dt>
+<dd><p>List of libraries which are linked from <em>executables</em>. Each library is
+provided at most once.</p>
+</dd></dl>
+
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">manifest.template</span></code>:</p>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">loader.entrypoint = &quot;file:</span><span class="cp">{{</span> <span class="nv">gramine.libos</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">libos.entrypoint = &quot;</span><span class="cp">{{</span> <span class="nv">entrypoint</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">loader.env.LD_LIBRARY_PATH = &quot;/lib:</span><span class="cp">{{</span> <span class="nv">arch_libdir</span> <span class="cp">}}</span><span class="x">:/usr</span><span class="cp">{{</span> <span class="nv">arch_libdir</span> <span class="cp">}}</span><span class="x">&quot;</span>
+
+<span class="x">fs.mounts = [</span>
+<span class="x">  { path = &quot;/lib&quot;, uri = &quot;file:</span><span class="cp">{{</span> <span class="nv">gramine.runtimedir</span><span class="o">()</span> <span class="cp">}}</span><span class="x">&quot; },</span>
+<span class="x">]</span>
+
+<span class="x">sgx.trusted_files = [</span>
+<span class="x">  &quot;file:</span><span class="cp">{{</span> <span class="nv">entrypoint</span> <span class="cp">}}</span><span class="x">&quot;,</span>
+<span class="x">  &quot;file:</span><span class="cp">{{</span> <span class="nv">gramine.runtimedir</span><span class="o">()</span> <span class="cp">}}</span><span class="x">/&quot;,</span>
+<span class="x">]</span>
+</pre></div>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">Makefile</span></code>:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nf">%.manifest</span><span class="o">:</span> <span class="n">manifest</span>.<span class="n">template</span>
+   gramine-manifest <span class="se">\</span>
+      -Dentrypoint<span class="o">=</span><span class="k">$(</span>ENTRYPOINT<span class="k">)</span> <span class="se">\</span>
+      -Darch_libdir<span class="o">=</span><span class="k">$(</span>ARCH_LIBDIR<span class="k">)</span> <span class="se">\</span>
+      $&lt; <span class="nv">$@</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gramine-argv-serializer.html" class="btn btn-neutral float-left" title="gramine-argv-serializer – Serialize command line arguments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gramine-sgx-gen-private-key.html" class="btn btn-neutral float-right" title="gramine-sgx-gen-private-key – Gramine SGX key generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gramine Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

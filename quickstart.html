@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick start &mdash; Gramine  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/gramine.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Manifest syntax" href="manifest-syntax.html" />
+    <link rel="prev" title="Introduction to Gramine" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="_static/gramine_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-gramine">Install Gramine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-a-signing-key">Prepare a signing key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-sample-application">Run sample application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-sample-applications">Other sample applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#glibc-vs-musl">glibc vs musl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container-integration.html">Container integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gramine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Quick start</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<p>Gramine without SGX has no special requirements.</p>
+<p>Gramine with SGX support requires several features from your system:</p>
+<ul class="simple">
+<li><p>the FSGSBASE feature of recent processors must be enabled in the Linux kernel;</p></li>
+<li><p>the Intel SGX driver must be built in the Linux kernel;</p></li>
+<li><p>Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed.</p></li>
+</ul>
+<p>If your system doesn’t meet these requirements, please refer to more detailed
+descriptions in <a class="reference internal" href="devel/building.html"><span class="doc">Building</span></a>.</p>
+<p>We supply a tool <a class="reference internal" href="manpages/is-sgx-available.html"><span class="doc">is-sgx-available – Check environment for SGX compatibility</span></a>, which you can use to check
+your hardware and system. It’s installed together with the respective gramine
+package (see below).</p>
+</section>
+<section id="install-gramine">
+<h2>Install Gramine<a class="headerlink" href="#install-gramine" title="Permalink to this headline"></a></h2>
+<p>On Ubuntu 18.04 or 20.04 (for 18.04, in <code class="file docutils literal notranslate"><span class="pre">intel-sgx.list</span></code>, replace
+<code class="docutils literal notranslate"><span class="pre">focal</span></code> with <code class="docutils literal notranslate"><span class="pre">bionic</span></code>):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo curl -fsSLo /usr/share/keyrings/gramine-keyring.gpg https://packages.gramineproject.io/gramine-keyring.gpg
+<span class="nb">echo</span> <span class="s1">&#39;deb [arch=amd64 signed-by=/usr/share/keyrings/gramine-keyring.gpg] https://packages.gramineproject.io/ stable main&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/gramine.list
+
+curl -fsSL https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s1">&#39;deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/intel-sgx.list
+<span class="c1"># (if you&#39;re on Ubuntu 18.04, remember to write &quot;bionic&quot; instead of &quot;focal&quot;)</span>
+
+sudo apt-get update
+
+sudo apt-get install gramine      <span class="c1"># for 5.11+ upstream, in-kernel driver</span>
+sudo apt-get install gramine-oot  <span class="c1"># for out-of-tree SDK driver</span>
+sudo apt-get install gramine-dcap <span class="c1"># for out-of-tree DCAP driver</span>
+</pre></div>
+</div>
+<p>On RHEL-8-like distribution (like AlmaLinux 8, CentOS 8, Rocky Linux 8, …):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
+sudo dnf install gramine          <span class="c1"># only the default, distro-provided kernel is supported</span>
+</pre></div>
+</div>
+</section>
+<section id="prepare-a-signing-key">
+<h2>Prepare a signing key<a class="headerlink" href="#prepare-a-signing-key" title="Permalink to this headline"></a></h2>
+<p>Only for SGX, and if you haven’t already:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gramine-sgx-gen-private-key
+</pre></div>
+</div>
+<p>This command generates an RSA 3072 key suitable for signing SGX enclaves and
+stores it in <code class="file docutils literal notranslate"><em><span class="pre">HOME</span></em><span class="pre">/.config/gramine/enclave-key.pem</span></code>. This key needs to
+be protected and should not be disclosed to anyone.</p>
+</section>
+<section id="run-sample-application">
+<h2>Run sample application<a class="headerlink" href="#run-sample-application" title="Permalink to this headline"></a></h2>
+<p>Core Gramine repository contains several sample applications. Thus, to test
+Gramine installation, we clone the Gramine repo:</p>
+<pre class="literal-block">git clone --depth 1  https://github.com/gramineproject/gramine.git</pre>
+<p>We don’t want to build Gramine (it is already installed on the system). Instead,
+we want to build and run the HelloWorld example. To build the HelloWorld
+application, we need the <code class="docutils literal notranslate"><span class="pre">gcc</span></code> compiler and the <code class="docutils literal notranslate"><span class="pre">make</span></code> build system:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc make  <span class="c1"># for Ubuntu distribution</span>
+sudo dnf install gcc make      <span class="c1"># for RHEL-8-like distribution</span>
+</pre></div>
+</div>
+<p>Go to the HelloWorld example directory:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gramine/CI-Examples/helloworld
+</pre></div>
+</div>
+<p>Build and run without SGX:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make
+gramine-direct helloworld
+</pre></div>
+</div>
+<p>Build and run with SGX:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make <span class="nv">SGX</span><span class="o">=</span><span class="m">1</span>
+gramine-sgx helloworld
+</pre></div>
+</div>
+</section>
+<section id="other-sample-applications">
+<h2>Other sample applications<a class="headerlink" href="#other-sample-applications" title="Permalink to this headline"></a></h2>
+<p>We prepared and tested several applications to demonstrate Gramine usability.
+These applications can be found in the <code class="file docutils literal notranslate"><span class="pre">CI-Examples</span></code> directory in the
+repository, each containing a short README with instructions how to test it. We
+recommend starting with a simpler, thoroughly documented example of Redis, to
+understand manifest options and features of Gramine.</p>
+<p>Additional sample configurations for applications enabled in Gramine can be
+found in a separate repository <a class="reference external" href="https://github.com/gramineproject/examples">https://github.com/gramineproject/examples</a>.</p>
+<p>Please note that these sample applications are tested on Ubuntu 18.04 and 20.04.
+Most of these applications are also known to run correctly on
+Fedora/RHEL/CentOS, but with caveats. One caveat is that Makefiles should be
+invoked with <code class="docutils literal notranslate"><span class="pre">ARCH_LIBDIR=/lib64</span> <span class="pre">make</span></code>. Another caveat is that applications
+that rely on specific versions/builds of Glibc may break (our GCC example is
+known to work only on Ubuntu).</p>
+</section>
+<section id="glibc-vs-musl">
+<h2>glibc vs musl<a class="headerlink" href="#glibc-vs-musl" title="Permalink to this headline"></a></h2>
+<p>Most of the examples we provide use GNU C Library (glibc). If your application
+is built against musl libc, you can pass <code class="docutils literal notranslate"><span class="pre">'musl'</span></code> to
+<a class="reference internal" href="manpages/gramine-manifest.html#gramine.runtimedir" title="gramine.runtimedir"><code class="xref py py-func docutils literal notranslate"><span class="pre">gramine.runtimedir()</span></code></a> when generating the manifest from a template,
+which will mount musl libc (instead of the default glibc).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction to Gramine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="manifest-syntax.html" class="btn btn-neutral float-right" title="Manifest syntax" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gramine Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

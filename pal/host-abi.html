@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAL host ABI &mdash; Gramine  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/gramine.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python API" href="../python/api.html" />
+    <link rel="prev" title="LibOS documentation" href="../libos/libos-init.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/gramine_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud-deployment.html">Cloud Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gramine-users.html">Users of Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container-integration.html">Container integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sgx-intro.html">Introduction to SGX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devel/building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/onboarding.html">Onboarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/contributing.html">Contributing to Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/DCO/index.html">Developer Certificate of Origin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/howto-doc.html">How to write documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/coding-style.html">Coding style guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/setup.html">Development setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devel/packaging.html">Packaging and distributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libos/libos-init.html">LibOS documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAL host ABI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pal-as-loader">PAL as loader</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manifest-and-executable-loading">Manifest and executable loading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types-and-variables">Data types and variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-types">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pal-handles">PAL handles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-types">Basic types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pal-public-state">PAL public state</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pal-public-state-topology-information">PAL public state - topology information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pal-apis">PAL APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#memory-allocation">Memory allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process-creation">Process creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stream-creation-connect-open">Stream creation/connect/open</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flags-used-for-stream-manipulation">Flags used for stream manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#socket-handling">Socket handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-creation">Thread creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#synchronization">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/api.html">Python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gramine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>PAL host ABI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pal/host-abi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+
+           <div itemprop="articleBody">
+             
+  <section id="pal-host-abi">
+<h1>PAL host ABI<a class="headerlink" href="#pal-host-abi" title="Permalink to this headline"></a></h1>
+<p>TODO: This document is outdated and needs a proper review.</p>
+<p>PAL Host ABI is the interface used by Gramine to interact with its host. It is translated into
+the host’s native ABI (e.g. system calls for UNIX) by a layer called the Platform Adaptation Layer
+(PAL). A PAL not only exports a set of APIs (PAL APIs) that can be called by the library OS, but
+also acts as the loader that bootstraps the library OS. The design of PAL Host ABI strictly follows
+three primary principles, to guarantee functionality, security, and portability:</p>
+<ul class="simple">
+<li><p>The host ABI must be stateless.</p></li>
+<li><p>The host ABI must be a narrowed interface to reduce the attack surface.</p></li>
+<li><p>The host ABI must be generic and independent from the native ABI of any of the supported hosts.</p></li>
+</ul>
+<p>Most of the PAL Host ABI is adapted from the Drawbridge library OS.</p>
+<section id="pal-as-loader">
+<h2>PAL as loader<a class="headerlink" href="#pal-as-loader" title="Permalink to this headline"></a></h2>
+<p>Regardless of the actual implementation, we require PAL to be able to load ELF-format binaries
+as executables or dynamic libraries, and perform the necessary dynamic relocation. PAL needs
+to look up all unresolved symbols in loaded binaries and resolve the ones matching the names of
+PAL APIs. PAL does not and will not resolve other unresolved symbols, so the loaded libraries and
+executables must resolve them afterwards.</p>
+<p>After loading the binaries, PAL needs to load and interpret the manifest files. The manifest syntax
+is described in <a class="reference internal" href="../manifest-syntax.html"><span class="doc">Manifest syntax</span></a>.</p>
+<section id="manifest-and-executable-loading">
+<h3>Manifest and executable loading<a class="headerlink" href="#manifest-and-executable-loading" title="Permalink to this headline"></a></h3>
+<p>To run a program in Gramine the PAL loader needs a manifest, which will
+describe the whole environment inside Gramine namespace. It also describes
+which executable to start first (via <code class="docutils literal notranslate"><span class="pre">libos.entrypoint</span></code>).</p>
+</section>
+</section>
+<section id="data-types-and-variables">
+<h2>Data types and variables<a class="headerlink" href="#data-types-and-variables" title="Permalink to this headline"></a></h2>
+<section id="data-types">
+<h3>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline"></a></h3>
+<section id="pal-handles">
+<h4>PAL handles<a class="headerlink" href="#pal-handles" title="Permalink to this headline"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">PAL_HANDLE</span></code> is the type of identifiers that are returned by PAL when opening
+or creating resources. It is an opaque type, that should not be accessed outside
+of PAL and its details depend on the actual PAL version (host).
+There is a common header (present on all PAL hosts) accessible from PAL code,
+which allows for checking the handle type:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="p">{</span>
+        <span class="n">PAL_IDX</span> <span class="n">type</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">hdr</span><span class="p">;</span>
+    <span class="cm">/* other host-specific definitions */</span>
+<span class="p">}</span><span class="o">*</span> <span class="n">PAL_HANDLE</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Rest of the fields are private to specific PAL hosts, but they usually define
+different handle subtypes that represent different resources such as files,
+directories, pipes or sockets. The actual memory allocated for the PAL handles
+may be variable-sized.</p>
+</section>
+<section id="basic-types">
+<h4>Basic types<a class="headerlink" href="#basic-types" title="Permalink to this headline"></a></h4>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PAL_IDX">
+<span class="target" id="pal_8h_1ab30d226cbcb6f3a2771df9f8e7eee698"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_IDX</span></span></span><a class="headerlink" href="#c.PAL_IDX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>an index </p>
+</dd></dl>
+
+</section>
+</section>
+<section id="pal-public-state">
+<h3>PAL public state<a class="headerlink" href="#pal-public-state" title="Permalink to this headline"></a></h3>
+<p>All PALs in Gramine expose a structure that provides static immutable
+information about the current process and its host. The address of the
+structure can be retrieved via <a class="reference internal" href="#c.PalGetPalPublicState" title="PalGetPalPublicState"><code class="xref c c-func docutils literal notranslate"><span class="pre">PalGetPalPublicState()</span></code></a> and can be
+memorized in a global variable for ease of use.</p>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.pal_public_state">
+<span class="target" id="structpal__public__state"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_public_state</span></span></span><a class="headerlink" href="#c.pal_public_state" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.manifest_root">
+<span class="target" id="structpal__public__state_1a38442e563b2d0a87c90c6fe14807878a"></span><span class="n"><span class="pre">toml_table_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">manifest_root</span></span></span><a class="headerlink" href="#c.pal_public_state.manifest_root" title="Permalink to this definition"></a><br /></dt>
+<dd><p>program manifest </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.parent_process">
+<span class="target" id="structpal__public__state_1af6e02fce46bcc355d8aa160af6f5c297"></span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">parent_process</span></span></span><a class="headerlink" href="#c.pal_public_state.parent_process" title="Permalink to this definition"></a><br /></dt>
+<dd><p>handle of parent process </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.first_thread">
+<span class="target" id="structpal__public__state_1adf8858087d168e584da6fbc891b2a731"></span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">first_thread</span></span></span><a class="headerlink" href="#c.pal_public_state.first_thread" title="Permalink to this definition"></a><br /></dt>
+<dd><p>handle of first thread </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.log_level">
+<span class="target" id="structpal__public__state_1a10c49e572beae0698abe6af491d32905"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">log_level</span></span></span><a class="headerlink" href="#c.pal_public_state.log_level" title="Permalink to this definition"></a><br /></dt>
+<dd><p>what log messages to enable </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.disable_aslr">
+<span class="target" id="structpal__public__state_1a6cff3e473558aa35b80357a026425348"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">disable_aslr</span></span></span><a class="headerlink" href="#c.pal_public_state.disable_aslr" title="Permalink to this definition"></a><br /></dt>
+<dd><p>disable ASLR (may be necessary for restricted environments) </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.user_address_start">
+<span class="target" id="structpal__public__state_1a109453a4acaecdb2499b7653826edb1f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">user_address_start</span></span></span><a class="headerlink" href="#c.pal_public_state.user_address_start" title="Permalink to this definition"></a><br /></dt>
+<dd><p>User address range start </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.user_address_end">
+<span class="target" id="structpal__public__state_1aa1846ed0e3d55aa478b3ffb9ca8570e6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">user_address_end</span></span></span><a class="headerlink" href="#c.pal_public_state.user_address_end" title="Permalink to this definition"></a><br /></dt>
+<dd><p>User address range end </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.preloaded_ranges">
+<span class="target" id="structpal__public__state_1a5fd4736ebae7f268b43d67893193ce7a"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_public_state" title="pal_public_state"><span class="n"><span class="pre">pal_public_state</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">[anonymous]</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">preloaded_ranges</span></span></span><a class="headerlink" href="#c.pal_public_state.preloaded_ranges" title="Permalink to this definition"></a><br /></dt>
+<dd><p>array of memory ranges which are preoccupied </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.pal_public_state.alloc_align">
+<span class="target" id="structpal__public__state_1a0942ce4728eb6c5a00fc47940384e0d1"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alloc_align</span></span></span><a class="headerlink" href="#c.pal_public_state.alloc_align" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Host allocation alignment. </p>
+<p>This currently is (and most likely will always be) indistinguishable from the page size, looking from the LibOS perspective. The two values can be different on the PAL level though, see e.g. SYSTEM_INFO::dwAllocationGranularity on Windows. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="pal-public-state-topology-information">
+<h4>PAL public state - topology information<a class="headerlink" href="#pal-public-state-topology-information" title="Permalink to this headline"></a></h4>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.pal_cpu_info">
+<span class="target" id="structpal__cpu__info"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_cpu_info</span></span></span><a class="headerlink" href="#c.pal_cpu_info" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.pal_topo_info">
+<span class="target" id="structpal__topo__info"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_topo_info</span></span></span><a class="headerlink" href="#c.pal_topo_info" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+<section id="pal-apis">
+<h2>PAL APIs<a class="headerlink" href="#pal-apis" title="Permalink to this headline"></a></h2>
+<p>The PAL APIs contain a number of functions that can be called from the
+library OS.</p>
+<section id="memory-allocation">
+<h3>Memory allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline"></a></h3>
+<p>The ABI includes three calls to allocate, free, and modify the permission bits
+on page-base virtual memory. Permissions include read, write, execute, and
+guard. Memory regions can be unallocated, reserved, or backed by committed
+memory.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalVirtualMemoryAlloc">
+<span class="target" id="pal_8h_1a8a557cbbebe5ff1fe2f14c827280442e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalVirtualMemoryAlloc</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr_ptr</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <a class="reference internal" href="#c.pal_alloc_flags_t" title="pal_alloc_flags_t"><span class="n"><span class="pre">pal_alloc_flags_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">alloc_type</span></span>, <a class="reference internal" href="#c.pal_prot_flags_t" title="pal_prot_flags_t"><span class="n"><span class="pre">pal_prot_flags_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">prot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalVirtualMemoryAlloc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Allocate virtual memory for the library OS and zero it out. </p>
+<p><code class="docutils literal notranslate"><span class="pre">*addr_ptr</span></code> can be any valid address aligned at the allocation alignment or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, in which case a suitable address will be picked automatically. Any memory previously allocated at the same address will be discarded (only if <code class="docutils literal notranslate"><span class="pre">*addr_ptr</span></code> was provided). Overwriting any part of PAL memory is forbidden. On successful return <code class="docutils literal notranslate"><span class="pre">*addr_ptr</span></code> will contain the allocated address (which can differ only in the <code class="docutils literal notranslate"><span class="pre">NULL</span></code> case). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr_ptr</strong> – <strong>[inout]</strong> <code class="docutils literal notranslate"><span class="pre">*addr_ptr</span></code> should contain requested address or NULL. On success, it will be set to the allocated address. </p></li>
+<li><p><strong>size</strong> – Must be a positive number, aligned at the allocation alignment. </p></li>
+<li><p><strong>alloc_type</strong> – A combination of any of the <code class="docutils literal notranslate"><span class="pre">PAL_ALLOC_*</span></code> flags. </p></li>
+<li><p><strong>prot</strong> – A combination of the <code class="docutils literal notranslate"><span class="pre">PAL_PROT_*</span></code> flags.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalVirtualMemoryFree">
+<span class="target" id="pal_8h_1a1f7644afd2c17aec7253edc58b394b47"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalVirtualMemoryFree</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalVirtualMemoryFree" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deallocate a previously allocated memory mapping. </p>
+<p>
+Both <code class="docutils literal notranslate"><span class="pre">addr</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code> must be non-zero and aligned at the allocation alignment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> – The address. </p></li>
+<li><p><strong>size</strong> – The size.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_alloc_flags_t">
+<span class="target" id="pal_8h_1a879f7168cba5a77ecdfdb60624c2b59f"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_alloc_flags_t</span></span></span><a class="headerlink" href="#c.pal_alloc_flags_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>memory allocation flags </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_prot_flags_t">
+<span class="target" id="pal_8h_1af92c73a7bc2a7f412cd38ee60d4dc595"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_prot_flags_t</span></span></span><a class="headerlink" href="#c.pal_prot_flags_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>memory protection flags </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalVirtualMemoryProtect">
+<span class="target" id="pal_8h_1a200f57a66adc1d575b786390a43cc63f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalVirtualMemoryProtect</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <a class="reference internal" href="#c.pal_prot_flags_t" title="pal_prot_flags_t"><span class="n"><span class="pre">pal_prot_flags_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">prot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalVirtualMemoryProtect" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Modify the permissions of a previously allocated memory mapping. </p>
+<p>
+Both <code class="docutils literal notranslate"><span class="pre">addr</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code> must be non-zero and aligned at the allocation alignment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> – The address. </p></li>
+<li><p><strong>size</strong> – The size. </p></li>
+<li><p><strong>prot</strong> – See <a class="reference internal" href="#pal_8h_1a8a557cbbebe5ff1fe2f14c827280442e"><span class="std std-ref">PalVirtualMemoryAlloc</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="process-creation">
+<h3>Process creation<a class="headerlink" href="#process-creation" title="Permalink to this headline"></a></h3>
+<p>The ABI includes one call to create a child process and one call to terminate
+the running process. A child process does not inherit any objects or memory from
+its parent process and the parent process may not modify the execution of its
+children. A parent can wait for a child to exit using its handle. Parent and
+child may communicate through I/O streams provided by the parent to the child at
+creation.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalProcessCreate">
+<span class="target" id="pal_8h_1a93b72abe1791199d8ff2391dae1f17a1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalProcessCreate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalProcessCreate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a new process. </p>
+<p>
+Loads and executes the same binary as currently executed one (<code class="docutils literal notranslate"><span class="pre">loader.entrypoint</span></code>), and passes the new arguments.</p>
+<p>TODO: <code class="docutils literal notranslate"><span class="pre">args</span></code> is only used by PAL regression tests, and should be removed at some point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – An array of strings  the arguments to be passed to the new process. </p></li>
+<li><p><strong>handle</strong> – <strong>[out]</strong> On success contains the process handle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalProcessExit">
+<span class="target" id="pal_8h_1abd2a229252d72210b1fec4827c4882e1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalProcessExit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">exit_code</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalProcessExit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Terminate all threads in the process immediately. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exit_code</strong> – The exit value returned to the host. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="stream-creation-connect-open">
+<h3>Stream creation/connect/open<a class="headerlink" href="#stream-creation-connect-open" title="Permalink to this headline"></a></h3>
+<p>The stream ABI includes nine calls to open, read, write, map, unmap,
+truncate, flush, delete and wait for I/O streams and three calls to
+access metadata about an I/O stream. The ABI purposefully does not
+provide an ioctl call. Supported URI schemes include:
+<code class="docutils literal notranslate"><span class="pre">file:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pipe:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">http:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">https:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tcp:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">udp:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pipe.srv:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">http.srv</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tcp.srv:</span></code> and
+<code class="docutils literal notranslate"><span class="pre">udp.srv:</span></code>.
+The latter four schemes are used to open inbound I/O streams for server
+applications.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamOpen">
+<span class="target" id="pal_8h_1a3c4a7323732f1efb29c4a6fc5e24212b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamOpen</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">uri</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_access" title="pal_access"><span class="n"><span class="pre">pal_access</span></span></a><span class="w"> </span><span class="n"><span class="pre">access</span></span>, <a class="reference internal" href="#c.pal_share_flags_t" title="pal_share_flags_t"><span class="n"><span class="pre">pal_share_flags_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">share_flags</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_create_mode" title="pal_create_mode"><span class="n"><span class="pre">pal_create_mode</span></span></a><span class="w"> </span><span class="n"><span class="pre">create</span></span>, <a class="reference internal" href="#c.pal_stream_options_t" title="pal_stream_options_t"><span class="n"><span class="pre">pal_stream_options_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">options</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamOpen" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Open/create a stream resource specified by <code class="docutils literal notranslate"><span class="pre">uri</span></code>. </p>
+<p>
+Supported URI types:<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file:...</span></code>, <code class="docutils literal notranslate"><span class="pre">dir:...</span></code>: Files or directories on the host file system. If <a class="reference internal" href="#pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a5cbfec7defe4e3d70f3d9662a8c6f755"><span class="std std-ref">PAL_CREATE_TRY</span></a> or <a class="reference internal" href="#pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a307590d49a445144af96980cb3bb9217"><span class="std std-ref">PAL_CREATE_ALWAYS</span></a> is given in <code class="docutils literal notranslate"><span class="pre">create</span></code> flags, the file/directory will be created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev:...</span></code>: Open a device as a stream. For example, <code class="docutils literal notranslate"><span class="pre">dev:tty</span></code> represents the standard I/O.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipe.srv:&lt;name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">pipe:&lt;name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">pipe:</span></code>: Open a byte stream that can be used for RPC between processes. The server side of a pipe can accept any number of connections. If <code class="docutils literal notranslate"><span class="pre">pipe:</span></code> is given as the URI (i.e., without a name), it will open an anonymous bidirectional pipe. </p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> – The URI of the stream to be opened/created. </p></li>
+<li><p><strong>access</strong> – See <a class="reference internal" href="#pal_8h_1a16bf0253dc8701278cdf32c58192d9a1"><span class="std std-ref">pal_access</span></a>. </p></li>
+<li><p><strong>share_flags</strong> – A combination of the <code class="docutils literal notranslate"><span class="pre">PAL_SHARE_*</span></code> flags. </p></li>
+<li><p><strong>create</strong> – See <a class="reference internal" href="#pal_8h_1a70b6a03db2aec5861ac0919994b77ef2"><span class="std std-ref">pal_create_mode</span></a>. </p></li>
+<li><p><strong>options</strong> – A combination of the <code class="docutils literal notranslate"><span class="pre">PAL_OPTION_*</span></code> flags. </p></li>
+<li><p><strong>handle[out]</strong> – If the resource is successfully opened or created, a PAL handle is returned in <code class="docutils literal notranslate"><span class="pre">*handle</span></code> for further access such as reading or writing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamWaitForClient">
+<span class="target" id="pal_8h_1a9b299ff7d885256efde47f6629e78a33"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamWaitForClient</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">client</span></span>, <a class="reference internal" href="#c.pal_stream_options_t" title="pal_stream_options_t"><span class="n"><span class="pre">pal_stream_options_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">options</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamWaitForClient" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Block until a new connection is accepted and return the PAL handle for the connection. </p>
+<p>
+This API is only available for handles that are opened with <code class="docutils literal notranslate"><span class="pre">pipe.srv:...</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to accept a new connection on. </p></li>
+<li><p><strong>client</strong> – <strong>[out]</strong> On success holds handle for the new connection. </p></li>
+<li><p><strong>options</strong> – Flags to set on <code class="docutils literal notranslate"><span class="pre">client</span></code> handle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamRead">
+<span class="target" id="pal_8h_1aa614349b970b2dcff0452095333a74b1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamRead</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">count</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamRead" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read data from an open stream. </p>
+<p>
+If <code class="docutils literal notranslate"><span class="pre">handle</span></code> is a directory, PalStreamRead fills the buffer with the null-terminated names of the directory entries. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the stream. </p></li>
+<li><p><strong>offset</strong> – Offset to read at. If <code class="docutils literal notranslate"><span class="pre">handle</span></code> is a file, <code class="docutils literal notranslate"><span class="pre">offset</span></code> must be specified at each call. </p></li>
+<li><p><strong>count</strong> – <strong>[inout]</strong> Contains size of <code class="docutils literal notranslate"><span class="pre">buffer</span></code>. On success, will be set to the number of bytes read. </p></li>
+<li><p><strong>buffer</strong> – Pointer to the buffer to read into.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamWrite">
+<span class="target" id="pal_8h_1a33ba729cd47540ced3a7cc09c40237f7"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamWrite</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">count</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamWrite" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Write data to an open stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the stream. </p></li>
+<li><p><strong>offset</strong> – Offset to write to. If <code class="docutils literal notranslate"><span class="pre">handle</span></code> is a file, <code class="docutils literal notranslate"><span class="pre">offset</span></code> must be specified at each call. </p></li>
+<li><p><strong>count</strong> – <strong>[inout]</strong> Contains size of <code class="docutils literal notranslate"><span class="pre">buffer</span></code>. On success, will be set to the number of bytes written. </p></li>
+<li><p><strong>buffer</strong> – Pointer to the buffer to write from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamDelete">
+<span class="target" id="pal_8h_1a9ee1299cf6f316c21bf804c6f8e799e0"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamDelete</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_delete_mode" title="pal_delete_mode"><span class="n"><span class="pre">pal_delete_mode</span></span></a><span class="w"> </span><span class="n"><span class="pre">delete_mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamDelete" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Delete files or directories on the host or shut down the connection of TCP/UDP sockets. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>access</strong> – Which side to shut down (see <a class="reference internal" href="#pal_8h_1a71ec97e513bc3e6801928076aeba1194"><span class="std std-ref">pal_delete_mode</span></a> values). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamMap">
+<span class="target" id="pal_8h_1a88aa419c2853baf7d6739667d2b96195"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamMap</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr_ptr</span></span>, <a class="reference internal" href="#c.pal_prot_flags_t" title="pal_prot_flags_t"><span class="n"><span class="pre">pal_prot_flags_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">prot</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamMap" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Map a file to a virtual memory address in the current process. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the stream to be mapped. </p></li>
+<li><p><strong>addr_ptr</strong> – <strong>[inout]</strong> See <a class="reference internal" href="#pal_8h_1a8a557cbbebe5ff1fe2f14c827280442e"><span class="std std-ref">PalVirtualMemoryAlloc</span></a>. </p></li>
+<li><p><strong>prot</strong> – See <a class="reference internal" href="#pal_8h_1a8a557cbbebe5ff1fe2f14c827280442e"><span class="std std-ref">PalVirtualMemoryAlloc</span></a>. </p></li>
+<li><p><strong>offset</strong> – Offset in the stream to be mapped. Must be properly aligned. </p></li>
+<li><p><strong>size</strong> – Size of the requested mapping. Must be non-zero and properly aligned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamUnmap">
+<span class="target" id="pal_8h_1a8b218c120d425eac801a50f008dc3d23"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamUnmap</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamUnmap" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Unmap virtual memory that is backed by a file stream. </p>
+<p><code class="docutils literal notranslate"><span class="pre">addr</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code> must be aligned at the allocation alignment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamSetLength">
+<span class="target" id="pal_8h_1a72e69fb72c1d7d385a1710454be9adb3"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamSetLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamSetLength" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the length of the file referenced by handle to <code class="docutils literal notranslate"><span class="pre">length</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamFlush">
+<span class="target" id="pal_8h_1aeed13fa5847b48c93b0339c6fe6bc291"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamFlush</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamFlush" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flush the buffer of a file stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSendHandle">
+<span class="target" id="pal_8h_1a32a00e6f0bafc330b725bf51644976af"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSendHandle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">target_process</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">cargo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSendHandle" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send a PAL handle to a process. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_process</strong> – The handle to the target process where <code class="docutils literal notranslate"><span class="pre">cargo</span></code> will be sent. </p></li>
+<li><p><strong>cargo</strong> – The handle to send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalReceiveHandle">
+<span class="target" id="pal_8h_1a00f0d84db2b9722885eec42c72069e64"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalReceiveHandle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">source_process</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_cargo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalReceiveHandle" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive a handle from another process. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_process</strong> – The handle to the source process from which <code class="docutils literal notranslate"><span class="pre">cargo</span></code> will be received. </p></li>
+<li><p><strong>out_cargo</strong> – <strong>[out]</strong> The received handle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamAttributesQuery">
+<span class="target" id="pal_8h_1a187b88db123c75244bc70e30fe15aa2a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamAttributesQuery</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">uri</span></span>, <a class="reference internal" href="#c.PAL_STREAM_ATTR" title="PAL_STREAM_ATTR"><span class="n"><span class="pre">PAL_STREAM_ATTR</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">attr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamAttributesQuery" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Query the attributes of a named stream. </p>
+<p>This API only applies for URIs such as <code class="docutils literal notranslate"><span class="pre">file:...</span></code>, <code class="docutils literal notranslate"><span class="pre">dir:...</span></code>, and <code class="docutils literal notranslate"><span class="pre">dev:...</span></code>. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PAL_STREAM_ATTR">
+<span class="target" id="pal_8h_1aee5744bb200f43b60ab075138d450593"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c._PAL_STREAM_ATTR" title="_PAL_STREAM_ATTR"><span class="n"><span class="pre">_PAL_STREAM_ATTR</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_STREAM_ATTR</span></span></span><a class="headerlink" href="#c.PAL_STREAM_ATTR" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c._PAL_STREAM_ATTR">
+<span class="target" id="struct__PAL__STREAM__ATTR"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_PAL_STREAM_ATTR</span></span></span><a class="headerlink" href="#c._PAL_STREAM_ATTR" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamAttributesQueryByHandle">
+<span class="target" id="pal_8h_1aeafebfe983c8834545e729da4c9eb63d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamAttributesQueryByHandle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <a class="reference internal" href="#c.PAL_STREAM_ATTR" title="PAL_STREAM_ATTR"><span class="n"><span class="pre">PAL_STREAM_ATTR</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">attr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamAttributesQueryByHandle" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Query the attributes of an open stream. </p>
+<p>This API applies to any stream handle. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamAttributesSetByHandle">
+<span class="target" id="pal_8h_1a0ec4dab95f8c54a18969de06793432f8"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamAttributesSetByHandle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <a class="reference internal" href="#c.PAL_STREAM_ATTR" title="PAL_STREAM_ATTR"><span class="n"><span class="pre">PAL_STREAM_ATTR</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">attr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamAttributesSetByHandle" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the attributes of an open stream. </p>
+<p>Calling this function on the same handle concurrently is not allowed (i.e. callers must ensure mutual exclusion). </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamChangeName">
+<span class="target" id="pal_8h_1a8b7bdb242c5abae34781035800d1e8d7"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamChangeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">uri</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamChangeName" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This API changes the name of an open stream. </p>
+</dd></dl>
+
+<section id="flags-used-for-stream-manipulation">
+<h4>Flags used for stream manipulation<a class="headerlink" href="#flags-used-for-stream-manipulation" title="Permalink to this headline"></a></h4>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_access">
+<span class="target" id="pal_8h_1a16bf0253dc8701278cdf32c58192d9a1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_access</span></span></span><a class="headerlink" href="#c.pal_access" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stream Access Flags </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_access.PAL_ACCESS_RDONLY">
+<span class="target" id="pal_8h_1a16bf0253dc8701278cdf32c58192d9a1aa1c71284ccaefabd1d09a5e6c567c34c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_ACCESS_RDONLY</span></span></span><a class="headerlink" href="#c.pal_access.PAL_ACCESS_RDONLY" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_access.PAL_ACCESS_WRONLY">
+<span class="target" id="pal_8h_1a16bf0253dc8701278cdf32c58192d9a1ac86fd9ad0d2b4994a69e8b13e30a417c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_ACCESS_WRONLY</span></span></span><a class="headerlink" href="#c.pal_access.PAL_ACCESS_WRONLY" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_access.PAL_ACCESS_RDWR">
+<span class="target" id="pal_8h_1a16bf0253dc8701278cdf32c58192d9a1a8eaebf5ebac301a14f3e5ae84316a2f0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_ACCESS_RDWR</span></span></span><a class="headerlink" href="#c.pal_access.PAL_ACCESS_RDWR" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_access.PAL_ACCESS_BOUND">
+<span class="target" id="pal_8h_1a16bf0253dc8701278cdf32c58192d9a1adecc9ebc02df80675062c6b8d6a4c42a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_ACCESS_BOUND</span></span></span><a class="headerlink" href="#c.pal_access.PAL_ACCESS_BOUND" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_share_flags_t">
+<span class="target" id="pal_8h_1a8017dcf43f8c4c2e97bcf77297c36340"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_share_flags_t</span></span></span><a class="headerlink" href="#c.pal_share_flags_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>stream sharing flags </p>
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_create_mode">
+<span class="target" id="pal_8h_1a70b6a03db2aec5861ac0919994b77ef2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_create_mode</span></span></span><a class="headerlink" href="#c.pal_create_mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>stream create mode </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_create_mode.PAL_CREATE_NEVER">
+<span class="target" id="pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a8a59fc2e7cbb61118d002dc3ecb92ac7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CREATE_NEVER</span></span></span><a class="headerlink" href="#c.pal_create_mode.PAL_CREATE_NEVER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Fail if file does not exist </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_create_mode.PAL_CREATE_TRY">
+<span class="target" id="pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a5cbfec7defe4e3d70f3d9662a8c6f755"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CREATE_TRY</span></span></span><a class="headerlink" href="#c.pal_create_mode.PAL_CREATE_TRY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create file if file does not exist </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_create_mode.PAL_CREATE_ALWAYS">
+<span class="target" id="pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a307590d49a445144af96980cb3bb9217"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CREATE_ALWAYS</span></span></span><a class="headerlink" href="#c.pal_create_mode.PAL_CREATE_ALWAYS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create file and fail if file already exists </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_create_mode.PAL_CREATE_IGNORED">
+<span class="target" id="pal_8h_1a70b6a03db2aec5861ac0919994b77ef2a955b5e48073e9f7861bcd66d7e78cad7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CREATE_IGNORED</span></span></span><a class="headerlink" href="#c.pal_create_mode.PAL_CREATE_IGNORED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Magic value for calls to handle types which ignore creation mode </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_stream_options_t">
+<span class="target" id="pal_8h_1a1aa2567ca4e27776c24144f5ca607759"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_stream_options_t</span></span></span><a class="headerlink" href="#c.pal_stream_options_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>stream misc flags </p>
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_delete_mode">
+<span class="target" id="pal_8h_1a71ec97e513bc3e6801928076aeba1194"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_delete_mode</span></span></span><a class="headerlink" href="#c.pal_delete_mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_delete_mode.PAL_DELETE_ALL">
+<span class="target" id="pal_8h_1a71ec97e513bc3e6801928076aeba1194a0ec82f8d85a716a11c1a536ce4501a98"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_DELETE_ALL</span></span></span><a class="headerlink" href="#c.pal_delete_mode.PAL_DELETE_ALL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>delete the whole resource / shut down both directions </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_delete_mode.PAL_DELETE_READ">
+<span class="target" id="pal_8h_1a71ec97e513bc3e6801928076aeba1194aabe17a73abd99369c12cfcf0bf6aa2a8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_DELETE_READ</span></span></span><a class="headerlink" href="#c.pal_delete_mode.PAL_DELETE_READ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>shut down the read side only </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_delete_mode.PAL_DELETE_WRITE">
+<span class="target" id="pal_8h_1a71ec97e513bc3e6801928076aeba1194ae793d3803c47ae5a4399c767d792227b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_DELETE_WRITE</span></span></span><a class="headerlink" href="#c.pal_delete_mode.PAL_DELETE_WRITE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>shut down the write side only </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_wait_flags_t">
+<span class="target" id="pal_8h_1abbe2027d792da159f7a9296dc8d7d3fd"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_wait_flags_t</span></span></span><a class="headerlink" href="#c.pal_wait_flags_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="socket-handling">
+<h3>Socket handling<a class="headerlink" href="#socket-handling" title="Permalink to this headline"></a></h3>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_socket_domain">
+<span class="target" id="pal_8h_1a299c15c5600cc0f5cb95c9c7169e6ab3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_socket_domain</span></span></span><a class="headerlink" href="#c.pal_socket_domain" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_socket_domain.PAL_DISCONNECT">
+<span class="target" id="pal_8h_1a299c15c5600cc0f5cb95c9c7169e6ab3a1a59389fe63ea1e4d205b372e987ad2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_DISCONNECT</span></span></span><a class="headerlink" href="#c.pal_socket_domain.PAL_DISCONNECT" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_socket_domain.PAL_IPV4">
+<span class="target" id="pal_8h_1a299c15c5600cc0f5cb95c9c7169e6ab3a82696344766bb622bfec0d1ae08ce20a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_IPV4</span></span></span><a class="headerlink" href="#c.pal_socket_domain.PAL_IPV4" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_socket_domain.PAL_IPV6">
+<span class="target" id="pal_8h_1a299c15c5600cc0f5cb95c9c7169e6ab3aa1d2f4f2cdc49a74f7cb077d1a1fc75b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_IPV6</span></span></span><a class="headerlink" href="#c.pal_socket_domain.PAL_IPV6" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_socket_type">
+<span class="target" id="pal_8h_1ab445ef59e3556549984d968975977ee9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_socket_type</span></span></span><a class="headerlink" href="#c.pal_socket_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_socket_type.PAL_SOCKET_TCP">
+<span class="target" id="pal_8h_1ab445ef59e3556549984d968975977ee9a68fecbc8e23bf70686e05c7a073d5c38"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_SOCKET_TCP</span></span></span><a class="headerlink" href="#c.pal_socket_type.PAL_SOCKET_TCP" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_socket_type.PAL_SOCKET_UDP">
+<span class="target" id="pal_8h_1ab445ef59e3556549984d968975977ee9a1d19a9aa196f6851ca8a38a3f764d5a8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_SOCKET_UDP</span></span></span><a class="headerlink" href="#c.pal_socket_type.PAL_SOCKET_UDP" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.pal_socket_addr">
+<span class="target" id="structpal__socket__addr"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_socket_addr</span></span></span><a class="headerlink" href="#c.pal_socket_addr" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.pal_iovec">
+<span class="target" id="structpal__iovec"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_iovec</span></span></span><a class="headerlink" href="#c.pal_iovec" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketCreate">
+<span class="target" id="pal_8h_1ac74bbd60fa01b73dd837d6fc94803bec"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketCreate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_domain" title="pal_socket_domain"><span class="n"><span class="pre">pal_socket_domain</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_type" title="pal_socket_type"><span class="n"><span class="pre">pal_socket_type</span></span></a><span class="w"> </span><span class="n"><span class="pre">type</span></span>, <a class="reference internal" href="#c.pal_stream_options_t" title="pal_stream_options_t"><span class="n"><span class="pre">pal_stream_options_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">options</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketCreate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a socket handle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>domain</strong> – Domain of the socket. </p></li>
+<li><p><strong>type</strong> – Type of the socket. </p></li>
+<li><p><strong>options</strong> – Flags to set on the handle. </p></li>
+<li><p><strong>out_handle</strong> – <strong>[out]</strong> On success contains the socket handle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketBind">
+<span class="target" id="pal_8h_1a73960af512c8924efa0a747cd695cbd1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketBind</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketBind" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bind a socket to a local address. </p>
+<p>
+Can be called only once per socket. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. </p></li>
+<li><p><strong>addr</strong> – <strong>[inout]</strong> Address to bind to. If the protocol allows for some ephemeral data (e.g. port <code class="docutils literal notranslate"><span class="pre">0</span></code> in IPv4), it will be overwritten to the actual data used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketListen">
+<span class="target" id="pal_8h_1ad7c9961dbf941ec35881df8a43625dea"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketListen</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">backlog</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketListen" title="Permalink to this definition"></a><br /></dt>
+<dd><p>\biref Turn a socket into a listening one.</p>
+<p>
+Can be called multiple times, to change <code class="docutils literal notranslate"><span class="pre">backlog</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. </p></li>
+<li><p><strong>backlog</strong> – Size of the pending connections queue.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketAccept">
+<span class="target" id="pal_8h_1a59c0145921992047c3b17b39da16a28d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketAccept</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <a class="reference internal" href="#c.pal_stream_options_t" title="pal_stream_options_t"><span class="n"><span class="pre">pal_stream_options_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">options</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_client</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_client_addr</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_local_addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketAccept" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Accept a new connection on a socket. </p>
+<p>
+This function can be safely called concurrently. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. Must be in listening mode. </p></li>
+<li><p><strong>options</strong> – Flags to set on the new handle. </p></li>
+<li><p><strong>out_client</strong> – <strong>[out]</strong> On success contains a handle for the new connection. </p></li>
+<li><p><strong>out_client_addr</strong> – <strong>[out]</strong> On success contains the remote address of the new connection. Can be NULL, to ignore the result. </p></li>
+<li><p><strong>out_local_addr</strong> – <strong>[out]</strong> On success contains the local address of the new connection. Can be NULL, to ignore the result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketConnect">
+<span class="target" id="pal_8h_1a02d82359105d19b21d512dd6eec27a90"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketConnect</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_local_addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketConnect" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Connect a socket to a remote address. </p>
+<p>
+Can also be used to disconnect the socket, if #PAL_DISCONNECT is passed in <code class="docutils literal notranslate"><span class="pre">addr</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. </p></li>
+<li><p><strong>addr</strong> – Address to connect to. </p></li>
+<li><p><strong>out_local_addr</strong> – <strong>[out]</strong> On success contains the local address of the socket. Can be NULL, to ignore the result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketSend">
+<span class="target" id="pal_8h_1a8d915ec607f0354d5e4a748fe6959de2"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketSend</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_iovec" title="pal_iovec"><span class="n"><span class="pre">pal_iovec</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">iov</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">iov_len</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_size</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">force_nonblocking</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketSend" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send data. </p>
+<p>
+Data is sent atomically, i.e. data from two <code class="docutils literal notranslate"><span class="pre">PalSocketSend</span></code> calls will not be interleaved. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. </p></li>
+<li><p><strong>iov</strong> – Array of buffers with data to send. </p></li>
+<li><p><strong>iov_len</strong> – Length of <code class="docutils literal notranslate"><span class="pre">iov</span></code> array. </p></li>
+<li><p><strong>out_size</strong> – <strong>[out]</strong> On success contains the number of bytes sent. </p></li>
+<li><p><strong>addr</strong> – Destination address. Can be NULL if the socket was connected. </p></li>
+<li><p><strong>force_nonblocking</strong> – If <code class="docutils literal notranslate"><span class="pre">true</span></code> this request should not block. Otherwise just use whatever mode the handle is in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSocketRecv">
+<span class="target" id="pal_8h_1a8580fc1772ee0a4758a8fa22ff563ff9"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSocketRecv</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_iovec" title="pal_iovec"><span class="n"><span class="pre">pal_iovec</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">iov</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">iov_len</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">out_total_size</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_socket_addr" title="pal_socket_addr"><span class="n"><span class="pre">pal_socket_addr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">force_nonblocking</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSocketRecv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive data. </p>
+<p>
+Data is received atomically, i.e. data from two <code class="docutils literal notranslate"><span class="pre">PalSocketRecv</span></code> calls will not be interleaved. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to the socket. </p></li>
+<li><p><strong>iov</strong> – Array of buffers for received data. </p></li>
+<li><p><strong>iov_len</strong> – Length of <code class="docutils literal notranslate"><span class="pre">iov</span></code> array. </p></li>
+<li><p><strong>out_total_size</strong> – <strong>[out]</strong> On success contains the number of bytes received (TCP) or the size of the packet (UDP), which might be greater than the total size of buffers in <code class="docutils literal notranslate"><span class="pre">iov</span></code> array. </p></li>
+<li><p><strong>addr</strong> – <strong>[out]</strong> Source address. Can be NULL to ignore the source address. </p></li>
+<li><p><strong>force_nonblocking</strong> – If <code class="docutils literal notranslate"><span class="pre">true</span></code> this request should not block. Otherwise just use whatever mode the handle is in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="thread-creation">
+<h3>Thread creation<a class="headerlink" href="#thread-creation" title="Permalink to this headline"></a></h3>
+<p>The ABI supports multithreading through five calls to create, sleep, yield the
+scheduler quantum for, resume execution of, and terminate threads, as well as
+seven calls to create, signal, and block on synchronization objects.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalThreadCreate">
+<span class="target" id="pal_8h_1a46d7fd4ee3388353f3df4041a79be958"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalThreadCreate</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">)</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">param</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalThreadCreate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a thread in the current process. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> – Address of an entry point of execution for the new thread. </p></li>
+<li><p><strong>param</strong> – Pointer argument that is passed to the new thread. </p></li>
+<li><p><strong>handle</strong> – <strong>[out]</strong> On success contains the thread handle. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalThreadYieldExecution">
+<span class="target" id="pal_8h_1a602c6b449ba3cf70562cd66f73a54155"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalThreadYieldExecution</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalThreadYieldExecution" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Yield the current thread such that the host scheduler can reschedule it. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalThreadExit">
+<span class="target" id="pal_8h_1a1c0823672e12efcd70583a5320d44d74"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalThreadExit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">clear_child_tid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalThreadExit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Terminate the current thread. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clear_child_tid</strong> – Pointer to memory that is erased on thread exit to notify LibOS (which in turn notifies the parent thread if any); if <code class="docutils literal notranslate"><span class="pre">clear_child_tid</span></code> is NULL, then PAL doesn’t do the clearing. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalThreadResume">
+<span class="target" id="pal_8h_1afbf53d724073a908e790b1d6e725d8b5"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalThreadResume</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">thread</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalThreadResume" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Resume a thread. </p>
+</dd></dl>
+
+</section>
+<section id="exception-handling">
+<h3>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline"></a></h3>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_event">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_event</span></span></span><a class="headerlink" href="#c.pal_event" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_NO_EVENT">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88baaec66e214dc4c045c4b1844021c72132"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_NO_EVENT</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_NO_EVENT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>pseudo event, used in some APIs to denote a lack of event </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_ARITHMETIC_ERROR">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88baa0144493d560295a2a0a230495e92c54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_ARITHMETIC_ERROR</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_ARITHMETIC_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>arithmetic error (div-by-zero, floating point exception, etc.) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_MEMFAULT">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88ba754dfdf736466ddfe3e46c170160ed91"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_MEMFAULT</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_MEMFAULT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>segmentation fault, protection fault, bus fault </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_ILLEGAL">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88baaa1cb428f140a9511624e3dcad7dd468"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_ILLEGAL</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_ILLEGAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>illegal instructions </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_QUIT">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88ba9015214d894436b5c8744317cd16726b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_QUIT</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_QUIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>terminated by external program (see “sys.enable_sigterm_injection” manifest option) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_INTERRUPTED">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88babfa78be16b5efa656199ca0928c65e10"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_INTERRUPTED</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_INTERRUPTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>interrupted (usually internally to handle aync event) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_event.PAL_EVENT_NUM_BOUND">
+<span class="target" id="pal_8h_1a3a0988e46ff62105508083be8ae3b88ba68a08c8694927b9d6e820c619d6159dc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_EVENT_NUM_BOUND</span></span></span><a class="headerlink" href="#c.pal_event.PAL_EVENT_NUM_BOUND" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PAL_CONTEXT">
+<span class="target" id="pal__arch_8h_1aefdf47e58f574beb84dcc97b9dcde3e5"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.PAL_CONTEXT" title="PAL_CONTEXT"><span class="n"><span class="pre">PAL_CONTEXT</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CONTEXT</span></span></span><a class="headerlink" href="#c.PAL_CONTEXT" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c">
+<span class="target" id="structPAL__CONTEXT"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_CONTEXT</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pal_event_handler_t">
+<span class="target" id="pal_8h_1ab269b309adc2e84f1e94f2f14411ece6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">pal_event_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_in_pal</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uintptr_t</span></span><span class="w"> </span><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#c.PAL_CONTEXT" title="PAL_CONTEXT"><span class="n"><span class="pre">PAL_CONTEXT</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.pal_event_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Type of exception handlers (upcalls). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_in_pal</strong> – <code class="docutils literal notranslate"><span class="pre">true</span></code> if the exception happened inside PAL. </p></li>
+<li><p><strong>addr</strong> – Address of the exception (meaningful only for sync exceptions). </p></li>
+<li><p><strong>context</strong> – CPU context at the moment of exception. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSetExceptionHandler">
+<span class="target" id="pal_8h_1a5d0f11923780a9635b6f946dbd19d3c2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSetExceptionHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.pal_event_handler_t" title="pal_event_handler_t"><span class="n"><span class="pre">pal_event_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handler</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_event" title="pal_event"><span class="n"><span class="pre">pal_event</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSetExceptionHandler" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the handler for the specific exception event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> – One of <a class="reference internal" href="#pal_8h_1a3a0988e46ff62105508083be8ae3b88b"><span class="std std-ref">pal_event</span></a> values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="synchronization">
+<h3>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline"></a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalEventCreate">
+<span class="target" id="pal_8h_1a23aff1cefaa035afea03021e4a766a72"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalEventCreate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">handle</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">init_signaled</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">auto_clear</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalEventCreate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create an event handle. </p>
+<p>
+Creates a handle to an event that resembles WinAPI synchronization events. A thread can set (signal) the event using <a class="reference internal" href="#pal_8h_1a24026cc3cd3ffaed46ceeb6577d2ac5e"><span class="std std-ref">PalEventSet</span></a>, clear (unset) it using <a class="reference internal" href="#pal_8h_1a21c646ac94dd05f2ad0b1d8b912e71ba"><span class="std std-ref">PalEventClear</span></a> or wait until the event becomes set (signaled) using <a class="reference internal" href="#pal_8h_1a78c4b5ba8bff81afabfbfc1dca3e7d59"><span class="std std-ref">PalEventWait</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – <strong>[out]</strong> On success <code class="docutils literal notranslate"><span class="pre">*handle</span></code> contains pointer to the event handle. </p></li>
+<li><p><strong>init_signaled</strong> – Initial state of the event (<code class="docutils literal notranslate"><span class="pre">true</span></code> - set, <code class="docutils literal notranslate"><span class="pre">false</span></code> - not set). </p></li>
+<li><p><strong>auto_clear</strong> – <code class="docutils literal notranslate"><span class="pre">true</span></code> if a successful wait for the event should also reset (consume) it.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalEventSet">
+<span class="target" id="pal_8h_1a24026cc3cd3ffaed46ceeb6577d2ac5e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalEventSet</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalEventSet" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set (signal) an event. </p>
+<p>If the event is already set, does nothing.</p>
+<p>This function has release semantics and synchronizes with <a class="reference internal" href="#pal_8h_1a78c4b5ba8bff81afabfbfc1dca3e7d59"><span class="std std-ref">PalEventWait</span></a>. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalEventClear">
+<span class="target" id="pal_8h_1a21c646ac94dd05f2ad0b1d8b912e71ba"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalEventClear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalEventClear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear (unset) an event. </p>
+<p>If the event is not set, does nothing. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalEventWait">
+<span class="target" id="pal_8h_1a78c4b5ba8bff81afabfbfc1dca3e7d59"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalEventWait</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">timeout_us</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalEventWait" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Wait for an event handle. </p>
+<p><code class="docutils literal notranslate"><span class="pre">timeout_us</span></code> points to a value that specifies the maximal time (in microseconds) that this function should sleep if this event is not signaled in the meantime. Specifying <code class="docutils literal notranslate"><span class="pre">NULL</span></code> blocks indefinitely. Note that in any case this function can return earlier, e.g. if a signal has arrived, but this will be indicated by the returned error code. After returning (both successful and not), <code class="docutils literal notranslate"><span class="pre">timeout_us</span></code> will contain the remaining time (time that need to pass before we hit original <code class="docutils literal notranslate"><span class="pre">timeout_us</span></code>).</p>
+<p>This function has acquire semantics and synchronizes with <a class="reference internal" href="#pal_8h_1a24026cc3cd3ffaed46ceeb6577d2ac5e"><span class="std std-ref">PalEventSet</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to wait on, must be of “event” type. </p></li>
+<li><p><strong>timeout_us</strong> – <strong>[inout]</strong> Timeout for the wait.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 if the event was triggered, negative error code otherwise (#PAL_ERROR_TRYAGAIN in case of timeout triggering)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="objects">
+<h3>Objects<a class="headerlink" href="#objects" title="Permalink to this headline"></a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalStreamsWaitEvents">
+<span class="target" id="pal_8h_1aff8f7b47143be8cd2a4a437438ecbbb7"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalStreamsWaitEvents</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">count</span></span>, <span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">handle_array</span></span>, <a class="reference internal" href="#c.pal_wait_flags_t" title="pal_wait_flags_t"><span class="n"><span class="pre">pal_wait_flags_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">events</span></span>, <a class="reference internal" href="#c.pal_wait_flags_t" title="pal_wait_flags_t"><span class="n"><span class="pre">pal_wait_flags_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ret_events</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">timeout_us</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalStreamsWaitEvents" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Poll - wait for an event to happen on at least one handle. </p>
+<p><code class="docutils literal notranslate"><span class="pre">timeout_us</span></code> contains remaining timeout both on successful and failed calls. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>count</strong> – The number of items in <code class="docutils literal notranslate"><span class="pre">handle_array</span></code>. </p></li>
+<li><p><strong>handle_array</strong> – Array of handles to poll. </p></li>
+<li><p><strong>events</strong> – Requested events for each handle. </p></li>
+<li><p><strong>ret_events</strong> – <strong>[out]</strong> Events that were detected on each handle. </p></li>
+<li><p><strong>timeout_us</strong> – <strong>[inout]</strong> Timeout for the wait (<code class="docutils literal notranslate"><span class="pre">NULL</span></code> to block indefinitely).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 if there was an event on at least one handle, negative error code otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalObjectClose">
+<span class="target" id="pal_8h_1ac4c2e1bd2f8b651a02885611b21f249c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalObjectClose</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PAL_HANDLE</span></span><span class="w"> </span><span class="n"><span class="pre">object_handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalObjectClose" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Close (deallocate) a PAL handle. </p>
+</dd></dl>
+
+</section>
+<section id="miscellaneous">
+<h3>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline"></a></h3>
+<p>The ABI includes seven assorted calls to get wall clock time, generate
+cryptographically-strong random bits, flush portions of instruction caches,
+increment and decrement the reference counts on objects shared between threads,
+and to obtain an attestation report and quote.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalDebugLog">
+<span class="target" id="pal_8h_1af748d5a8da948ffdf02c4e1713e938d3"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalDebugLog</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalDebugLog" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Output a message to the debug stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – Message to write. </p></li>
+<li><p><strong>size</strong> – <code class="docutils literal notranslate"><span class="pre">buffer</span></code> size.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error code on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalGetPalPublicState">
+<span class="target" id="pal_8h_1a424075bff266e1c980919d08a2cb3d97"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_public_state" title="pal_public_state"><span class="n"><span class="pre">pal_public_state</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PalGetPalPublicState</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalGetPalPublicState" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSystemTimeQuery">
+<span class="target" id="pal_8h_1a7d46635f41dde7a4b7baf3ec48f9258b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSystemTimeQuery</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSystemTimeQuery" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the current time. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> – <strong>[out]</strong> On success holds the current time in microseconds. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalRandomBitsRead">
+<span class="target" id="pal_8h_1a2cd035fd17cdb85943e56f59d70a0f6a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalRandomBitsRead</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalRandomBitsRead" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Cryptographically secure RNG. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[out]</strong> Output buffer. </p></li>
+<li><p><strong>size</strong> – <code class="docutils literal notranslate"><span class="pre">buffer</span></code> size.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSegmentBaseGet">
+<span class="target" id="pal_8h_1a3a91b3b5d5aa4c10462bf1e861575b76"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSegmentBaseGet</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_segment_reg" title="pal_segment_reg"><span class="n"><span class="pre">pal_segment_reg</span></span></a><span class="w"> </span><span class="n"><span class="pre">reg</span></span>, <span class="n"><span class="pre">uintptr_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSegmentBaseGet" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get segment register base. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reg</strong> – The register base to get (#pal_segment_reg). </p></li>
+<li><p><strong>addr</strong> – The address where result will be stored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error value on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalSegmentBaseSet">
+<span class="target" id="pal_8h_1a7d826cfd4c99e5e8ea057bbd9b3b81db"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalSegmentBaseSet</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.pal_segment_reg" title="pal_segment_reg"><span class="n"><span class="pre">pal_segment_reg</span></span></a><span class="w"> </span><span class="n"><span class="pre">reg</span></span>, <span class="n"><span class="pre">uintptr_t</span></span><span class="w"> </span><span class="n"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalSegmentBaseSet" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set segment register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reg</strong> – The register base to be set (#pal_segment_reg). </p></li>
+<li><p><strong>addr</strong> – The address to be set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, negative error value on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.pal_segment_reg">
+<span class="target" id="pal_8h_1a47ddbce8dda25c020c1b213b5cdc99af"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pal_segment_reg</span></span></span><a class="headerlink" href="#c.pal_segment_reg" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_segment_reg.PAL_SEGMENT_FS">
+<span class="target" id="pal_8h_1a47ddbce8dda25c020c1b213b5cdc99afab3e7f62dbe89153e79d013669b963577"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_SEGMENT_FS</span></span></span><a class="headerlink" href="#c.pal_segment_reg.PAL_SEGMENT_FS" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.pal_segment_reg.PAL_SEGMENT_GS">
+<span class="target" id="pal_8h_1a47ddbce8dda25c020c1b213b5cdc99afa2364d67baddca72aadeb2ecce6fb516c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PAL_SEGMENT_GS</span></span></span><a class="headerlink" href="#c.pal_segment_reg.PAL_SEGMENT_GS" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalMemoryAvailableQuota">
+<span class="target" id="pal_8h_1a7e1d01763193512ad23967258102faf0"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalMemoryAvailableQuota</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalMemoryAvailableQuota" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Return the amount of currently available memory for LibOS/application usage. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalCpuIdRetrieve">
+<span class="target" id="pal_8h_1aa1eae32023e7be9f0fc99a30ba39b1a3"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalCpuIdRetrieve</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">leaf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">subleaf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">[</span></span><span class="n"><span class="pre">CPUID_WORD_NUM</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalCpuIdRetrieve" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Return CPUID information, based on the leaf/subleaf. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> – <strong>[out]</strong> The array of the results. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalAttestationReport">
+<span class="target" id="pal_8h_1a8bc9beb313b47c772c026e82f73a85db"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalAttestationReport</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">user_report_data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">user_report_data_size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">target_info</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">target_info_size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">report</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">report_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalAttestationReport" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Obtain the attestation report (local) with <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> embedded into it. </p>
+<p>
+Currently works only for Linux-SGX PAL, where <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> is a blob of exactly 64B, <code class="docutils literal notranslate"><span class="pre">target_info</span></code> is an SGX target_info struct of exactly 512B, and <code class="docutils literal notranslate"><span class="pre">report</span></code> is an SGX report obtained via the EREPORT instruction (exactly 432B). If <code class="docutils literal notranslate"><span class="pre">target_info</span></code> contains all zeros, then this function additionally returns this enclave’s target info in <code class="docutils literal notranslate"><span class="pre">target_info</span></code>. Useful for local attestation.</p>
+<p>The caller may specify <code class="docutils literal notranslate"><span class="pre">*user_report_data_size</span></code>, <code class="docutils literal notranslate"><span class="pre">*target_info_size</span></code>, and <code class="docutils literal notranslate"><span class="pre">*report_size</span></code> as 0 and other fields as NULL to get PAL-enforced sizes of these three structs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_report_data</strong> – Report data with arbitrary contents (typically uniquely identifies this Gramine instance). Must be a 64B buffer in case of SGX PAL. </p></li>
+<li><p><strong>user_report_data_size</strong> – <strong>[inout]</strong> Caller specifies size of <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code>; on return, contains PAL-enforced size of <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> (64B in case of SGX PAL). </p></li>
+<li><p><strong>target_info</strong> – <strong>[inout]</strong> Target info of target enclave for attestation. If it contains all zeros, it is populated with this enclave’s target info. Must be a 512B buffer in case of SGX PAL. </p></li>
+<li><p><strong>target_info_size</strong> – <strong>[inout]</strong> Caller specifies size of <code class="docutils literal notranslate"><span class="pre">target_info</span></code>; on return, contains PAL-enforced size of <code class="docutils literal notranslate"><span class="pre">target_info</span></code> (512B in case of SGX PAL). </p></li>
+<li><p><strong>report</strong> – <strong>[out]</strong> Attestation report with <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> embedded, targeted for an enclave with provided <code class="docutils literal notranslate"><span class="pre">target_info</span></code>. Must be a 432B buffer in case of SGX PAL. </p></li>
+<li><p><strong>report_size</strong> – <strong>[inout]</strong> Caller specifies size of <code class="docutils literal notranslate"><span class="pre">report</span></code>; on return, contains PAL-enforced size of <code class="docutils literal notranslate"><span class="pre">report</span></code> (432B in case of SGX PAL).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalAttestationQuote">
+<span class="target" id="pal_8h_1ab69174fc0003ba394c6fbe93e37db330"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalAttestationQuote</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">user_report_data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">user_report_data_size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">quote</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">quote_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalAttestationQuote" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Obtain the attestation quote with <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> embedded into it. </p>
+<p>
+Currently works only for Linux-SGX PAL, where <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> is a blob of exactly 64B and <code class="docutils literal notranslate"><span class="pre">quote</span></code> is an SGX quote obtained from Quoting Enclave via AESM service. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_report_data</strong> – Report data with arbitrary contents (typically uniquely identifies this Gramine instance). Must be a 64B buffer in case of SGX PAL. </p></li>
+<li><p><strong>user_report_data_size</strong> – Size in bytes of <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code>. Must be exactly 64B in case of SGX PAL. </p></li>
+<li><p><strong>quote</strong> – <strong>[out]</strong> Attestation quote with <code class="docutils literal notranslate"><span class="pre">user_report_data</span></code> embedded. </p></li>
+<li><p><strong>quote_size</strong> – <strong>[inout]</strong> Caller specifies maximum size allocated for <code class="docutils literal notranslate"><span class="pre">quote</span></code>; on return, contains actual size of obtained quote.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PalGetSpecialKey">
+<span class="target" id="pal_8h_1a37db1412437dde46c1a5a3529c65b3b6"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PalGetSpecialKey</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">key</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">key_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PalGetSpecialKey" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get special key (specific to PAL host). </p>
+<p>
+Retrieve the value of a special key. Currently implemented for Linux-SGX PAL, which supports two such keys: <code class="docutils literal notranslate"><span class="pre">_sgx_mrenclave</span></code> and <code class="docutils literal notranslate"><span class="pre">_sgx_mrsigner</span></code>.</p>
+<p>If a given key is not supported by the current PAL host, the function will return -PAL_ERROR_NOTIMPLEMENTED. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Key name. </p></li>
+<li><p><strong>key</strong> – <strong>[out]</strong> On success, will be set to retrieved key. </p></li>
+<li><p><strong>key_size</strong> – <strong>[inout]</strong> Caller specifies maximum size for <code class="docutils literal notranslate"><span class="pre">key</span></code>. On success, will contain actual size.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../libos/libos-init.html" class="btn btn-neutral float-left" title="LibOS documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python/api.html" class="btn btn-neutral float-right" title="Python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gramine Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
