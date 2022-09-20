@@ -17,107 +17,53 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment.
 
-External documentation
-======================
-
-This website contains the official documentation of Gramine. For external
-contributions and additional resources, please visit
-https://gramine-contrib.readthedocs.io. Note that this link contains unofficial
-documents; these documents are not guaranteed to always be up-to-date and
-correct.
 
 
-GSC documentation
-=================
 
-For GSC (Gramine Shielded Containers) documentation please visit
-https://gramine.readthedocs.io/projects/gsc.
 
-Building and running Gramine
-============================
-
-See :doc:`quickstart` for instructions how to quickly install and run Gramine.
-For full build instructions, see :doc:`devel/building`. To deploy Gramine in the
-cloud, see :doc:`cloud-deployment`.
-
-Contacts and Contributing
-=========================
-
-For bug reports, post an issue on our GitHub repository:
-https://github.com/gramineproject/gramine/issues.
-
-For any questions, please send an email to users@gramineproject.io
-(`public archive <https://groups.google.com/g/gramine-users>`__).
-
-If you want to contribute to the project, please see :doc:`devel/contributing`
-and :doc:`devel/onboarding`. Thank you for your interest!
 
 *****************
 Table of Contents
 *****************
 
 .. toctree::
-   :caption: User Manual
+   :caption: Getting Started 
    :maxdepth: 2
 
-   quickstart
-   manifest-syntax
-   attestation
-   performance
-   cloud-deployment
-   gramine-users
-   container-integration
-   sgx-intro
-   glossary
+   installation-index
+   configuration-index
+   tutorials-index
+   concepts-index
 
 .. toctree::
-   :caption: Tutorials
+   :caption: Developer Guides
    :maxdepth: 2
 
-   tutorials/pytorch/index.rst
-   tutorials/cczoo/index.rst
+   devel/packaging
+   libos/libos-init
+   devel/new-syscall
+   pal/host-abi
+   python/api
 
 .. toctree::
-   :caption: Manual pages
-   :maxdepth: 1
-   :glob:
-
-   manpages/*
-
-.. TODO manpages:
-   gramine-direct
-   gramine-sgx
-
-.. toctree::
-   :caption: Developing Gramine
-   :maxdepth: 1
+   :caption: Project Contribution
+   :maxdepth: 2
 
    devel/building
    devel/onboarding
    devel/contributing
+   gramine-users
    devel/DCO/index
    devel/howto-doc
    devel/coding-style
    devel/setup
    devel/debugging
-   devel/new-syscall
-   devel/packaging
 
 .. toctree::
-   :caption: LibOS
-
-   libos/libos-init
-
-.. toctree::
-   :caption: PAL
-
-   pal/host-abi
-
-.. toctree::
-   :caption: Python
+   :caption: Glossary
    :maxdepth: 1
 
-   python/api
+   glossary
 
 Indices and tables
 ==================

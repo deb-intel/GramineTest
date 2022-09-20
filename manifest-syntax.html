@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Attestation and Secret Provisioning" href="attestation.html" />
-    <link rel="prev" title="Quick start" href="quickstart.html" /> 
+    <link rel="prev" title="Configuration" href="configuration-index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,109 +39,90 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Manifest syntax</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#common-syntax">Common syntax</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#log-level">Log level</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#loader-entrypoint">Loader entrypoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#libos-entrypoint">LibOS Entrypoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-line-arguments">Command-line arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user-id-and-group-id">User ID and Group ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disabling-aslr">Disabling ASLR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-invalid-pointers">Check invalid pointers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gramine-internal-metadata-size">Gramine internal metadata size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stack-size">Stack size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#program-break-brk-size">Program break (brk) size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#allowing-eventfd">Allowing eventfd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#external-sigterm-injection">External SIGTERM injection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#root-fs-mount-point">Root FS mount point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fs-mount-points">FS mount points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start-current-working-directory">Start (current working) directory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration-index.html">Configuration</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manifest syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-syntax">Common syntax</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#log-level">Log level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loader-entrypoint">Loader entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libos-entrypoint">LibOS Entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-arguments">Command-line arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-id-and-group-id">User ID and Group ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disabling-aslr">Disabling ASLR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-invalid-pointers">Check invalid pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gramine-internal-metadata-size">Gramine internal metadata size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stack-size">Stack size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#program-break-brk-size">Program break (brk) size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowing-eventfd">Allowing eventfd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#external-sigterm-injection">External SIGTERM injection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#root-fs-mount-point">Root FS mount point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fs-mount-points">FS mount points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-current-working-directory">Start (current working) directory</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#sgx-syntax">SGX syntax</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#debug-production-enclave">Debug/production enclave</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enclave-size">Enclave size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#non-pie-binaries">Non-PIE binaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#number-of-threads">Number of threads</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#number-of-rpc-threads-exitless-feature">Number of RPC threads (Exitless feature)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#isv-product-id-and-svn">ISV Product ID and SVN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#attribute-masks-for-sgx-sealing-key-derivation">Attribute masks for SGX sealing key derivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#allowed-files">Allowed files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trusted-files">Trusted files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#encrypted-files">Encrypted files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#file-check-policy">File check policy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#attestation-and-quotes">Attestation and quotes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pre-heating-enclave">Pre-heating enclave</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sgx-profiling">SGX profiling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sgx-profiling-with-intel-vtune-profiler">SGX profiling with Intel VTune Profiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sgx-syntax">SGX syntax</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debug-production-enclave">Debug/production enclave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enclave-size">Enclave size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#non-pie-binaries">Non-PIE binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-threads">Number of threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-rpc-threads-exitless-feature">Number of RPC threads (Exitless feature)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isv-product-id-and-svn">ISV Product ID and SVN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attribute-masks-for-sgx-sealing-key-derivation">Attribute masks for SGX sealing key derivation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowed-files">Allowed files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trusted-files">Trusted files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encrypted-files">Encrypted files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-check-policy">File check policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attestation-and-quotes">Attestation and quotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre-heating-enclave">Pre-heating enclave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sgx-profiling">SGX profiling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sgx-profiling-with-intel-vtune-profiler">SGX profiling with Intel VTune Profiler</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#deprecated-options">Deprecated options</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fs-mount-points-deprecated-syntax">FS mount points (deprecated syntax)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#experimental-sysfs-topology-support">Experimental sysfs topology support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#protected-files-deprecated-syntax">Protected files (deprecated syntax)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#attestation-and-quotes-deprecated-syntax">Attestation and quotes (deprecated syntax)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated-options">Deprecated options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fs-mount-points-deprecated-syntax">FS mount points (deprecated syntax)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#experimental-sysfs-topology-support">Experimental sysfs topology support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protected-files-deprecated-syntax">Protected files (deprecated syntax)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attestation-and-quotes-deprecated-syntax">Attestation and quotes (deprecated syntax)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="container-integration.html">Container integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<p class="caption" role="heading"><span class="caption-text">Project Contribution</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Python</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 
         </div>
@@ -158,6 +139,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="configuration-index.html">Configuration</a> &raquo;</li>
       <li>Manifest syntax</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/manifest-syntax.rst.txt" rel="nofollow"> View page source</a>
@@ -998,7 +980,7 @@ explicit <code class="docutils literal notranslate"><span class="pre">epid</span
           </div>
 
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration-index.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="attestation.html" class="btn btn-neutral float-right" title="Attestation and Secret Provisioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

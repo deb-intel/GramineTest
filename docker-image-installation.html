@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; Gramine  documentation</title>
+  <title>Gramine docker image &mdash; Gramine  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/gramine.css" type="text/css" />
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,10 +17,8 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
             <img src="_static/gramine_logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -85,8 +83,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Search</li>
+      <li>Gramine docker image</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/docker-image-installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -96,18 +95,32 @@
 
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="gramine-docker-image">
+<h1>Gramine docker image<a class="headerlink" href="#gramine-docker-image" title="Permalink to this headline"></a></h1>
+<p>The Gramine team publishes a base Gramine Docker image at DockerHub:
+<a class="reference external" href="https://hub.docker.com/r/gramineproject/gramine">https://hub.docker.com/r/gramineproject/gramine</a>.</p>
+<p>This Gramine image is a minimal distribution of Gramine: it contains only
+Gramine binaries and tools, as well as the pre-requisite packages to run
+applications under Gramine. The only currently available Gramine image is based
+on Ubuntu 20.04. The only requirement on the host system is a Linux kernel with
+in-kernel SGX driver (available from version 5.11 onward).</p>
+<p>This Gramine image can be used as a disposable playground environment, to
+quickly test Gramine with your applications and workloads. This image can also
+be used as a base for your workflows to produce production-ready Docker images
+for your SGX applications.</p>
+<p>To run the Gramine image via Docker, the recommended command is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sgx_enclave</span> <span class="o">-</span><span class="n">it</span> <span class="n">gramineproject</span><span class="o">/</span><span class="n">gramine</span>
+</pre></div>
+</div>
+<p>If you want to run <strong class="program">gramine-direct</strong> in addition to
+command:<cite>gramine-sgx</cite>, then you should run Docker with our custom seccomp
+profile using <code class="docutils literal notranslate"><span class="pre">--security-opt</span> <span class="pre">seccomp=&lt;profile_file&gt;</span></code>. You can download the
+profile file from
+<a class="reference external" href="https://github.com/gramineproject/gramine/blob/master/scripts/docker_seccomp.json">https://github.com/gramineproject/gramine/blob/master/scripts/docker_seccomp.json</a>.
+Alternatively you can disable seccomp completely (<code class="docutils literal notranslate"><span class="pre">--security-opt</span>
+<span class="pre">seccomp=unconfined</span></code>).</p>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -134,14 +147,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

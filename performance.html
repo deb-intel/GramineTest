@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cloud Deployment" href="cloud-deployment.html" />
+    <link rel="next" title="Manual pages" href="manpages/index.html" />
     <link rel="prev" title="Attestation and Secret Provisioning" href="attestation.html" /> 
 </head>
 
@@ -39,89 +39,70 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
-<li class="toctree-l1"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance tuning and analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#effects-of-system-calls-ocalls">Effects of system calls / ocalls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exitless-feature">Exitless feature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#multi-threaded-workloads">Multi-threaded workloads</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#multi-process-workloads">Multi-process workloads</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#choice-of-sgx-machine">Choice of SGX machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#glibc-malloc-tuning">Glibc malloc tuning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-considerations">Other considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#profiling-with-perf">Profiling with <code class="docutils literal notranslate"><span class="pre">perf</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-perf-provided-by-your-distribution">Installing <code class="docutils literal notranslate"><span class="pre">perf</span></code> provided by your distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#building-your-own-perf">Building your own <code class="docutils literal notranslate"><span class="pre">perf</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recording-samples-with-perf-record">Recording samples with <code class="docutils literal notranslate"><span class="pre">perf</span> <span class="pre">record</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#further-reading">Further reading</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration-index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Performance tuning and analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-of-system-calls-ocalls">Effects of system calls / ocalls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exitless-feature">Exitless feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-threaded-workloads">Multi-threaded workloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-process-workloads">Multi-process workloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choice-of-sgx-machine">Choice of SGX machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glibc-malloc-tuning">Glibc malloc tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-considerations">Other considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiling-with-perf">Profiling with <code class="docutils literal notranslate"><span class="pre">perf</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-perf-provided-by-your-distribution">Installing <code class="docutils literal notranslate"><span class="pre">perf</span></code> provided by your distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-your-own-perf">Building your own <code class="docutils literal notranslate"><span class="pre">perf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recording-samples-with-perf-record">Recording samples with <code class="docutils literal notranslate"><span class="pre">perf</span> <span class="pre">record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">Further reading</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#sgx-profiling">SGX profiling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ocall-profiling">OCALL profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sgx-profiling">SGX profiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ocall-profiling">OCALL profiling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#profiling-sgx-hotspots-with-intel-vtune-profiler">Profiling SGX hotspots with Intel VTune Profiler</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-vtune">Installing VTune</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#collecting-sgx-hotspots-and-viewing-the-report">Collecting SGX hotspots and viewing the report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiling-sgx-hotspots-with-intel-vtune-profiler">Profiling SGX hotspots with Intel VTune Profiler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-vtune">Installing VTune</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collecting-sgx-hotspots-and-viewing-the-report">Collecting SGX hotspots and viewing the report</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#other-useful-tools-for-profiling">Other useful tools for profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-useful-tools-for-profiling">Other useful tools for profiling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="container-integration.html">Container integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<p class="caption" role="heading"><span class="caption-text">Project Contribution</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Python</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 
         </div>
@@ -138,6 +119,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="configuration-index.html">Configuration</a> &raquo;</li>
       <li>Performance tuning and analysis</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/performance.rst.txt" rel="nofollow"> View page source</a>
@@ -727,7 +709,7 @@ work, see <a class="reference external" href="https://github.com/gramineproject/
 
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="attestation.html" class="btn btn-neutral float-left" title="Attestation and Secret Provisioning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cloud-deployment.html" class="btn btn-neutral float-right" title="Cloud Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="manpages/index.html" class="btn btn-neutral float-right" title="Manual pages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
