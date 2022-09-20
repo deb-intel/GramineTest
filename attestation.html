@@ -39,48 +39,37 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Custom installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker-image-installation.html">Gramine docker image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Attestation and Secret Provisioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#remote-attestation-flows-for-epid-and-dcap">Remote Attestation flows for EPID and DCAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#low-level-dev-attestation-interface">Low-level <code class="docutils literal notranslate"><span class="pre">/dev/attestation</span></code> interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mid-level-ra-tls-interface">Mid-level RA-TLS interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ra-tls-attest-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_attest.so</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ra-tls-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_epid.so</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ra-tls-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_dcap.so</span></code></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration-index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Attestation and Secret Provisioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remote-attestation-flows-for-epid-and-dcap">Remote Attestation flows for EPID and DCAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#low-level-dev-attestation-interface">Low-level <code class="docutils literal notranslate"><span class="pre">/dev/attestation</span></code> interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mid-level-ra-tls-interface">Mid-level RA-TLS interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-attest-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_attest.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_epid.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_dcap.so</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#high-level-secret-provisioning-interface">High-level Secret Provisioning interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#secret-prov-attest-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_attest.so</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#secret-prov-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_epid.so</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#secret-prov-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_dcap.so</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-secret-provisioning-interface">High-level Secret Provisioning interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-attest-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_attest.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_epid.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_dcap.so</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#third-party-solutions">Third-Party Solutions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#edgeless-marblerun">Edgeless Marblerun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#third-party-solutions">Third-Party Solutions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edgeless-marblerun">Edgeless Marblerun</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">SGX Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
 <ul>
@@ -122,6 +111,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="configuration-index.html">Configuration</a> &raquo;</li>
       <li>Attestation and Secret Provisioning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/attestation.rst.txt" rel="nofollow"> View page source</a>
