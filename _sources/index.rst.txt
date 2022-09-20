@@ -17,6 +17,17 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment.
 
+Gramine Installation Options
+Install everything on your own. 
+
+Install using a container.
+
+Install using command line arguments.
+
+Install using a curated GSC.
+
+
+
 External documentation
 ======================
 
@@ -57,18 +68,29 @@ Table of Contents
 *****************
 
 .. toctree::
-   :caption: User Manual
+   :caption: Installation 
    :maxdepth: 2
 
    quickstart
+   docker-image-installation
+   gsc-installation
+   curated-installation
+   cloud-deployment
+
+.. toctree::
+   :caption: Configuration 
+   :maxdepth: 2
+
    manifest-syntax
    attestation
    performance
-   cloud-deployment
-   gramine-users
-   container-integration
+   manpages/index.rst
+
+.. toctree::
+   :caption: SGX Concepts
+   :maxdepth: 1
+
    sgx-intro
-   glossary
 
 .. toctree::
    :caption: Tutorials
@@ -78,46 +100,34 @@ Table of Contents
    tutorials/cczoo/index.rst
 
 .. toctree::
-   :caption: Manual pages
-   :maxdepth: 1
-   :glob:
+   :caption: Developer Guides
+   :maxdepth: 2
 
-   manpages/*
-
-.. TODO manpages:
-   gramine-direct
-   gramine-sgx
+   devel/packaging
+   libos/libos-init
+   devel/new-syscall
+   pal/host-abi
+   python/api
 
 .. toctree::
-   :caption: Developing Gramine
-   :maxdepth: 1
+   :caption: Project Contribution
+   :maxdepth: 2
 
    devel/building
    devel/onboarding
    devel/contributing
+   gramine-users
    devel/DCO/index
    devel/howto-doc
    devel/coding-style
    devel/setup
    devel/debugging
-   devel/new-syscall
-   devel/packaging
 
 .. toctree::
-   :caption: LibOS
-
-   libos/libos-init
-
-.. toctree::
-   :caption: PAL
-
-   pal/host-abi
-
-.. toctree::
-   :caption: Python
+   :caption: Glossary
    :maxdepth: 1
 
-   python/api
+   glossary
 
 Indices and tables
 ==================

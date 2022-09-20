@@ -1,5 +1,5 @@
-Quick start
-===========
+Custom installation
+===================
 
 .. highlight:: sh
 
