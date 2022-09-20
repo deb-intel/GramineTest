@@ -17,82 +17,107 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment.
 
-.. grid:: 2
-   :gutter: 4
-   :padding: 2
+External documentation
+======================
 
-     
-   .. grid-item-card::
-      :img-background: img/background.png
-      :link: index_installation
-      :link-type: ref
-      :link: index_configuration
-      :link-type: ref
-      :link: index_tutorials
-      :link-type: ref
+This website contains the official documentation of Gramine. For external
+contributions and additional resources, please visit
+https://gramine-contrib.readthedocs.io. Note that this link contains unofficial
+documents; these documents are not guaranteed to always be up-to-date and
+correct.
 
-      **Getting Started**
-      ^^^^^^^^^^^^^^^^^^^
-      :ref:`index_installation`
-      :ref:`index_configuration`
-      :ref:`index_tutorials`
 
-   .. grid-item-card:: 
-      :img-background: img/background.png
-      :link: index_guide
-      :link-type: ref 
+GSC documentation
+=================
 
-      **Contribute**
-      ^^^^^^^^^^^^^^
-      Join us! 
-      - Visit :doc:`devel/contributing`
-and :doc:`devel/onboarding`. 
-      - File a `bug <https://github.com/gramineproject/gramine/issues>`_.
-      - Join the `Community <https://groups.google.com/g/gramine-users>`_.
+For GSC (Gramine Shielded Containers) documentation please visit
+https://gramine.readthedocs.io/projects/gsc.
 
+Building and running Gramine
+============================
+
+See :doc:`quickstart` for instructions how to quickly install and run Gramine.
+For full build instructions, see :doc:`devel/building`. To deploy Gramine in the
+cloud, see :doc:`cloud-deployment`.
+
+Contacts and Contributing
+=========================
+
+For bug reports, post an issue on our GitHub repository:
+https://github.com/gramineproject/gramine/issues.
+
+For any questions, please send an email to users@gramineproject.io
+(`public archive <https://groups.google.com/g/gramine-users>`__).
+
+If you want to contribute to the project, please see :doc:`devel/contributing`
+and :doc:`devel/onboarding`. Thank you for your interest!
 
 *****************
 Table of Contents
 *****************
 
 .. toctree::
-   :caption: Getting Started 
+   :caption: User Manual
    :maxdepth: 2
 
-   installation-index
-   configuration-index
-   tutorials-index
-   concepts-index
+   quickstart
+   manifest-syntax
+   attestation
+   performance
+   cloud-deployment
+   gramine-users
+   container-integration
+   sgx-intro
+   glossary
 
 .. toctree::
-   :caption: Developer Guides
+   :caption: Tutorials
    :maxdepth: 2
 
-   devel/packaging
-   libos/libos-init
-   devel/new-syscall
-   pal/host-abi
-   python/api
+   tutorials/pytorch/index.rst
+   tutorials/cczoo/index.rst
 
 .. toctree::
-   :caption: Project Contribution
-   :maxdepth: 2
+   :caption: Manual pages
+   :maxdepth: 1
+   :glob:
+
+   manpages/*
+
+.. TODO manpages:
+   gramine-direct
+   gramine-sgx
+
+.. toctree::
+   :caption: Developing Gramine
+   :maxdepth: 1
 
    devel/building
    devel/onboarding
    devel/contributing
-   gramine-users
    devel/DCO/index
    devel/howto-doc
    devel/coding-style
    devel/setup
    devel/debugging
+   devel/new-syscall
+   devel/packaging
 
 .. toctree::
-   :caption: Glossary
+   :caption: LibOS
+
+   libos/libos-init
+
+.. toctree::
+   :caption: PAL
+
+   pal/host-abi
+
+.. toctree::
+   :caption: Python
    :maxdepth: 1
 
-   glossary
+   python/api
 
 Indices and tables
 ==================
