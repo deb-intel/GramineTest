@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Custom installation" href="quickstart.html" /> 
+    <link rel="next" title="Quick start" href="quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,53 +38,61 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Custom installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker-image-installation.html">Gramine docker image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">SGX Concepts</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container-integration.html">Container integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/pytorch/index.html">PyTorch PPML Framework Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/cczoo/index.html">Confidential Computing Zoo project</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Project Contribution</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
+<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
 </ul>
 
         </div>
@@ -127,11 +135,6 @@ data in the enclave against privileged software attacks and against physical
 attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment.</p>
-<p>Gramine Installation Options
-Install everything on your own.</p>
-<p>Install using a container.</p>
-<p>Install using command line arguments.</p>
-<p>Install using a curated GSC.</p>
 <section id="external-documentation">
 <h2>External documentation<a class="headerlink" href="#external-documentation" title="Permalink to this headline"></a></h2>
 <p>This website contains the official documentation of Gramine. For external
@@ -147,7 +150,7 @@ correct.</p>
 </section>
 <section id="building-and-running-gramine">
 <h2>Building and running Gramine<a class="headerlink" href="#building-and-running-gramine" title="Permalink to this headline"></a></h2>
-<p>See <a class="reference internal" href="quickstart.html"><span class="doc">Custom installation</span></a> for instructions how to quickly install and run Gramine.
+<p>See <a class="reference internal" href="quickstart.html"><span class="doc">Quick start</span></a> for instructions how to quickly install and run Gramine.
 For full build instructions, see <a class="reference internal" href="devel/building.html"><span class="doc">Building</span></a>. To deploy Gramine in the
 cloud, see <a class="reference internal" href="cloud-deployment.html"><span class="doc">Cloud Deployment</span></a>.</p>
 </section>
@@ -164,9 +167,9 @@ and <a class="reference internal" href="devel/onboarding.html"><span class="doc"
 <section id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Custom installation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#install-gramine">Install Gramine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#prepare-a-signing-key">Prepare a signing key</a></li>
@@ -175,17 +178,6 @@ and <a class="reference internal" href="devel/onboarding.html"><span class="doc"
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#glibc-vs-musl">glibc vs musl</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="docker-image-installation.html">Gramine docker image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cloud-deployment.html#azure-confidential-computing-vms">Azure confidential computing VMs</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html#common-syntax">Common syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html#sgx-syntax">SGX syntax</a></li>
@@ -216,25 +208,25 @@ and <a class="reference internal" href="devel/onboarding.html"><span class="doc"
 <li class="toctree-l2"><a class="reference internal" href="performance.html#other-useful-tools-for-profiling">Other useful tools for profiling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manpages/index.html">Manual pages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloud-deployment.html#azure-confidential-computing-vms">Azure confidential computing VMs</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container-integration.html">Container integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container-integration.html#gramine-docker-image">Gramine Docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-integration.html#gsc-gramine-shielded-containers">GSC (Gramine Shielded Containers)</a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">SGX Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sgx-intro.html">Introduction to SGX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sgx-intro.html#introductory-reading">Introductory reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sgx-intro.html#official-documentation">Official Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sgx-intro.html#academic-research">Academic Research</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sgx-intro.html#installation-instructions">Installation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sgx-intro.html#sgx-terminology">SGX terminology</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -252,102 +244,85 @@ and <a class="reference internal" href="devel/onboarding.html"><span class="doc"
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Manual pages</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/packaging.html#exceptions">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/packaging.html#packaging-guide">Packaging guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/packaging.html#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-manifest.html"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manpages/is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
 </ul>
-</li>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Developing Gramine</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">LibOS</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/new-syscall.html">Implementing new system call</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/new-syscall.html#define-interface-of-system-call-and-add-it-to-system-call-table">1. Define interface of system call and add it to system call table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/new-syscall.html#implement-system-call">2. Implement system call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/new-syscall.html#add-new-pal-calls-optional">3. Add new PAL Calls (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/new-syscall.html#export-new-pal-calls-from-pal-binaries-optional">4. Export new PAL calls from PAL binaries (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/new-syscall.html#implement-new-pal-calls-optional">5. Implement new PAL calls (optional)</a></li>
 </ul>
-</li>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">PAL</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="pal/host-abi.html">PAL host ABI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#pal-as-loader">PAL as loader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#data-types-and-variables">Data types and variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#pal-apis">PAL APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#pal-as-loader">PAL as loader</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#manifest-and-executable-loading">Manifest and executable loading</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python/api.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/api.html#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/api.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#data-types-and-variables">Data types and variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#data-types">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pal/host-abi.html#pal-handles">PAL handles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pal/host-abi.html#basic-types">Basic types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#pal-public-state">PAL public state</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pal/host-abi.html#pal-public-state-topology-information">PAL public state - topology information</a></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Project Contribution</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="devel/building.html">Building</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/building.html#installing-dependencies">Installing dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/building.html#id2">Building</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/building.html#prepare-a-signing-key">Prepare a signing key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/building.html#advanced-installing-linux-kernel-with-fsgsbase-patches">Advanced: installing Linux kernel with FSGSBASE patches</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pal/host-abi.html#pal-apis">PAL APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#memory-allocation">Memory allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#process-creation">Process creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#stream-creation-connect-open">Stream creation/connect/open</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pal/host-abi.html#flags-used-for-stream-manipulation">Flags used for stream manipulation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/onboarding.html#pre-requisite-knowledge">Pre-requisite knowledge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/onboarding.html#debugging-with-gdb">Debugging with GDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/onboarding.html#typical-gramine-development-flows">Typical Gramine development flows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#socket-handling">Socket handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#thread-creation">Thread creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#exception-handling">Exception handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#synchronization">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pal/host-abi.html#miscellaneous">Miscellaneous</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#reporting-bugs">Reporting Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#reporting-security-vulnerabilities">Reporting Security Vulnerabilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#architectural-changes">Architectural Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#branch-names">Branch Names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#pull-requests">Pull Requests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#running-regression-tests-by-hand">Running Regression Tests by Hand</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/contributing.html#the-procedure-for-adding-and-removing-maintainers">The procedure for adding and removing maintainers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/DCO/index.html#developer-s-certificate-of-origin-1-1">Developer’s Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/howto-doc.html#building-documentation">Building documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/howto-doc.html#preferred-rest-style">Preferred reST style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/howto-doc.html#preferred-doxygen-style">Preferred Doxygen style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/howto-doc.html#further-reading">Further reading</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/coding-style.html#automatic-reformatting">Automatic reformatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/coding-style.html#c">C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/coding-style.html#python">Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/coding-style.html#meson">Meson</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/setup.html#emacs-configuration">Emacs configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/setup.html#vim-configuration">Vim configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devel/debugging.html">Debugging Gramine with GDB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devel/debugging.html#debugging-without-sgx-support">Debugging without SGX support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/debugging.html#debugging-with-sgx-support">Debugging with SGX support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devel/debugging.html#compiling-with-optimizations-enabled">Compiling with optimizations enabled</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/api.html">Python API</a></li>
 </ul>
 </div>
 <section id="indices-and-tables">
@@ -365,7 +340,7 @@ and <a class="reference internal" href="devel/onboarding.html"><span class="doc"
           </div>
 
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Custom installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
