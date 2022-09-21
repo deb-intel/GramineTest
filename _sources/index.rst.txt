@@ -20,13 +20,31 @@ toll of manually porting the application to the SGX environment.
 
 <button type="button" class="btn btn-primary btn-lg">Install Gramine</button>
 
-   .. link-button:: :doc:`installation-index`
+.. link-button:: :doc:`installation-index`
         :text: Install Gramine
         :classes: stretched-link
 
 [![python](https://img.shields.io/badge/python-3.7%2B-blue)](https://github.com/intel/neural-compressor)
 
+.. link-button:: https://example.com
+        :text: Clickable Panel
+        :classes: stretched-link
 
+.. panels::
+
+    .. link-button:: https://example.com
+        :classes: btn-success
+
+    ---
+
+    This entire panel is clickable.
+
+    +++
+
+    .. link-button:: panels/usage
+        :type: ref
+        :text: Go To Reference
+        :classes: btn-outline-primary btn-block stretched-link
 
 
 .. toctree::
