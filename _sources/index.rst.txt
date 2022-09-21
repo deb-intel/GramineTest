@@ -17,34 +17,39 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
+. grid:: 2
+   :gutter: 4
+   :padding: 2
 
-<button type="button" class="btn btn-primary btn-lg">Install Gramine</button>
+     
+   .. grid-item-card::
+      :img-background: img/background.png
+      :link: index_installation
+      :link-type: ref
+      :link: index_configuration
+      :link-type: ref
+      :link: index_tutorials
+      :link-type: ref
 
-.. link-button:: :doc:`installation-index`
-        :text: Install Gramine
-        :classes: stretched-link
+      **Getting Started**
+      ^^^^^^^^^^^^^^^^^^^
+      :ref:`index_installation`
+      :ref:`index_configuration`
+      :ref:`index_tutorials`
 
-[![python](https://img.shields.io/badge/python-3.7%2B-blue)](https://github.com/intel/neural-compressor)
+   .. grid-item-card:: 
+      :img-background: img/background.png
+      :link: index_guide
+      :link-type: ref 
 
-.. link-button:: https://example.com
-        :text: Clickable Panel
-        :classes: stretched-link
+      **Contribute**
+      ^^^^^^^^^^^^^^
+      Join us! 
+      - Visit :doc:`devel/contributing`
+and :doc:`devel/onboarding`. 
+      - File a `bug <https://github.com/gramineproject/gramine/issues>`_.
+      - Join the `Community <https://groups.google.com/g/gramine-users>`_.
 
-.. panels::
-
-    .. link-button:: https://example.com
-        :classes: btn-success
-
-    ---
-
-    This entire panel is clickable.
-
-    +++
-
-    .. link-button:: panels/usage
-        :type: ref
-        :text: Go To Reference
-        :classes: btn-outline-primary btn-block stretched-link
 
 
 .. toctree::
