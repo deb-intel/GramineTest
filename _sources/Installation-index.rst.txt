@@ -3,8 +3,14 @@
 Installation
 ============
 
+
+
+
+
+
 .. toctree::
-   :maxdepth: 1
+   :hidden:
+   :maxdepth: 2
 
    quickstart
    docker-image-installation

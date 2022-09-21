@@ -22,13 +22,12 @@ toll of manually porting the application to the SGX environment. This is a test.
 
 
 
-*****************
-Table of Contents
-*****************
+
 
 .. toctree::
+   :hidden:
    :caption: Getting Started 
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation-index
    configuration-index
@@ -37,7 +36,7 @@ Table of Contents
 
 .. toctree::
    :caption: Developer Guides
-   :maxdepth: 2
+   :maxdepth: 1
 
    devel/packaging
    libos/libos-init
@@ -47,7 +46,7 @@ Table of Contents
 
 .. toctree::
    :caption: Project Contribution
-   :maxdepth: 2
+   :maxdepth: 1
 
    devel/building
    devel/onboarding
