@@ -18,7 +18,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Custom installation" href="quickstart.html" />
+    <link rel="prev" title="Introduction to Gramine" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +40,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Custom installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-image-installation.html">Gramine docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curated-installation.html">Intel Confidential Compute images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloud-deployment.html">Cloud Deployment</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="configuration-index.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
@@ -97,6 +107,22 @@
              
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>Choose one of the installation options based on your business need or preference.</p>
+<p><strong>Custom installation</strong>
+Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest.</p>
+<p>Select: Use <a class="reference internal" href="quickstart.html"><span class="doc">Custom installation</span></a> for instructions how to quickly install and run Gramine. For full build instructions, see <a class="reference internal" href="devel/building.html"><span class="doc">Building</span></a>.</p>
+<p><strong>Pre-prepared Docker container</strong>
+Install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that’s included in the custom installation. You must create your own manifest.
+Select: <a class="reference internal" href="docker-image-installation.html"><span class="doc">Gramine docker image</span></a></p>
+<p><strong>Gramine Shielded Container</strong>
+Bring an application as a Docker container and then your container is transformed into a “graminized” Docker container.
+Select: <a class="reference internal" href="gsc-installation.html"><span class="doc">Gramine Shielded Containers</span></a></p>
+<p><strong>Intel Confidential Compute images with Gramine</strong>
+Images are ready-made for popular machine-learning apps such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential Compute images only run on machines that support Intel SGX.
+Select: <a class="reference internal" href="curated-installation.html"><span class="doc">Intel Confidential Compute images</span></a></p>
+<p><strong>Cloud development</strong>
+Gramine can be installed in the cloud on VMs that support Intel SGX.
+Select: <span class="xref std std-doc">cloud-development</span></p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -105,7 +131,10 @@
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction to Gramine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Custom installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -15,7 +15,7 @@ hardware-encrypted memory regions (called SGX enclaves). SGX protects code and
 data in the enclave against privileged software attacks and against physical
 attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
-toll of manually porting the application to the SGX environment. This is a test.
+toll of manually porting the application to the SGX environment. 
 
 
 
@@ -29,12 +29,13 @@ toll of manually porting the application to the SGX environment. This is a test.
    :caption: Getting Started 
    :maxdepth: 1
 
-   installation-index
+   Installation-index
    configuration-index
    tutorials-index
    concepts-index
 
-.. toctree::
+.. toctree::  
+   :hidden:
    :caption: Developer Guides
    :maxdepth: 1
 
@@ -45,6 +46,7 @@ toll of manually porting the application to the SGX environment. This is a test.
    python/api
 
 .. toctree::
+   :hidden:
    :caption: Project Contribution
    :maxdepth: 1
 
@@ -59,6 +61,7 @@ toll of manually porting the application to the SGX environment. This is a test.
    devel/debugging
 
 .. toctree::
+   :hidden:
    :caption: Glossary
    :maxdepth: 1
 
