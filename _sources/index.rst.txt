@@ -18,8 +18,13 @@ Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
 
+<button type="button" class="btn btn-primary btn-lg">Install Gramine</button>
 
+   .. link-button:: :doc:`installation-index`
+        :text: Install Gramine
+        :classes: stretched-link
 
+[![python](https://img.shields.io/badge/python-3.7%2B-blue)](https://github.com/intel/neural-compressor)
 
 
 
@@ -67,9 +72,9 @@ toll of manually porting the application to the SGX environment.
 
    glossary
 
-Indices and tables
-==================
+.. toctree::
+   :hidden:
+   :caption: Index
+   :maxdepth: 1
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   :ref:`modindex`
