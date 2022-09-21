@@ -17,7 +17,7 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
-. grid:: 2
+.. grid:: 2
    :gutter: 4
    :padding: 2
 
