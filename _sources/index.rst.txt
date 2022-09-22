@@ -28,7 +28,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
 
 .. toctree::
    :hidden:
-   :caption: Getting Started 
+   :caption: Get Started 
    :maxdepth: 1
 
    Installation-index
@@ -73,4 +73,4 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :caption: Index
    :maxdepth: 1
 
-   :ref:`modindex`
+   genindex
