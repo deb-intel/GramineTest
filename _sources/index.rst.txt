@@ -23,7 +23,7 @@ toll of manually porting the application to the SGX environment.
 
      
    .. grid-item-card::
-      :img-background: img/background.png
+      :img-background: img/indx-background.png
       :link: index_installation
       :link-type: ref
       :link: index_configuration
@@ -39,8 +39,6 @@ toll of manually porting the application to the SGX environment.
 
    .. grid-item-card:: 
       :img-background: img/background.png
-      :link: index_guide
-      :link-type: ref 
 
       **Contribute**
       ^^^^^^^^^^^^^^
