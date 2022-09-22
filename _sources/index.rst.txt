@@ -26,29 +26,11 @@ toll of manually porting the application to the SGX environment.
       :img-background: img/indx-background.png
       :link: index_installation
       :link-type: ref
-      :link: index_configuration
-      :link-type: ref
-      :link: index_tutorials
-      :link-type: ref
+      
 
-      **Getting Started**
+      **Install Gramine**
       ^^^^^^^^^^^^^^^^^^^
       :ref:`index_installation`
-      :ref:`index_configuration`
-      :ref:`index_tutorials`
-
-   .. grid-item-card:: 
-      :img-background: img/background.png
-
-      **Contribute**
-      ^^^^^^^^^^^^^^
-      Join us! 
-      - Visit :doc:`devel/contributing`
-and :doc:`devel/onboarding`. 
-      - File a `bug <https://github.com/gramineproject/gramine/issues>`_.
-      - Join the `Community <https://groups.google.com/g/gramine-users>`_.
-
-
 
 .. toctree::
    :hidden:
