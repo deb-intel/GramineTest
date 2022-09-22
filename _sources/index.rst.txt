@@ -19,17 +19,19 @@ toll of manually porting the application to the SGX environment.
 
 Test tables:
 
-+-----------+------------+--------------------+
-| :doc:`curated-installation <install gramine`| 
-|                                             | 
-+===========+============+====================+
-|           |            |                    | 
-| i.mx8qm   | i.mx8      | hifi4\@666mhz      |
-|           |            |                    |
-+-----------+------------+--------------------+
+:doc:`curated-installation <install gramine>`
+
++-----------+------------+---------------------+
+| :doc:`curated-installation <install gramine>`| 
+|                                              | 
++===========+============+=====================+
+|           |            |                     | 
+| i.mx8qm   | i.mx8      | hifi4\@666mhz       |
+|           |            |                     |
++-----------+------------+---------------------+
 
 +-----------+------------+------------------+
-| :doc:`curated-installation`               | 
+| `public archive <https://groups.google.com/g/gramine-users>`__               | 
 |            Container     Containers       | 
 +===========+============+==================+
 |                                           | 
@@ -38,7 +40,7 @@ Test tables:
 +-----------+------------+------------------+
 
 +-----------+------------+------------------+
-| :ref:`curated-installation`               | 
+| :doc:`curated-installation`               | 
 |            Container     Containers       | 
 +===========+============+==================+
 
