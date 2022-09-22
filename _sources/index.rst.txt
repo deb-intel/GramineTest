@@ -72,4 +72,5 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :caption: Index
    :maxdepth: 1
 
-   `Index <https://gramine.readthedocs.io/en/latest/genindex.html>`__
+   `Index <https://deb-intel.github.io/GramineTest/index.html>`__
+   `Send questions <users@gramineproject.io>`__
