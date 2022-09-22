@@ -21,6 +21,10 @@ toll of manually porting the application to the SGX environment.
 | Install Gramine :doc:`Installation-index` |        
 +===========================================+
 
+|[Install Gramine](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/) |
+
+[AI Kit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) |
+|---|---|
 
 .. toctree::
    :hidden:
