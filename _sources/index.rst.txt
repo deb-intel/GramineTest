@@ -17,35 +17,20 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
-Test tables:
-
-:doc:`curated-installation <install gramine>`__
-
-`public archive <https://groups.google.com/g/gramine-users>`__
-
-
-
-
-.. list-table:: Quick Links
+.. list-table:: Get Started
    :widths: 25 25 50
    :header-rows: 1
 
    * - Install Gramine
      - Contribute
      - Community
-   * - :doc:`installation-index`
+   * - :doc:`Installation-index`
      - :doc:`devel/contributing`
-     - `user groups <https://groups.google.com/g/gramine-users>`__
+     - `Join user groups <https://groups.google.com/g/gramine-users>`__
    * - 5 available options
      - Thanks for your interest!
-     - Send questions: users@gramineproject.io
-
-
-+-----------+------------+------------------+
-| :doc:`curated-installation`               | 
-|            Container     Containers       | 
-+===========+============+==================+
-
+     - Send questions: 
+       users@gramineproject.io
 
 
 

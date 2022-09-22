@@ -1,7 +1,7 @@
 .. _index_configuration
 
-Configuration
-=============
+Configure Gramine
+=================
 
 .. toctree::
    :maxdepth: 1

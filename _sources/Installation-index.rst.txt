@@ -1,7 +1,7 @@
 .. _index_installation
 
-Installation
-============
+Install Gramine
+===============
 
 Choose one of the installation options based on your business need or preference.
 
