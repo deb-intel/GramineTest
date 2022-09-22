@@ -17,14 +17,11 @@ attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
 Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
-+------------------------+------------------+
-| Install Gramine :doc:`Installation-index` |        
-+===========================================+
++---------------------------------------------+
+| :doc:`Installation-index <Install Gramine>` |        
++=============================================+
 
-.. raw:: html
 
-|[Install Gramine](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/)|[AI Kit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) |
-|---|---|
 
 .. toctree::
    :hidden:
