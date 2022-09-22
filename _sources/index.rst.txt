@@ -21,38 +21,24 @@ Test tables:
 
 :doc:`curated-installation <install gramine>`__
 
+`public archive <https://groups.google.com/g/gramine-users>`__
 
-+-----------+------------+------------------------+
-| :doc:`curated-installation <install gramine>`__ | 
-|                                                 | 
-+===========+============+========================+
-|           |            |                        | 
-| i.mx8qm   | i.mx8      | hifi4\@666mhz          |
-|           |            |                        |
-+-----------+------------+------------------------+
 
-+----------------------------------------------------------------+
-| `public archive <https://groups.google.com/g/gramine-users>`__ |             |                                                                |
-|            Container     Containers                            | 
-+================================================================+
-|                                                                | 
-| i.mx8qm    i.mx8       hifi4\@666mhz                           |
-|                                                                |
-+----------------------------------------------------------------+
 
-.. list-table:: Title
+
+.. list-table:: Quick Links
    :widths: 25 25 50
    :header-rows: 1
 
-   * - Heading row 1, column 1
-     - Heading row 1, column 2
-     - Heading row 1, column 3
-   * - Row 1, column 1
-     -
-     - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
+   * - Install Gramine
+     - Contribute
+     - Community
+   * - :doc:`installation-index`
+     - :doc:`devel/contributing`
+     - `user groups <https://groups.google.com/g/gramine-users>`__
+   * - 5 available options
+     - Thanks for your interest!
+     - Send questions: users@gramineproject.io
 
 
 +-----------+------------+------------------+
