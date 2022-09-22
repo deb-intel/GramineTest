@@ -25,7 +25,6 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
      - `Send questions <users@gramineproject.io>`__
 
 
-
 .. toctree::
    :hidden:
    :caption: Get Started 
@@ -73,4 +72,4 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :caption: Index
    :maxdepth: 1
 
-   genindex
+   `Index <https://gramine.readthedocs.io/en/latest/genindex.html>`__
