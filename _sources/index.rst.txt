@@ -18,9 +18,10 @@ Gramine is able to run unmodified applications inside SGX enclaves, without the
 toll of manually porting the application to the SGX environment. 
 
 
-.. button::
-   :text: Button Text
-   :link: https://www.ccn.com
+.. link-button:: https://example.com
+    :type: url
+    :text: some text
+    :tooltip: hallo
 
 
 .. toctree::
