@@ -8,20 +8,13 @@ isolated environment with benefits comparable to running a |~| complete OS in a
 |~| virtual machine -- including guest customization, ease of porting to
 different host OSes, and process migration.
 
-Gramine supports running Linux applications using the :term:`Intel SGX <SGX>`
-(Software Guard Extensions) technology (we sometimes call this version
-**Gramine-SGX**).  With Intel SGX, applications are secured in
-hardware-encrypted memory regions (called SGX enclaves). SGX protects code and
-data in the enclave against privileged software attacks and against physical
-attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
-Gramine is able to run unmodified applications inside SGX enclaves, without the
-toll of manually porting the application to the SGX environment. 
+Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. Refer to the :doc:`sgx-intro`.
 
 .. list-table:: Get Started
    :widths: 25 25 50
    :header-rows: 1
 
-   * - Install Gramine
+   * - Install 
      - Contribute
      - Community
    * - :doc:`Installation-index`
@@ -29,8 +22,7 @@ toll of manually porting the application to the SGX environment.
      - `Join user groups <https://groups.google.com/g/gramine-users>`__
    * - 5 available options
      - Thanks for your interest!
-     - Send questions: 
-       users@gramineproject.io
+     - `Send questions <users@gramineproject.io>`__
 
 
 
@@ -46,7 +38,7 @@ toll of manually porting the application to the SGX environment.
 
 .. toctree::  
    :hidden:
-   :caption: Developer Guides
+   :caption: Developer Reference
    :maxdepth: 1
 
    devel/packaging

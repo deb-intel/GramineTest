@@ -59,7 +59,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Developer Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="devel/packaging.html">Packaging and distributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libos/libos-init.html">LibOS documentation</a></li>
@@ -114,7 +114,15 @@
              
   <section id="introduction-to-sgx">
 <h1>Introduction to SGX<a class="headerlink" href="#introduction-to-sgx" title="Permalink to this headline"></a></h1>
-<p>Gramine project uses <a class="reference internal" href="glossary.html#term-SGX"><span class="xref std std-term">SGX</span></a> to securely run software. SGX is
+<p>Gramine project uses <a class="reference internal" href="glossary.html#term-SGX"><span class="xref std std-term">SGX</span></a> to securely run software. Gramine supports running Linux applications using the <a class="reference internal" href="glossary.html#term-SGX"><span class="xref std std-term">Intel SGX</span></a>
+(Software Guard Extensions) technology (we sometimes call this version
+<strong>Gramine-SGX</strong>). With Intel SGX, applications are secured in
+hardware-encrypted memory regions (called SGX enclaves). SGX protects code and
+data in the enclave against privileged software attacks and against physical
+attacks on the hardware off the CPU package (e.g., cold-boot attacks on RAM).
+Gramine is able to run unmodified applications inside SGX enclaves, without the
+toll of manually porting the application to the SGX environment.</p>
+<p>SGX is
 a complicated topic, which may be hard to learn, because the documentation
 is scattered through official/reference documentation, blogposts and academic
 papers. This page is an attempt to curate a dossier of available reading
