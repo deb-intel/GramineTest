@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gramine Shielded Containers &mdash; Gramine  documentation</title>
+  <title>Contribution Guidelines &mdash; Gramine  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/gramine.css" type="text/css" />
@@ -18,9 +18,7 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Custom Install, Configure, Develop" href="custom-installation.html" />
-    <link rel="prev" title="Intel Confidential Compute images" href="curated-installation.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,8 +42,8 @@
 <li class="toctree-l1"><a class="reference internal" href="curated-installation.html">Intel Confidential Compute images</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gramine-Shielded Container</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Gramine Shielded Containers</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
 <ul>
@@ -74,9 +72,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Gramine Shielded Containers</li>
+      <li>Contribution Guidelines</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/gsc-installation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/contributor-index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -86,30 +84,28 @@
 
            <div itemprop="articleBody">
              
-  <section id="gramine-shielded-containers">
-<h1>Gramine Shielded Containers<a class="headerlink" href="#gramine-shielded-containers" title="Permalink to this headline"></a></h1>
-<p>The Gramine Shielded Constainer (GSC) tool transforms an original Docker image into a new, “graminized” image
-which includes the Gramine Library OS, manifest files, Intel SGX related
-information, and executes the application inside an Intel SGX enclave using
-Gramine. It follows the common Docker approach to first build an image and
-subsequently run this image inside of a container. At first a Docker image has
-to be graminized via the <code class="docutils literal notranslate"><span class="pre">gsc</span> <span class="pre">build</span></code> command. When the graminized image should
-run within an Intel SGX enclave, the image has to be signed via a <code class="docutils literal notranslate"><span class="pre">gsc</span>
-<span class="pre">sign-image</span></code> command.  Subsequently, the image can be run using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>.</p>
-<p>Note that GSC (Gramine Shielded Containers) tool is split from the core Gramine
-repository and can be found here: <a class="reference external" href="https://github.com/gramineproject/gsc">https://github.com/gramineproject/gsc</a>.</p>
-<p>Similarly, GSC documentation is split from the core Gramine documentation and is
-hosted here: <a class="reference external" href="https://gramine.readthedocs.io/projects/gsc">https://gramine.readthedocs.io/projects/gsc</a>.</p>
+  <section id="contribution-guidelines">
+<h1>Contribution Guidelines<a class="headerlink" href="#contribution-guidelines" title="Permalink to this headline"></a></h1>
+<p>Helpful material for users who want to contribute to Gramine development.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html">Contributing to Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/contributing.html#management-team">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/onboarding.html">Onboarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/DCO/index.html">Developer Certificate of Origin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/setup.html">Development setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/howto-doc.html">How to write documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devel/coding-style.html">Coding style guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gramine-users.html">Users of Gramine</a></li>
+</ul>
+</div>
 </section>
 
 
            </div>
           </div>
 
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="curated-installation.html" class="btn btn-neutral float-left" title="Intel Confidential Compute images" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="custom-installation.html" class="btn btn-neutral float-right" title="Custom Install, Configure, Develop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

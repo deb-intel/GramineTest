@@ -14,13 +14,13 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :widths: 25 25 25
    :header-rows: 1
 
-   * - Install 
+   * - Use Gramine 
      - Contribute
      - Community
    * - :doc:`Installation-index`
      - :doc:`devel/contributing`
      - `Join user groups <https://groups.google.com/g/gramine-users>`__
-   * - 5 available options
+   * - 3 available options
      - Thanks for your interest!
      - `Send questions <users@gramineproject.io>`__
 
@@ -58,14 +58,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :caption: Project Contribution
    :maxdepth: 1
 
-   devel/onboarding
-   devel/contributing
-   gramine-users
-   devel/DCO/index
-   devel/howto-doc
-   devel/coding-style
-   devel/setup
-   
+contributor-index
 
 .. toctree::
    :hidden:
