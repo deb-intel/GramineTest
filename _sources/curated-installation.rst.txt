@@ -1,3 +1,5 @@
+.. _curated_index
+
 Intel Confidential Compute images
 =================================
 
@@ -7,5 +9,5 @@ Note that these confidential Compute images only run on machines that support In
 
 Current list of solutions and installation instructions:
 
-Redis
-PyTorch 
+- Redis
+- PyTorch 
