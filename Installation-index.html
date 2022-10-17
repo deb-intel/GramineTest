@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Install Gramine &mdash; Gramine  documentation</title>
+  <title>Deploy Gramine &mdash; Gramine  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/gramine.css" type="text/css" />
@@ -83,7 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Install Gramine</li>
+      <li>Deploy Gramine</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Installation-index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,35 +95,23 @@
 
            <div itemprop="articleBody">
              
-  <section id="install-gramine">
-<h1>Install Gramine<a class="headerlink" href="#install-gramine" title="Permalink to this headline"></a></h1>
-<p>Choose one of the installation options based on your business need or preference.</p>
-<section id="custom-installation">
-<h2>Custom installation<a class="headerlink" href="#custom-installation" title="Permalink to this headline"></a></h2>
-<p>Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest.</p>
-<p><strong>Select</strong> Use <a class="reference internal" href="quickstart.html"><span class="doc">Custom installation</span></a> instructions to quickly install and run Gramine. For full build instructions, see <a class="reference internal" href="devel/building.html"><span class="doc">Building</span></a>.</p>
-</section>
-<section id="pre-prepared-docker-container">
-<h2>Pre-prepared Docker container<a class="headerlink" href="#pre-prepared-docker-container" title="Permalink to this headline"></a></h2>
-<p>Install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that’s included in the custom installation. You must create your own manifest.</p>
-<p><strong>Select</strong> <a class="reference internal" href="docker-image-installation.html"><span class="doc">Gramine docker image</span></a></p>
+  <section id="deploy-gramine">
+<h1>Deploy Gramine<a class="headerlink" href="#deploy-gramine" title="Permalink to this headline"></a></h1>
+<p>Choose one of the deployment options based on your business need or preference.</p>
+<section id="intel-confidential-compute-images-with-gramine">
+<h2>Intel Confidential Compute images with Gramine<a class="headerlink" href="#intel-confidential-compute-images-with-gramine" title="Permalink to this headline"></a></h2>
+<p>Images are ready-made for popular machine-learning apps such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential Compute images only run on machines that support Intel SGX.</p>
+<p><strong>Select</strong> <a class="reference internal" href="curated-installation.html"><span class="doc">Intel Confidential Compute images</span></a></p>
 </section>
 <section id="gramine-shielded-container">
 <h2>Gramine Shielded Container<a class="headerlink" href="#gramine-shielded-container" title="Permalink to this headline"></a></h2>
 <p>Bring an application as a Docker container and then your container is transformed into a “graminized” Docker container.</p>
 <p><strong>Select</strong> <a class="reference internal" href="gsc-installation.html"><span class="doc">Gramine Shielded Containers</span></a></p>
 </section>
-<section id="intel-confidential-compute-images-with-gramine">
-<h2>Intel Confidential Compute images with Gramine<a class="headerlink" href="#intel-confidential-compute-images-with-gramine" title="Permalink to this headline"></a></h2>
-<p>Images are ready-made for popular machine-learning apps such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential Compute images only run on machines that support Intel SGX.</p>
-<p><strong>Select</strong> <a class="reference internal" href="curated-installation.html"><span class="doc">Intel Confidential Compute images</span></a></p>
-</section>
-<section id="cloud-deployment">
-<h2>Cloud deployment<a class="headerlink" href="#cloud-deployment" title="Permalink to this headline"></a></h2>
-<p>Gramine can be installed in the cloud on VMs that support Intel SGX.</p>
-<p><strong>Select</strong> <a class="reference internal" href="cloud-deployment.html"><span class="doc">Cloud Deployment</span></a></p>
-<div class="toctree-wrapper compound">
-</div>
+<section id="custom-installation">
+<h2>Custom installation<a class="headerlink" href="#custom-installation" title="Permalink to this headline"></a></h2>
+<p>Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest.</p>
+<p><strong>Select</strong> Use <a class="reference internal" href="quickstart.html"><span class="doc">Custom installation</span></a> instructions to quickly install and run Gramine. For full build instructions, see <a class="reference internal" href="devel/building.html"><span class="doc">Building</span></a>.</p>
 </section>
 </section>
 

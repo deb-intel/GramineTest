@@ -1,27 +1,9 @@
 .. _index_installation
 
-Install Gramine
-===============
+Deploy Gramine
+==============
 
-Choose one of the installation options based on your business need or preference.
-
-Custom installation
--------------------
-Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest. 
-
-**Select** Use :doc:`quickstart` instructions to quickly install and run Gramine. For full build instructions, see :doc:`devel/building`.
-
-Pre-prepared Docker container
------------------------------
-Install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest.
-
-**Select** :doc:`docker-image-installation`
-
-Gramine Shielded Container
---------------------------
-Bring an application as a Docker container and then your container is transformed into a "graminized" Docker container.
-
-**Select** :doc:`gsc-installation`
+Choose one of the deployment options based on your business need or preference.
 
 Intel Confidential Compute images with Gramine
 ----------------------------------------------
@@ -29,22 +11,19 @@ Images are ready-made for popular machine-learning apps such as PyTorch and Redi
 
 **Select** :doc:`curated-installation`
 
-Cloud deployment
-----------------
-Gramine can be installed in the cloud on VMs that support Intel SGX.
+Gramine Shielded Container
+--------------------------
+Bring an application as a Docker container and then your container is transformed into a "graminized" Docker container.
 
-**Select** :doc:`cloud-deployment`
+**Select** :doc:`gsc-installation`
+
+Custom installation
+-------------------
+Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest. 
+
+**Select** Use :doc:`quickstart` instructions to quickly install and run Gramine. For full build instructions, see :doc:`devel/building`.
 
 
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   quickstart
-   docker-image-installation
-   gsc-installation
-   curated-installation
-   cloud-deployment
 
 
 
