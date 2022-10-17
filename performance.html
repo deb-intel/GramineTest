@@ -49,45 +49,36 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="custom-installation.html">Custom Install, Configure, Develop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="configuration-index.html">Configure Gramine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Performance tuning and analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#effects-of-system-calls-ocalls">Effects of system calls / ocalls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exitless-feature">Exitless feature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multi-threaded-workloads">Multi-threaded workloads</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multi-process-workloads">Multi-process workloads</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#choice-of-sgx-machine">Choice of SGX machine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#glibc-malloc-tuning">Glibc malloc tuning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#other-considerations">Other considerations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#profiling-with-perf">Profiling with <code class="docutils literal notranslate"><span class="pre">perf</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installing-perf-provided-by-your-distribution">Installing <code class="docutils literal notranslate"><span class="pre">perf</span></code> provided by your distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#building-your-own-perf">Building your own <code class="docutils literal notranslate"><span class="pre">perf</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recording-samples-with-perf-record">Recording samples with <code class="docutils literal notranslate"><span class="pre">perf</span> <span class="pre">record</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#further-reading">Further reading</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="custom-installation.html">Custom Install, Configure, Develop</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="configuration-index.html">Configure Gramine</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Performance tuning and analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-per-thread-and-process-wide-sgx-stats">Enabling per-thread and process-wide SGX stats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effects-of-system-calls-ocalls">Effects of system calls / ocalls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exitless-feature">Exitless feature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-cpu-features-avx-avx512-mpx-pkru-amx">Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-threaded-workloads">Multi-threaded workloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-process-workloads">Multi-process workloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#choice-of-sgx-machine">Choice of SGX machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#glibc-malloc-tuning">Glibc malloc tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-considerations">Other considerations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling-with-perf">Profiling with <code class="docutils literal notranslate"><span class="pre">perf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sgx-profiling">SGX profiling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling-sgx-hotspots-with-intel-vtune-profiler">Profiling SGX hotspots with Intel VTune Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-useful-tools-for-profiling">Other useful tools for profiling</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#sgx-profiling">SGX profiling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ocall-profiling">OCALL profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#profiling-sgx-hotspots-with-intel-vtune-profiler">Profiling SGX hotspots with Intel VTune Profiler</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installing-vtune">Installing VTune</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#collecting-sgx-hotspots-and-viewing-the-report">Collecting SGX hotspots and viewing the report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-index.html">Developer Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-index.html">Contribution Guidelines</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#other-useful-tools-for-profiling">Other useful tools for profiling</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer-index.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-index.html">Contribution Guidelines</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
 <ul>

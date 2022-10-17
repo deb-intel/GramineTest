@@ -46,19 +46,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :maxdepth: 1
 
    custom-installation
-   tutorials-index
-   concepts-index
-   
-   configuration-index
-   developer-index
-
-
-.. toctree::
-   :hidden:
-   :caption: Project Contribution
-   :maxdepth: 1
-
-contributor-index
+   contributor-index
 
 .. toctree::
    :hidden:
