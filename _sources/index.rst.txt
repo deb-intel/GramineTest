@@ -14,7 +14,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :widths: 25 25 25
    :header-rows: 1
 
-   * - Select a Gramine Deployment 
+   * - How will you use Gramine? 
      - Contribute
      - Community
    * - :doc:`Installation-index`
@@ -29,7 +29,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    :caption: Start Here 
    :maxdepth: 1
 
-   installation-index
+   Installation-index
 
 .. toctree::
    :hidden:
