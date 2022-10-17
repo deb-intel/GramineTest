@@ -33,14 +33,14 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
 
 .. toctree::
    :hidden:
-   :caption: Ready-Made Gramine App 
+   :caption: Ready-Made Applications 
    :maxdepth: 1
 
    curated-installation
 
 .. toctree::
    :hidden:
-   :caption: Gramine-Shielded Container 
+   :caption: Protect Your Containers 
    :maxdepth: 1
 
    gsc-installation
