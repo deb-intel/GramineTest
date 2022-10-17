@@ -1,7 +1,7 @@
 .. _index_installation
 
-Deploy Gramine
-==============
+Select a Deployment Option
+==========================
 
 Choose one of the deployment options based on your business need or preference.
 

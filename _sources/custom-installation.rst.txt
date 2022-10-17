@@ -24,4 +24,3 @@ Refer to the following as you configure and develop Gramine.
    developer-index
    tutorials-index
    concepts-index
-   contributor-index
