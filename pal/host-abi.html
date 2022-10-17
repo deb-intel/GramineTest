@@ -39,53 +39,49 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Ready-Made Gramine App</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Installation-index.html">Install Gramine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration-index.html">Configure Gramine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curated-installation.html">Intel Confidential Compute images</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gramine-Shielded Container</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gsc-installation.html">Gramine Shielded Containers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../custom-installation.html">Custom installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials-index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts-index.html">Concepts</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../devel/packaging.html">Packaging and distributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libos/libos-init.html">LibOS documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../devel/new-syscall.html">Implementing new system call</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PAL host ABI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pal-as-loader">PAL as loader</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#manifest-and-executable-loading">Manifest and executable loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration-index.html">Configure Gramine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer-index.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../devel/new-syscall.html">Implementing new system call</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PAL host ABI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pal-as-loader">PAL as loader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manifest-and-executable-loading">Manifest and executable loading</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#data-types-and-variables">Data types and variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#data-types">Data types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#pal-handles">PAL handles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#basic-types">Basic types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-types-and-variables">Data types and variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-types">Data types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pal-public-state">PAL public state</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#pal-public-state">PAL public state</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#pal-public-state-topology-information">PAL public state - topology information</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#pal-apis">PAL APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#memory-allocation">Memory allocation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#process-creation">Process creation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stream-creation-connect-open">Stream creation/connect/open</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#flags-used-for-stream-manipulation">Flags used for stream manipulation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#socket-handling">Socket handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#thread-creation">Thread creation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#synchronization">Synchronization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pal-apis">PAL APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#memory-allocation">Memory allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#process-creation">Process creation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stream-creation-connect-open">Stream creation/connect/open</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#socket-handling">Socket handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thread-creation">Thread creation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#synchronization">Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python/api.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/api.html">Python API</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project Contribution</span></p>
 <ul>
@@ -97,7 +93,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../devel/howto-doc.html">How to write documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devel/coding-style.html">Coding style guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devel/setup.html">Development setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../devel/debugging.html">Debugging Gramine with GDB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
 <ul>
@@ -118,6 +113,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../developer-index.html">Developer Reference</a> &raquo;</li>
       <li>PAL host ABI</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/pal/host-abi.rst.txt" rel="nofollow"> View page source</a>

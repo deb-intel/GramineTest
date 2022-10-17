@@ -27,24 +27,31 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
 
 .. toctree::
    :hidden:
-   :caption: Get Started 
+   :caption: Ready-Made Gramine App 
    :maxdepth: 1
 
-   Installation-index
-   configuration-index
+   curated-installation
+
+.. toctree::
+   :hidden:
+   :caption: Gramine-Shielded Container 
+   :maxdepth: 1
+
+   gsc-installation
+
+
+.. toctree::
+   :hidden:
+   :caption: Custom Build Gramine 
+   :maxdepth: 1
+
+   custom-installation
    tutorials-index
    concepts-index
+   
+   configuration-index
+   developer-index
 
-.. toctree::  
-   :hidden:
-   :caption: Developer Reference
-   :maxdepth: 1
-
-   devel/packaging
-   libos/libos-init
-   devel/new-syscall
-   pal/host-abi
-   python/api
 
 .. toctree::
    :hidden:
@@ -58,7 +65,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
    devel/howto-doc
    devel/coding-style
    devel/setup
-   devel/debugging
+   
 
 .. toctree::
    :hidden:
