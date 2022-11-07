@@ -1,7 +1,7 @@
 .. _custom_installation
 
-Custom Install, Configure, Develop
-==================================
+Quick Install or Custom Build Gramine
+=====================================
 
 Install Gramine and all components on your own server. Select this option is you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest. 
 
@@ -16,9 +16,6 @@ Gramine can be installed in the cloud on VMs that support Intel SGX.
 **Select** :doc:`cloud-deployment`
 
 Refer to the following as you configure and develop Gramine.
-
-.. toctree::  
-   :maxdepth: 1
    
    configuration-index
    developer-index
