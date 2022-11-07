@@ -18,7 +18,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Performance tuning and analysis" href="performance.html" />
+    <link rel="prev" title="Manifest syntax" href="manifest-syntax.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,6 +51,41 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="custom-installation.html">Custom Install, Configure, Develop</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration-index.html">Configure Gramine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Attestation and Secret Provisioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remote-attestation-flows-for-epid-and-dcap">Remote Attestation flows for EPID and DCAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#low-level-dev-attestation-interface">Low-level <code class="docutils literal notranslate"><span class="pre">/dev/attestation</span></code> interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mid-level-ra-tls-interface">Mid-level RA-TLS interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-attest-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_attest.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_epid.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ra-tls-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">ra_tls_verify_dcap.so</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-secret-provisioning-interface">High-level Secret Provisioning interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-attest-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_attest.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-verify-epid-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_epid.so</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secret-prov-verify-dcap-so"><code class="docutils literal notranslate"><span class="pre">secret_prov_verify_dcap.so</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#third-party-solutions">Third-Party Solutions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edgeless-marblerun">Edgeless Marblerun</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manpages/index.html">Manual pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-index.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts-index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-index.html">Contribution Guidelines</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Resource</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="management-team.html">Management Team</a></li>
@@ -70,6 +107,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="custom-installation.html">Custom Install, Configure, Develop</a></li>
+          <li class="breadcrumb-item"><a href="configuration-index.html">Configure Gramine</a></li>
       <li class="breadcrumb-item active">Attestation and Secret Provisioning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/attestation.rst.txt" rel="nofollow"> View page source</a>
@@ -589,7 +628,10 @@ Coordinator acts as a Certificate Authority (CA) for these connections.</p>
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manifest-syntax.html" class="btn btn-neutral float-left" title="Manifest syntax" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="performance.html" class="btn btn-neutral float-right" title="Performance tuning and analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

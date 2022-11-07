@@ -56,7 +56,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Custom Build Gramine 
-   :maxdepth: 
+   :maxdepth: 2
 
    custom-installation
    configuration-index

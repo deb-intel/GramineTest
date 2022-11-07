@@ -18,7 +18,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PAL host ABI" href="../pal/host-abi.html" />
+    <link rel="prev" title="Debugging Gramine with GDB" href="debugging.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,6 +51,28 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../custom-installation.html">Custom Install, Configure, Develop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration-index.html">Configure Gramine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer-index.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging Gramine with GDB</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Implementing new system call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#define-interface-of-system-call-and-add-it-to-system-call-table">1. Define interface of system call and add it to system call table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-system-call">2. Implement system call</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-new-pal-calls-optional">3. Add new PAL Calls (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-new-pal-calls-from-pal-binaries-optional">4. Export new PAL calls from PAL binaries (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-new-pal-calls-optional">5. Implement new PAL calls (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pal/host-abi.html">PAL host ABI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/api.html">Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts-index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-index.html">Contribution Guidelines</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Resource</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../management-team.html">Management Team</a></li>
@@ -70,6 +94,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../custom-installation.html">Custom Install, Configure, Develop</a></li>
+          <li class="breadcrumb-item"><a href="../developer-index.html">Developer Reference</a></li>
       <li class="breadcrumb-item active">Implementing new system call</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/devel/new-syscall.rst.txt" rel="nofollow"> View page source</a>
@@ -147,7 +173,10 @@ to be listed here in order to be used by your system call implementation.</p>
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="debugging.html" class="btn btn-neutral float-left" title="Debugging Gramine with GDB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../pal/host-abi.html" class="btn btn-neutral float-right" title="PAL host ABI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

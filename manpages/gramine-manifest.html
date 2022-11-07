@@ -18,7 +18,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gramine-sgx-gen-private-key – Gramine SGX key generator" href="gramine-sgx-gen-private-key.html" />
+    <link rel="prev" title="gramine-argv-serializer – Serialize command line arguments" href="gramine-argv-serializer.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,6 +51,40 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../custom-installation.html">Custom Install, Configure, Develop</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../configuration-index.html">Configure Gramine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../manifest-syntax.html">Manifest syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../attestation.html">Attestation and Secret Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance tuning and analysis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Manual pages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gramine.html"><strong class="program">gramine-direct</strong>, <strong class="command">gramine-sgx</strong> – Run something</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-argv-serializer.html"><strong class="program">gramine-argv-serializer</strong> – Serialize command line arguments</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-arguments">Command line arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-and-constants-available-in-templates">Functions and constants available in templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-gen-private-key.html"><strong class="program">gramine-sgx-gen-private-key</strong> – Gramine SGX key generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-get-token.html"><strong class="program">gramine-sgx-get-token</strong> – Gramine SGX token generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-ias-request.html"><strong class="program">gramine-sgx-ias-request</strong> – Submit Intel Attestation Service request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-ias-verify-report.html"><strong class="program">gramine-sgx-ias-verify-report</strong> – Verify Intel Attestation Service report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-quote-dump.html"><strong class="program">gramine-sgx-quote-dump</strong> – Display SGX quote structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gramine-sgx-sign.html"><strong class="program">gramine-sgx-sign</strong> – Gramine SIGSTRUCT generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="is-sgx-available.html"><strong class="program">is-sgx-available</strong> – Check environment for SGX compatibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-index.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials-index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts-index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-index.html">Contribution Guidelines</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Resource</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../management-team.html">Management Team</a></li>
@@ -70,6 +106,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../custom-installation.html">Custom Install, Configure, Develop</a></li>
+          <li class="breadcrumb-item"><a href="../configuration-index.html">Configure Gramine</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Manual pages</a></li>
       <li class="breadcrumb-item active"><strong class="program">gramine-manifest</strong> – Gramine manifest preprocessor</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/manpages/gramine-manifest.rst.txt" rel="nofollow"> View page source</a>
@@ -205,7 +244,10 @@ provided at most once.</p>
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gramine-argv-serializer.html" class="btn btn-neutral float-left" title="gramine-argv-serializer – Serialize command line arguments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gramine-sgx-gen-private-key.html" class="btn btn-neutral float-right" title="gramine-sgx-gen-private-key – Gramine SGX key generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
