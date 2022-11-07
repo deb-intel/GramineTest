@@ -43,11 +43,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Installation-index.html">Select a Deployment Option</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ready-Made Applications</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ready-Made Application</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../curated-installation.html">Intel Confidential Compute images</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Protect Your Containers</span></p>
+<p class="caption" role="heading"><span class="caption-text">Protect Your Container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
@@ -73,8 +73,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-index.html">Contribution Guidelines</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Glossary</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resource</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../management-team.html">Management Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gramine-users.html">Users of Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
 
@@ -91,10 +93,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../custom-installation.html">Custom Install, Configure, Develop</a> &raquo;</li>
-          <li><a href="../developer-index.html">Developer Reference</a> &raquo;</li>
-      <li>Python API</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../custom-installation.html">Custom Install, Configure, Develop</a></li>
+          <li class="breadcrumb-item"><a href="../developer-index.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">Python API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -169,7 +171,7 @@
 python <code class="docutils literal notranslate"><span class="pre">dict</span></code>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>manifest_str</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the manifest in the TOML format.</p>
+<dd class="field-odd"><p><strong>manifest_str</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – the manifest in the TOML format.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -197,8 +199,8 @@ as mapping.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>template</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – jinja2 template of the manifest</p></li>
-<li><p><strong>variables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Dictionary of variables that are used in
+<li><p><strong>template</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – jinja2 template of the manifest</p></li>
+<li><p><strong>variables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Dictionary of variables that are used in
 the template.</p></li>
 </ul>
 </dd>
@@ -222,7 +224,7 @@ returns them.</p>
 <dd class="field-odd"><p>List of paths to the files this manifest depends on.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)">pathlib.Path</a>)</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)">pathlib.Path</a>)</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#graminelibos.ManifestError" title="graminelibos.ManifestError"><strong>ManifestError</strong></a> – One of the found URIs is in an unsupported format.</p>

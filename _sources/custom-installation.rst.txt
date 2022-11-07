@@ -24,18 +24,3 @@ Refer to the following as you configure and develop Gramine.
    developer-index
    tutorials-index
    concepts-index
-
-
-.. tabs::
-
-   .. tab:: Apples
-
-      Apples are green, or sometimes red.
-
-   .. tab:: Pears
-
-      Pears are green.
-
-   .. tab:: Oranges
-
-      Oranges are orange.

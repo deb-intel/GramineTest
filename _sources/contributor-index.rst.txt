@@ -13,5 +13,4 @@ Helpful material for users who want to contribute to Gramine development.
    devel/DCO/index
    devel/setup
    devel/howto-doc
-   devel/coding-style   
-   gramine-users
+   devel/coding-style 
