@@ -10,8 +10,8 @@ to be graminized via the ``gsc build`` command. When the graminized image should
 run within an Intel SGX enclave, the image has to be signed via a ``gsc
 sign-image`` command.  Subsequently, the image can be run using ``docker run``.
 
-Note that GSC (Gramine Shielded Containers) tool is split from the core Gramine
-repository and can be found here: https://github.com/gramineproject/gsc.
+Note the the GSC documentation is split from the core Gramine documentation
+and is hosted here: https://gramine.readthedocs.io/projects/gsc.
 
-Similarly, GSC documentation is split from the core Gramine documentation and is
-hosted here: https://gramine.readthedocs.io/projects/gsc.
+Similarly, the GSC tool is split from the core Gramine repository and can be
+found here: https://github.com/gramineproject/gsc.

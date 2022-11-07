@@ -10,6 +10,9 @@ different host OSs, and process migration.
 
 Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. Refer to the :doc:`sgx-intro`.
 
+Quick links
+===========
+
 .. list-table:: Get Started
    :widths: 25 25 25
    :header-rows: 1
