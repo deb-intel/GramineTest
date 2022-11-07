@@ -13,7 +13,7 @@ Gramine supports running Linux applications using the Intel Software Guard Exten
 Quick links
 ===========
 
-.. list-table:: Get Started
+.. list-table::
    :widths: 25 25 25
    :header-rows: 1
 
