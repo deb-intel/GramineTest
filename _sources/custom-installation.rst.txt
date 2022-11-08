@@ -8,7 +8,6 @@ Install Gramine and all components on your own server. Select this option if you
 **Select** Use :doc:`quickstart` instructions to quickly install and run Gramine. For full build instructions, see :doc:`devel/building`.
 
 .. toctree::
-   :hidden:
    :maxdepth: 1
 
    quickstart
