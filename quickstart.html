@@ -18,7 +18,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Custom-Build Gramine" href="devel/building.html" />
+    <link rel="prev" title="Quick Install or Custom Build Gramine" href="custom-installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +52,20 @@
 <li class="toctree-l1"><a class="reference internal" href="gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="custom-installation.html">Quick Install or Custom Build Gramine</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="custom-installation.html">Quick Install or Custom Build Gramine</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-gramine">Install Gramine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-signing-key">Prepare a signing key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-sample-application">Run the sample application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-sample-applications">Other sample applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glibc-vs-musl">glibc vs musl</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devel/building.html">Custom-Build Gramine</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="configuration-index.html">Configure Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer-index.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials-index.html">Tutorials</a></li>
@@ -79,6 +93,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="custom-installation.html">Quick Install or Custom Build Gramine</a></li>
       <li class="breadcrumb-item active">Quick Start</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
@@ -128,7 +143,7 @@ sudo apt-get install gramine-oot  <span class="c1"># for out-of-tree SDK driver<
 sudo apt-get install gramine-dcap <span class="c1"># for out-of-tree DCAP driver</span>
 </pre></div>
 </div>
-<p>On <strong>RHEL-8-like distributions</strong> (like AlmaLinux 8, CentOS 8, Rocky Linux 8, …):</p>
+<p>On <strong>RHEL-8-like distributions</strong> (like AlmaLinux 8, CentOS 8, Rocky Linux 8, …) run the following:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
 sudo dnf install gramine          <span class="c1"># only the default, distro-provided kernel is supported</span>
 </pre></div>
@@ -200,7 +215,10 @@ this will mount musl libc (instead of the default glibc).</p>
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="custom-installation.html" class="btn btn-neutral float-left" title="Quick Install or Custom Build Gramine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="devel/building.html" class="btn btn-neutral float-right" title="Custom-Build Gramine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -44,7 +44,7 @@ Next, select **one** of the three options below. You will get pre-packaged grami
    sudo apt-get install gramine-oot  # for out-of-tree SDK driver
    sudo apt-get install gramine-dcap # for out-of-tree DCAP driver
 
-On **RHEL-8-like distributions** (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...)::
+On **RHEL-8-like distributions** (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...) run the following::
 
    sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
    sudo dnf install gramine          # only the default, distro-provided kernel is supported

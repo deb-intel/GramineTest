@@ -18,7 +18,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configure Gramine" href="../configuration-index.html" />
+    <link rel="prev" title="Quick Start" href="../quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +52,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../gsc-installation.html">Gramine Shielded Containers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Custom Build Gramine</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../custom-installation.html">Quick Install or Custom Build Gramine</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../custom-installation.html">Quick Install or Custom Build Gramine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom-Build Gramine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-dependencies">Install dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-dependencies">Common dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies-for-sgx">Dependencies for SGX</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#build-gramine">Build Gramine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additional-build-options">Additional build options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-signing-key">Prepare a signing key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-install-linux-kernel-with-fsgsbase-patches">Advanced: Install Linux kernel with FSGSBASE patches</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration-index.html">Configure Gramine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer-index.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials-index.html">Tutorials</a></li>
@@ -79,6 +98,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../custom-installation.html">Quick Install or Custom Build Gramine</a></li>
       <li class="breadcrumb-item active">Custom-Build Gramine</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/devel/building.rst.txt" rel="nofollow"> View page source</a>
@@ -108,16 +128,12 @@ tested on Ubuntu 18.04/20.04, along with Linux kernel version 5.x. We recommend
 building and installing Gramine on Ubuntu with Linux kernel version 5.11 or
 higher. If you find problems with Gramine on other Linux distributions,
 contact us with a detailed <a class="reference external" href="https://github.com/gramineproject/gramine/issues/new">bug report</a>.</p>
-<section id="install-from-a-docker-container">
-<h2>Install from a Docker container<a class="headerlink" href="#install-from-a-docker-container" title="Permalink to this headline"></a></h2>
-<p>If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that’s included in the custom installation. You must create your own manifest.</p>
-<p><strong>Select</strong> <span class="xref std std-doc">docker-image-installation</span></p>
+<p><strong>Install from a Docker container</strong></p>
+<p>If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that’s included in the custom installation. You must create your own manifest. Go to <span class="xref std std-doc">docker-image-installation</span> for more information.</p>
 <section id="install-dependencies">
-<h3>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline"></a></h3>
-</section>
-</section>
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline"></a></h2>
 <section id="common-dependencies">
-<span id="id1"></span><h2>Common dependencies<a class="headerlink" href="#common-dependencies" title="Permalink to this headline"></a></h2>
+<span id="id1"></span><h3>Common dependencies<a class="headerlink" href="#common-dependencies" title="Permalink to this headline"></a></h3>
 <p>Run the following command on Ubuntu LTS to install dependencies:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y build-essential <span class="se">\</span>
     autoconf bison gawk nasm ninja-build python3 python3-click <span class="se">\</span>
@@ -139,7 +155,7 @@ GCC’s build dependencies:</p>
 </div>
 </section>
 <section id="dependencies-for-sgx">
-<h2>Dependencies for SGX<a class="headerlink" href="#dependencies-for-sgx" title="Permalink to this headline"></a></h2>
+<h3>Dependencies for SGX<a class="headerlink" href="#dependencies-for-sgx" title="Permalink to this headline"></a></h3>
 <p>The build of Gramine with SGX support requires the corresponding SGX software
 infrastructure to be installed on the system. In particular, the FSGSBASE
 functionality must be enabled in the Linux kernel, the Intel SGX driver must be
@@ -150,12 +166,17 @@ running, and Intel SGX SDK/PSW/DCAP must be installed.</p>
 version, Linux has the FSGSBASE functionality as well as the Intel SGX driver
 built-in. If you have Linux 5.11+, skip steps 2 and 3.</p>
 </div>
+<section id="required-packages">
+<h4>1. Required packages<a class="headerlink" href="#required-packages" title="Permalink to this headline"></a></h4>
 <p>Run the following commands on Ubuntu to install SGX-related dependencies:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y libcurl4-openssl-dev <span class="se">\</span>
     libprotobuf-c-dev protobuf-c-compiler protobuf-compiler <span class="se">\</span>
     python3-cryptography python3-pip python3-protobuf
 </pre></div>
 </div>
+</section>
+<section id="install-linux-kernel-with-patched-fsgsbase">
+<h4>2. Install Linux kernel with patched FSGSBASE<a class="headerlink" href="#install-linux-kernel-with-patched-fsgsbase" title="Permalink to this headline"></a></h4>
 <p>FSGSBASE is a feature in recent processors which allows direct access to the FS
 and GS segment base addresses. For more information about FSGSBASE and its
 benefits, see <a class="reference external" href="https://lwn.net/Articles/821719">this discussion</a>. Note that
@@ -172,6 +193,9 @@ you can follow e.g. <a class="reference external" href="https://itsfoss.com/upgr
 <li><p>Use our provided patches to the Linux kernel version 5.4. See section
 <a class="reference internal" href="#fsgsbase"><span class="std std-ref">Prepare a signing key</span></a> for the exact steps.</p></li>
 </ul>
+</section>
+<section id="install-the-intel-sgx-driver">
+<h4>3. Install the Intel SGX driver<a class="headerlink" href="#install-the-intel-sgx-driver" title="Permalink to this headline"></a></h4>
 <p>This step depends on your hardware and kernel version. Note that if your kernel
 version is 5.11 or higher, then the Intel SGX driver is already installed and
 you can skip this step.</p>
@@ -192,6 +216,9 @@ DCAP version of the Intel SGX driver from:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/intel/SGXDataCenterAttestationPrimitives">https://github.com/intel/SGXDataCenterAttestationPrimitives</a></p></li>
 </ul>
+</section>
+<section id="install-intel-sgx-sdk-psw">
+<h4>4. Install Intel SGX SDK/PSW<a class="headerlink" href="#install-intel-sgx-sdk-psw" title="Permalink to this headline"></a></h4>
 <p>Follow the installation instructions from the “Intel SGX Software Installation
 Guide” version 1.14 (the latest version as of July 2022):</p>
 <ul class="simple">
@@ -206,6 +233,9 @@ Guide” version 1.14 (the latest version as of July 2022):</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/intel/linux-sgx">https://github.com/intel/linux-sgx</a></p></li>
 </ul>
+</section>
+<section id="install-dependencies-for-dcap">
+<h4>5. Install dependencies for DCAP<a class="headerlink" href="#install-dependencies-for-dcap" title="Permalink to this headline"></a></h4>
 <p>If you plan on enabling <code class="docutils literal notranslate"><span class="pre">-Ddcap</span></code> option, you need to install
 <code class="docutils literal notranslate"><span class="pre">libsgx-dcap-quote-verify</span></code> package (and it’s development counterpart):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -fsSL https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key <span class="p">|</span> sudo apt-key add -
@@ -216,8 +246,11 @@ sudo apt-get update
 sudo apt-get install libsgx-dcap-quote-verify-dev
 </pre></div>
 </div>
+</section>
+</section>
+</section>
 <section id="build-gramine">
-<h3>Build Gramine<a class="headerlink" href="#build-gramine" title="Permalink to this headline"></a></h3>
+<h2>Build Gramine<a class="headerlink" href="#build-gramine" title="Permalink to this headline"></a></h2>
 <p>In order to build Gramine, you need to first set up the build directory. In the
 root directory of Gramine repo, run the following command (recall that “direct”
 means non-SGX version):</p>
@@ -269,10 +302,8 @@ that <code class="docutils literal notranslate"><span class="pre">/usr/local/bin
 </div>
 <p>Set <code class="docutils literal notranslate"><span class="pre">-Dglibc=</span></code> or <code class="docutils literal notranslate"><span class="pre">-Dmusl=</span></code> options to <code class="docutils literal notranslate"><span class="pre">disabled</span></code> if you wish not to build
 the support for any (they are both built by default).</p>
-</section>
-</section>
 <section id="additional-build-options">
-<h2>Additional build options<a class="headerlink" href="#additional-build-options" title="Permalink to this headline"></a></h2>
+<h3>Additional build options<a class="headerlink" href="#additional-build-options" title="Permalink to this headline"></a></h3>
 <ul>
 <li><p>To build test binaries, run <strong class="command">meson -Dtests=enabled</strong>. This is
 necessary if you will be running regression tests. See
@@ -375,8 +406,10 @@ take a long time: unfortunately, the only supported way of building
 <code class="docutils literal notranslate"><span class="pre">libgomp</span></code> is as part of a complete GCC build.</p>
 </li>
 </ul>
+</section>
+</section>
 <section id="prepare-a-signing-key">
-<span id="fsgsbase"></span><h3>Prepare a signing key<a class="headerlink" href="#prepare-a-signing-key" title="Permalink to this headline"></a></h3>
+<span id="fsgsbase"></span><h2>Prepare a signing key<a class="headerlink" href="#prepare-a-signing-key" title="Permalink to this headline"></a></h2>
 <p>Only for SGX enclave development, and if you haven’t already, run the following
 command:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gramine-sgx-gen-private-key
@@ -390,7 +423,7 @@ extension), the SIGSTRUCT signature file (<code class="docutils literal notransl
 EINITTOKEN file (<code class="docutils literal notranslate"><span class="pre">.token</span></code> extension) to execute on another SGX-enabled host.</p>
 </section>
 <section id="advanced-install-linux-kernel-with-fsgsbase-patches">
-<h3>Advanced: Install Linux kernel with FSGSBASE patches<a class="headerlink" href="#advanced-install-linux-kernel-with-fsgsbase-patches" title="Permalink to this headline"></a></h3>
+<h2>Advanced: Install Linux kernel with FSGSBASE patches<a class="headerlink" href="#advanced-install-linux-kernel-with-fsgsbase-patches" title="Permalink to this headline"></a></h2>
 <p>FSGSBASE patchset was merged in Linux kernel version 5.9. For older kernels it
 is available as <a class="reference external" href="https://github.com/oscarlab/graphene-sgx-driver/tree/master/fsgsbase_patches">separate patches</a>.
 (Note that Gramine was prevously called <em>Graphene</em> and was hosted under a
@@ -446,13 +479,15 @@ of other SGX software infrastructure: the Intel SGX Linux driver, the Intel SGX
 SDK/PSW, and Gramine itself.</p>
 </section>
 </section>
-</section>
 
 
            </div>
           </div>
 
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../configuration-index.html" class="btn btn-neutral float-right" title="Configure Gramine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

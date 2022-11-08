@@ -21,12 +21,9 @@ higher. If you find problems with Gramine on other Linux distributions,
 contact us with a |~| detailed `bug report
 <https://github.com/gramineproject/gramine/issues/new>`__.
 
-Install from a Docker container
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Install from a Docker container**
 
-If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest.
-
-**Select** :doc:`docker-image-installation`
+If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest. Go to :doc:`docker-image-installation` for more information.
 
 Install dependencies
 --------------------
