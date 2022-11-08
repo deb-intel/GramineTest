@@ -25,8 +25,6 @@ contact us with a |~| detailed `bug report
 
 If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest. Go to :doc:`docker-image-installation`.
 
-**Select** :doc:`docker-image-installation`
-
 Install dependencies
 --------------------
 
