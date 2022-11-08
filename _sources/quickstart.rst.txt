@@ -21,13 +21,13 @@ descriptions in :doc:`devel/building`.
 
 We supply a tool :doc:`manpages/is-sgx-available`, which you can use to check
 your hardware and system. It's installed together with the respective gramine
-package (see below).
+package you install from the options below.
 
 Install Gramine
 ---------------
 
-On Ubuntu 18.04 or 20.04 (for 18.04, in :file:`intel-sgx.list`, replace
-``focal`` with ``bionic``)::
+On **Ubuntu 18.04 or 20.04 distributions** (for 18.04, in :file:`intel-sgx.list`, replace
+``focal`` with ``bionic``), run the following::
 
    sudo curl -fsSLo /usr/share/keyrings/gramine-keyring.gpg https://packages.gramineproject.io/gramine-keyring.gpg
    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/gramine-keyring.gpg] https://packages.gramineproject.io/ stable main' | sudo tee /etc/apt/sources.list.d/gramine.list
@@ -36,13 +36,15 @@ On Ubuntu 18.04 or 20.04 (for 18.04, in :file:`intel-sgx.list`, replace
    echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
    # (if you're on Ubuntu 18.04, remember to write "bionic" instead of "focal")
 
+Next, select **one** of the three options below. You will get pre-packaged gramine binaries from an Ubuntu repo::
+
    sudo apt-get update
 
    sudo apt-get install gramine      # for 5.11+ upstream, in-kernel driver
    sudo apt-get install gramine-oot  # for out-of-tree SDK driver
    sudo apt-get install gramine-dcap # for out-of-tree DCAP driver
 
-On RHEL-8-like distribution (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...)::
+On **RHEL-8-like distributions** (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...)::
 
    sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
    sudo dnf install gramine          # only the default, distro-provided kernel is supported
@@ -50,27 +52,28 @@ On RHEL-8-like distribution (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...)::
 Prepare a signing key
 ---------------------
 
-Only for SGX, and if you haven't already::
+Only for SGX, and if you haven't already, enter the following::
 
    gramine-sgx-gen-private-key
 
-This command generates an |~| RSA 3072 key suitable for signing SGX enclaves and
-stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. This key needs to
-be protected and should not be disclosed to anyone.
+This command generates an |~| RSA 3072 key suitable for signing SGX enclaves
+and stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. Protect
+this key and do not disclose it to anyone.
 
-Run sample application
-----------------------
+Run the sample application
+--------------------------
 
-Core Gramine repository contains several sample applications. Thus, to test
-Gramine installation, we clone the Gramine repo:
+The core Gramine repository contains several sample applications. Thus, to
+test the Gramine installation, clone the Gramine repo:
 
 .. parsed-literal::
 
    git clone --depth 1 |stable-checkout| \https://github.com/gramineproject/gramine.git
 
-We don't want to build Gramine (it is already installed on the system). Instead,
-we want to build and run the HelloWorld example. To build the HelloWorld
-application, we need the ``gcc`` compiler and the ``make`` build system::
+Don't build Gramine as it is already installed on the system. Instead,
+build and run the HelloWorld example. To build the HelloWorld application,
+access the ``gcc`` compiler and the ``make`` build system by entering the
+following::
 
    sudo apt-get install gcc make  # for Ubuntu distribution
    sudo dnf install gcc make      # for RHEL-8-like distribution
@@ -92,17 +95,16 @@ Build and run with SGX::
 Other sample applications
 -------------------------
 
-We prepared and tested several applications to demonstrate Gramine usability.
-These applications can be found in the :file:`CI-Examples` directory in the
-repository, each containing a short README with instructions how to test it. We
-recommend starting with a simpler, thoroughly documented example of Redis, to
-understand manifest options and features of Gramine.
+Several applications that demonstrate Gramine usability are avaliable in the :file:`CI-Examples` directory in the repository. Each application contains a
+short README file with instructions how to test it. We recommend starting
+with a simpler, thoroughly documented example of Redis in order to
+understand manifest options and Gramine features.
 
-Additional sample configurations for applications enabled in Gramine can be
-found in a separate repository https://github.com/gramineproject/examples.
+Additional sample configurations for applications enabled in Gramine are
+available in a separate repository https://github.com/gramineproject/examples.
 
-Please note that these sample applications are tested on Ubuntu 18.04 and 20.04.
-Most of these applications are also known to run correctly on
+Note that these sample applications are tested on Ubuntu 18.04 and 20.04.
+Most of these applications run correctly on 
 Fedora/RHEL/CentOS, but with caveats. One caveat is that Makefiles should be
 invoked with ``ARCH_LIBDIR=/lib64 make``. Another caveat is that applications
 that rely on specific versions/builds of Glibc may break (our GCC example is
@@ -113,5 +115,5 @@ glibc vs musl
 
 Most of the examples we provide use GNU C Library (glibc). If your application
 is built against musl libc, you can pass ``'musl'`` to
-:py:func:`gramine.runtimedir()` when generating the manifest from a template,
-which will mount musl libc (instead of the default glibc).
+:py:func:`gramine.runtimedir()` when generating the manifest from a template;
+this will mount musl libc (instead of the default glibc).

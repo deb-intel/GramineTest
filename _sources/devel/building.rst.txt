@@ -10,19 +10,26 @@ Gramine consists of several components:
 - A patched C Library (shared library ``libc.so`` and possibly others).
   Currently there are two options: musl and GNU C Library (glibc).
 
-The build of Gramine implies building at least the first two components. The
+Building Gramine implies building at least the first two components. The
 build of the patched C library is optional but highly recommended for
 performance reasons. Both patched glibc and patched musl are built by default.
 
 Gramine currently only works on the x86_64 architecture. Gramine is currently
 tested on Ubuntu 18.04/20.04, along with Linux kernel version 5.x. We recommend
 building and installing Gramine on Ubuntu with Linux kernel version 5.11 or
-higher. If you find problems with Gramine on other Linux distributions, please
+higher. If you find problems with Gramine on other Linux distributions, 
 contact us with a |~| detailed `bug report
 <https://github.com/gramineproject/gramine/issues/new>`__.
 
-Installing dependencies
------------------------
+Install from a Docker container
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest.
+
+**Select** :doc:`docker-image-installation`
+
+Install dependencies
+--------------------
 
 .. _common-dependencies:
 
@@ -151,8 +158,8 @@ If you plan on enabling ``-Ddcap`` option, you need to install
    sudo apt-get update
    sudo apt-get install libsgx-dcap-quote-verify-dev
 
-Building
---------
+Build Gramine
+-------------
 
 In order to build Gramine, you need to first set up the build directory. In the
 root directory of Gramine repo, run the following command (recall that "direct"
@@ -305,8 +312,7 @@ command::
    gramine-sgx-gen-private-key
 
 This command generates an |~| RSA 3072 key suitable for signing SGX enclaves and
-stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. This key needs to
-be protected and should not be disclosed to anyone.
+stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. Protect this key and do not disclose it to anyone.
 
 After signing the application's manifest, users may ship the application and
 Gramine binaries, along with an SGX-specific manifest (``.manifest.sgx``
@@ -314,8 +320,8 @@ extension), the SIGSTRUCT signature file (``.sig`` extension), and the
 EINITTOKEN file (``.token`` extension) to execute on another SGX-enabled host.
 
 
-Advanced: installing Linux kernel with FSGSBASE patches
--------------------------------------------------------
+Advanced: Install Linux kernel with FSGSBASE patches
+----------------------------------------------------
 
 FSGSBASE patchset was merged in Linux kernel version 5.9. For older kernels it
 is available as `separate patches
