@@ -1,30 +1,34 @@
 .. _quickstart_installation
 
-Quick Start
+Intall Gramine 
 ===========
+
+These instructions explain how to install Gramine. Gramine is supported on several versions of Ubuntu. Installation instructions for each supported version is listed below. 
 
 .. highlight:: sh
 
 Prerequisites
 -------------
 
-Gramine without SGX has no special requirements.
+Gramine without SGX support has no special requirements.
 
-Gramine with SGX support requires several features from your system:
+Gramine with SGX support has the following requirements:
 
 - the FSGSBASE feature of recent processors must be enabled in the Linux kernel;
 - the Intel SGX driver must be built in the Linux kernel;
 - Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed.
 
-If your system doesn't meet these requirements, please refer to more detailed
-descriptions in :doc:`devel/building`.
+If your system doesn't meet these requirements, please refer to the :doc:`devel/building` Section.
 
-We supply a tool :doc:`manpages/is-sgx-available`, which you can use to check
-your hardware and system. It's installed together with the respective gramine
+Check for SGX compatibility
+
+To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
 package you install from the options below.
 
-Install Gramine
+Install Gramine on a specific version of Linux
 ---------------
+
+The instructions below list installation instructions for the supported versions of Linux. To Install Gramine, navigate to the version of Linux running on your system and follow the installation instructions. 
 
 On **Ubuntu 18.04 or 20.04 distributions** (for 18.04, in :file:`intel-sgx.list`, replace
 ``focal`` with ``bionic``), run the following::
@@ -52,18 +56,25 @@ On **RHEL-8-like distributions** (like AlmaLinux 8, CentOS 8, Rocky Linux 8, ...
 Prepare a signing key
 ---------------------
 
-Only for SGX, and if you haven't already, enter the following::
+These instructions are only required for systems using SGX and have not already created a signing key.
+
+   - If your system is not using SGX, skip to Run the sample appliction.
+
+   - If your system is using SGX and you alreasy created a signuing key, skip to Run the sample application. 
+
+   - If your system is using SGX and have not created a signing key, follow the instructions below. 
+
+The following command generates an |~| RSA 3072 key suitable for signing SGX enclaves
+and stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. Protect
+this key and do not disclose it to anyone:: 
 
    gramine-sgx-gen-private-key
 
-This command generates an |~| RSA 3072 key suitable for signing SGX enclaves
-and stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. Protect
-this key and do not disclose it to anyone.
 
 Run the sample application
 --------------------------
 
-The core Gramine repository contains several sample applications. Thus, to
+The core Gramine repository contains several sample application to
 test the Gramine installation, clone the Gramine repo:
 
 .. parsed-literal::
