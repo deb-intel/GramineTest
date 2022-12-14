@@ -1,9 +1,9 @@
 .. _quickstart_installation
 
-Intall Gramine 
+Install Gramine 
 ===========
 
-These instructions explain how to install Gramine. Gramine is supported on several versions of Ubuntu. Installation instructions for each supported version is listed below. 
+Gramine is supported on several versions of Ubuntu. Installation instructions for each supported version is listed below. Navigate to the instructions for Linux version on your system to install Gramine.
 
 .. highlight:: sh
 
@@ -14,13 +14,14 @@ Gramine without SGX support has no special requirements.
 
 Gramine with SGX support has the following requirements:
 
-- the FSGSBASE feature of recent processors must be enabled in the Linux kernel;
-- the Intel SGX driver must be built in the Linux kernel;
-- Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed.
+- The FSGSBASE feature of recent processors must be enabled in the Linux kernel
+- The Intel SGX driver must be built in the Linux kernel
+- Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed
 
-If your system doesn't meet these requirements, please refer to the :doc:`devel/building` Section.
+If your system doesn't meet these requirements, please refer to the :doc:`devel/building` section for instruction on how to install these requirements.
 
 Check for SGX compatibility
+---------------
 
 To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
 package you install from the options below.
@@ -58,9 +59,9 @@ Prepare a signing key
 
 These instructions are only required for systems using SGX and have not already created a signing key.
 
-   - If your system is not using SGX, skip to Run the sample appliction.
+   - If your system is not using SGX, skip to Run the sample application.
 
-   - If your system is using SGX and you alreasy created a signuing key, skip to Run the sample application. 
+   - If your system is using SGX and you already created a signing key, skip to Run the sample application. 
 
    - If your system is using SGX and have not created a signing key, follow the instructions below. 
 
@@ -106,7 +107,7 @@ Build and run with SGX::
 Other sample applications
 -------------------------
 
-Several applications that demonstrate Gramine usability are avaliable in the :file:`CI-Examples` directory in the repository. Each application contains a
+Several applications that demonstrate Gramine usability are available in the :file:`CI-Examples` directory in the repository. Each application contains a
 short README file with instructions how to test it. We recommend starting
 with a simpler, thoroughly documented example of Redis in order to
 understand manifest options and Gramine features.

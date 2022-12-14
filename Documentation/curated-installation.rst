@@ -9,5 +9,5 @@ Note that these confidential compute images only run on machines that support In
 
 Current list of solutions and installation instructions:
 
-- Redis
-- PyTorch 
+- `Redis <https://github.com/gramineproject/contrib/tree/master/Curated-Apps/workloads/redis>`_
+- `PyTorch <https://github.com/gramineproject/contrib/tree/master/Curated-Apps/workloads/pytorch> _`

@@ -43,7 +43,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Ready-Made Application 
+   :caption: Intel Confidential Compute Image for X
    :maxdepth: 1
 
    curated-installation
