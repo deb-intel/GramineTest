@@ -1,6 +1,6 @@
 .. _quickstart_installation
 
-Install Gramine 
+Install Gramine on a specific version of Ubuntu
 ===========
 
 Gramine is supported on several versions of Ubuntu. Installation instructions for each supported version is listed below. Navigate to the instructions for Linux version on your system to install Gramine.
@@ -26,7 +26,7 @@ Check for SGX compatibility
 To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
 package you install from the options below.
 
-Install Gramine on a specific version of Linux
+Install Gramine on a specific version of Ubunto
 ---------------
 
 The instructions below list installation instructions for the supported versions of Linux. To Install Gramine, navigate to the version of Linux running on your system and follow the installation instructions. 
@@ -109,7 +109,7 @@ Other sample applications
 
 Several applications that demonstrate Gramine usability are available in the :file:`CI-Examples` directory in the repository. Each application contains a
 short README file with instructions how to test it. We recommend starting
-with a simpler, thoroughly documented example of Redis in order to
+with a simpler, thoroughly documented example of Redis to
 understand manifest options and Gramine features.
 
 Additional sample configurations for applications enabled in Gramine are
