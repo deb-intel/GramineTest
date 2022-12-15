@@ -26,7 +26,7 @@ Check for SGX compatibility
 To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
 package you install from the options below.
 
-Install Gramine on a specific version of Ubunto
+Install Gramine on a specific version of Ubuntu
 ---------------
 
 The instructions below list installation instructions for the supported versions of Linux. To Install Gramine, navigate to the version of Linux running on your system and follow the installation instructions. 
