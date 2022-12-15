@@ -19,9 +19,9 @@ This option is used when you have an application enclosed in a Docker container 
 
 Install Gramine
 -------------------
-Install Gramine and all its components on your own server. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to m,manually create a manifest file.
+In this section you contains installation instructions for the supported versions of Linux. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
 
-**Select** Use :doc:`custom-installation` to select the custom installation that best matches your use case.
+**Select** :doc:`custom-installation` to select the custom installation that best matches your use case.
 
 
 
