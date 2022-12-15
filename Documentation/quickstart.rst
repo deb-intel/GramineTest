@@ -28,10 +28,11 @@ package you install from the options below.
 
 Install Gramine on Ubuntu 18.04 or 20.04
 ---------------
-Use the following commands to install Gramine on Ubuntu.
 
 .. note::
    On Ubuntu 18.04, in :file:`intel-sgx.list`, replace ``focal`` with ``bionic``), run the following::
+
+Use the following commands to install Gramine on Ubuntu.
 
    sudo curl -fsSLo /usr/share/keyrings/gramine-keyring.gpg https://packages.gramineproject.io/gramine-keyring.gpg
    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/gramine-keyring.gpg] https://packages.gramineproject.io/ stable main' | sudo tee /etc/apt/sources.list.d/gramine.list
