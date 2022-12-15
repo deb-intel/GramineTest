@@ -1,6 +1,6 @@
 .. _curated_index
 
-Ready-made Confidential compute images
+Intel Confidential Compute Images for X
 ======================================
 
 Confidential Compute images with Gramine are ready-made solutions for popular open source projects such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is a curated, confidentially-protected Gramine image that includes your specific machine-learning application, common dependencies, and a manifest file that specifies security policies to enforce for your workload.
@@ -10,4 +10,4 @@ Note that these confidential compute images only run on machines that support In
 Current list of solutions and installation instructions:
 
 - `Redis <https://github.com/gramineproject/contrib/tree/master/Curated-Apps/workloads/redis>`_
-- `PyTorch <https://github.com/gramineproject/contrib/tree/master/Curated-Apps/workloads/pytorch> _`
+- `PyTorch <https://github.com/gramineproject/contrib/tree/master/Curated-Apps/workloads/pytorch>`_

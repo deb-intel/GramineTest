@@ -5,11 +5,9 @@ Select a Deployment Option
 
 Choose one of the deployment options based on your business need or preference.
 
-Confidential Compute images
+Intel Confidential Compute images for X
 ---------------------------
 Images are ready-made for popular open source projects such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential compute images only run on machines that support Intel SGX.
-
-Redis
 
 **Select** :doc:`curated-installation`
 
@@ -19,9 +17,9 @@ This option is used when you have an application enclosed in a Docker container 
 
 **Select** :doc:`gsc-installation`
 
-Custom installation
+Install Gramine
 -------------------
-Install Gramine and all its components on your own server. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to crate a manifest file.
+Install Gramine and all its components on your own server. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to m,manually create a manifest file.
 
 **Select** Use :doc:`custom-installation` to select the custom installation that best matches your use case.
 
