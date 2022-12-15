@@ -1,9 +1,9 @@
 .. _quickstart_installation
 
-Install Gramine on a specific version of Ubuntu
+Install Gramine on Ubuntu
 ===========
 
-Gramine is supported on several versions of Ubuntu. Installation instructions for each supported version is listed below. Navigate to the instructions for Linux version on your system to install Gramine.
+These instructions describe how to install Gramine on an Ubuntu operating system. 
 
 .. highlight:: sh
 
@@ -26,12 +26,12 @@ Check for SGX compatibility
 To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
 package you install from the options below.
 
-Install Gramine on a specific version of Ubuntu
+Install Gramine on Ubuntu 18.04 or 20.04
 ---------------
+Use the following commands to install Gramine on Ubuntu.
 
-The instructions below list installation instructions for the supported versions of Linux. To Install Gramine, navigate to the version of Linux running on your system and follow the installation instructions. 
-
-On **Ubuntu 18.04 or 20.04 distributions** (for 18.04, in :file:`intel-sgx.list`, replace
+.. Note::
+On Ubuntu 18.04, in :file:`intel-sgx.list`, replace
 ``focal`` with ``bionic``), run the following::
 
    sudo curl -fsSLo /usr/share/keyrings/gramine-keyring.gpg https://packages.gramineproject.io/gramine-keyring.gpg
@@ -41,7 +41,7 @@ On **Ubuntu 18.04 or 20.04 distributions** (for 18.04, in :file:`intel-sgx.list`
    echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
    # (if you're on Ubuntu 18.04, remember to write "bionic" instead of "focal")
 
-Next, select **one** of the three options below. You will get pre-packaged gramine binaries from an Ubuntu repo::
+Select **one** of the three options below. You will get pre-packaged gramine binaries from an Ubuntu repo::
 
    sudo apt-get update
 
