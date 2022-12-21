@@ -1,9 +1,9 @@
 .. _quickstart_installation
 
-Install Gramine on Ubuntu
+Install Gramine from binaries
 ===========
 
-These instructions describe how to install Gramine on an Ubuntu operating system. 
+These instructions describe how to install Gramine. 
 
 .. highlight:: sh
 
