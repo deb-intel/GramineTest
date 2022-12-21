@@ -1,6 +1,6 @@
 .. _run_sample_application
 
-Run sample application
+Run a sample application
 =======================
 The core Gramine repository contains several sample application to
 test the Gramine installation, clone the Gramine repo:
