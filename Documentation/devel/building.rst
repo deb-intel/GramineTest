@@ -1,4 +1,4 @@
-Custom-Build Gramine
+Build and install Gramine from source
 ====================
 
 .. highlight:: sh
