@@ -50,7 +50,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Protect Your Container 
+   :caption: Protect Your Application  
    :maxdepth: 1
 
    gsc-installation
@@ -64,8 +64,16 @@ Indices and tables
    custom-installation
    run-sample-application
    configuration-index
-   developer-index
+
    tutorials-index
+
+
+.. toctree::
+   :hidden:
+   :caption: Developer Reference 
+   :maxdepth: 2
+
+   developer-index
    concepts-index
    contributor-index
 
