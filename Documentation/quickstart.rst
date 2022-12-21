@@ -3,7 +3,7 @@
 Install Gramine from binaries
 ===========
 
-These instructions describe how to install Gramine. 
+These instructions describe how to install Gramine from binaries. If you prefer to work with source file, go to :doc:`devel/building`.
 
 .. highlight:: sh
 
