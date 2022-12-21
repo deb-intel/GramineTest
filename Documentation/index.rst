@@ -73,7 +73,10 @@ Indices and tables
    :caption: Developer Reference 
    :maxdepth: 2
 
-   developer-index
+   devel/debugging
+   devel/new-syscall
+   pal/host-abi
+   python/api
    concepts-index
    contributor-index
 
