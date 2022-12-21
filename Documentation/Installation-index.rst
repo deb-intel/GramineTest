@@ -19,7 +19,7 @@ This option is used when you have an application enclosed in a Docker container 
 
 Install Gramine
 -------------------
-In this section contains installation instructions for the supported versions of Ubunto. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
+In this section contains installation instructions for the supported versions of Ubuntu. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
 
 **Select** :doc:`custom-installation` to select the custom installation that best matches your use case.
 

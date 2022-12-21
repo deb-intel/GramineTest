@@ -62,6 +62,7 @@ Indices and tables
    :maxdepth: 2
 
    custom-installation
+   run-sample-application
    configuration-index
    developer-index
    tutorials-index

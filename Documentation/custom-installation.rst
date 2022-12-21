@@ -1,6 +1,6 @@
 .. _custom_installation
 
-Install Gramine on your server
+Install Gramine from binaries
 =====================================
 
 Install Gramine and all components on your own server. Select this option if you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest. 
