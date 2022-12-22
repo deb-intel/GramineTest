@@ -50,7 +50,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Protect Your Application  
+   :caption: Protect your container 
    :maxdepth: 1
 
    gsc-installation
@@ -58,7 +58,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Install Gramine 
+   :caption: Protect your application
    :maxdepth: 1
 
    custom-installation
