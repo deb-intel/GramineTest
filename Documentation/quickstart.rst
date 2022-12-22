@@ -7,25 +7,6 @@ These instructions describe how to install Gramine from binaries. If you prefer 
 
 .. highlight:: sh
 
-Prerequisites
--------------
-
-Gramine without SGX support has no special requirements.
-
-Gramine with SGX support has the following requirements:
-
-- The FSGSBASE feature of recent processors must be enabled in the Linux kernel
-- The Intel SGX driver must be built in the Linux kernel
-- Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed
-
-If your system doesn't meet these requirements, please refer to the :doc:`devel/building` section for instructions on how to install these requirements.
-
-Check for SGX compatibility
----------------
-
-To check your hardware and system for SGX compatibility, use the supplied tool, :doc:`manpages/is-sgx-available`. It's installed together with the respective gramine
-package you install from the options below.
-
 Install Gramine  
 ---------------
 
@@ -78,30 +59,3 @@ Install Gramine on RHEL-8-like distributions (like AlmaLinux 8, CentOS 8, Rocky 
 
    sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
    sudo dnf install gramine          # only the default, distro-provided kernel is supported
-
-
-Prepare a signing key
----------------------
-
-These instructions are only required for systems using SGX and have not already created a signing key.
-
-   - If your system is not using SGX, skip to Run the sample application.
-
-   - If your system is using SGX and you already created a signing key, skip to Run the sample application. 
-
-   - If your system is using SGX and have not created a signing key, follow the instructions below. 
-
-The following command generates an |~| RSA 3072 key suitable for signing SGX enclaves
-and stores it in :file:`{HOME}/.config/gramine/enclave-key.pem`. Protect
-this key and do not disclose it to anyone:: 
-
-   gramine-sgx-gen-private-key
-
-
-glibc vs musl
--------------
-
-Most of the examples we provide use GNU C Library (glibc). If your application
-is built against musl libc, you can pass ``'musl'`` to
-:py:func:`gramine.runtimedir()` when generating the manifest from a template;
-this will mount musl libc (instead of the default glibc).
