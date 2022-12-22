@@ -59,7 +59,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Install Gramine 
-   :maxdepth: 2
+   :maxdepth: 1
 
    custom-installation
    run-sample-application
