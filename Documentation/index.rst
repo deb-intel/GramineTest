@@ -64,7 +64,6 @@ Indices and tables
    custom-installation
    run-sample-application
    configuration-index
-
    tutorials-index
 
 
@@ -73,6 +72,7 @@ Indices and tables
    :caption: Developer Reference 
    :maxdepth: 2
 
+   devel/building
    devel/debugging
    devel/new-syscall
    pal/host-abi
