@@ -69,8 +69,8 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Developer Reference 
-   :maxdepth: 2
+   :caption: Develop Gramine 
+   :maxdepth: 1
 
    devel/building
    devel/debugging
