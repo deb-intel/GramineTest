@@ -3,7 +3,7 @@
 Install Gramine on your server
 =====================================
 
-Install Gramine and all components on your server. Select this option if you have an existing application and you want to take advantage of SGX without making modifications. You must create your own manifest. 
+Install Gramine and all components on your server. Select this option if you have an existing application and you want to take advantage of SGX without making modifications. This option requires you to create your own manifest. 
 
 **Select**  :doc:`quickstart` instructions to quickly install and run Gramine. For full build instructions, see :doc:`devel/building`.
 
@@ -12,8 +12,13 @@ Install Gramine and all components on your server. Select this option if you hav
 
    quickstart
 
+Gramine Docker image
+--------------------------------------
 
-If you opt to custom-build Gramine, you can install Gramine from a Docker container you build that includes an OS packaged with Gramine binaries. The container includes everything that's included in the custom installation. You must create your own manifest.
+If you opt to build Gramine, you can install Gramine from a Docker container that you build which includes an OS packaged with Gramine binaries. The container includes everything that's included in the installation. This option requires you to create your own manifest.
+
+Cloud cloud-deployment
+------------------------
 
 **Select** :doc:`docker-image-installation`
 

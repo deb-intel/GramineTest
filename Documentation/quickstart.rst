@@ -18,7 +18,7 @@ Gramine with SGX support has the following requirements:
 - The Intel SGX driver must be built in the Linux kernel
 - Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed
 
-If your system doesn't meet these requirements, please refer to the :doc:`devel/building` section for instruction on how to install these requirements.
+If your system doesn't meet these requirements, please refer to the :doc:`devel/building` section for instructions on how to install these requirements.
 
 Check for SGX compatibility
 ---------------
