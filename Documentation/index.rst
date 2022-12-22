@@ -62,6 +62,7 @@ Indices and tables
    :maxdepth: 1
 
    custom-installation
+   quickstart
    run-sample-application
    configuration-index
    tutorials-index
