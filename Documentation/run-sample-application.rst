@@ -1,13 +1,10 @@
 .. _run_sample_application
 
+
 Run a sample application
 =======================
-The core Gramine repository contains several sample application to
-test the Gramine installation, clone the Gramine repo:
 
-.. parsed-literal::
 
-   git clone --depth 1 |stable-checkout| \https://github.com/gramineproject/gramine.git
 
 Prerequisites
 ---------------------------
@@ -50,6 +47,30 @@ Build and run with SGX::
 
    make SGX=1
    gramine-sgx helloworld
+
+
+Prepare a signing key  
+---------------------------------------------
+
+Only for SGX, and if you haven’t already, enter the following:
+
+.. parsed-literal::
+
+gramine-sgx-gen-private-key
+
+
+This command generates an RSA 3072 key suitable for signing SGX enclaves and stores it in HOME/.config/gramine/enclave-key.pem. Protect this key and do not disclose it to anyone.
+
+
+Run a sample application
+=======================
+The core Gramine repository contains several sample application to
+test the Gramine installation, clone the Gramine repo:
+
+.. parsed-literal::
+
+   git clone --depth 1 |stable-checkout| \https://github.com/gramineproject/gramine.git
+
 
 Other sample applications
 -------------------------
