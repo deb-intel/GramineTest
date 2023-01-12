@@ -4,6 +4,7 @@
 Run a sample application
 =======================
 
+Theses instructions explain how to run a sample application to test the Gramine installation.
 
 
 Prerequisites
@@ -62,8 +63,8 @@ gramine-sgx-gen-private-key
 This command generates an RSA 3072 key suitable for signing SGX enclaves and stores it in HOME/.config/gramine/enclave-key.pem. Protect this key and do not disclose it to anyone.
 
 
-Run a sample application
-=======================
+Run the sample application
+-------------------------
 The core Gramine repository contains several sample application to
 test the Gramine installation, clone the Gramine repo:
 
