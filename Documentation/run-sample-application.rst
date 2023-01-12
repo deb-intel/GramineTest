@@ -9,7 +9,7 @@ Theses instructions explain how to run a sample application to test the Gramine 
 
 Prerequisites
 ---------------------------
-
+entation
 Gramine without SGX has no special requirements.
 
 Gramine with SGX support requires several features from your system:
