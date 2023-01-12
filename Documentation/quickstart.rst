@@ -12,11 +12,11 @@ Gramine Installation options
 
 There are three options to choose from when installing Gramine. 
 
-Option 1: Install Gramine on your system and run your Gramine-protected application as a system process. 
+**Option 1:** Install Gramine on your system and run your Gramine-protected application as a system process. 
 
-Option 2: Put your application in a Prepared Docker image container with Gramine and run the container. 
+**Option 2:** Put your application in a Prepared Docker image container with Gramine and run the container. 
 
-Option 3: Build Gramine from source. See the Build Gramine from Source article for more information.  
+**Option 3:** Build Gramine from source. See the Build Gramine from Source article for more information.  
 
 Install Gramine  
 ---------------
