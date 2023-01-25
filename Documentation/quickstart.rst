@@ -1,18 +1,18 @@
 .. _quickstart_installation
 
-Install Gramine
-===========
+Gramine Installation Options
+============================
 
 There are three options to choose from when installing Gramine. 
 
-:ref:`Install Gramine` This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
+:ref:`Install Gramine` - This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
 
 **Option 2:** Put your application in a Prepared Docker image container with Gramine and run the container. 
 
 **Option 3:** Build Gramine from source. See the Build Gramine from Source article for more information.  
 
 Install Gramine  
----------------
+-----------------
 
 On Ubuntu 22.04 and Debian 11::
 
