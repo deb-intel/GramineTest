@@ -10,22 +10,33 @@ different host OSs, and process migration.
 
 Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. Refer to the :doc:`sgx-intro`.
 
-Quick links
-===========
+Gramine Deployment Options
+------------------------------------
+There are three deployment options for Gramine. Each option is discussed below.
 
-.. list-table::
-   :widths: 25 25 25
-   :header-rows: 1
+Ready-Made Protected Applications
+=====================================
+Images are ready-made for popular open source projects such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential compute images only run on machines that support Intel SGX.
 
-   * - How will you use Gramine? 
-     - Contribute
-     - Community
-   * - :doc:`Installation-index`
-     - :doc:`devel/contributing`
-     - `Join user groups <https://groups.google.com/g/gramine-users>`__
-   * - 3 available options
-     - Thanks for your interest!
-     - `Send questions <users@gramineproject.io>`__
+**Select** :doc:`curated-installation`
+
+Protect Your Container
+============================
+This option is used when you have an application enclosed in a Docker container and you want the to protect the Docker container. This option converts your Docker container in to a graminized Docker container otherwise known as Gramine Shielded Container (GCS). A Gramine Shielded GCS supplies the Gramine Library OS, the manifest files, and any related Intel® SGX information.
+
+**Select** :doc:`gsc-installation`
+
+Protect Your Application
+==========================
+This option requires you to install Gramine from binaries, setting up your environment to run Gramine, preparing a signing key to ensure your applications are protected, and instructions for running sample applications to test your environment. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
+
+**Select** :doc:`custom-installation` to select the custom installation that best matches your use case.
+
+Develop Gramine
+========================
+This section contain information on how to assist in developing Gramine. You will find instructions for building Gramine from source files, installing dependencies, debugging Gramine, preparing signing keys, and information on the contribution guidelines for Gramine.
+
+**Select** :doc:`dev/builiding`
 
 Indices and tables
 ==================
@@ -33,13 +44,6 @@ Indices and tables
 - :ref:`genindex`
 - :ref:`modindex`
 - :ref:`search`
-
-.. toctree::
-   :hidden:
-   :caption: Start Here 
-   :maxdepth: 1
-
-   Installation-index
 
 .. toctree::
    :hidden:
