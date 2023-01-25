@@ -61,7 +61,6 @@ Indices and tables
    :caption: Protect your application
    :maxdepth: 1
 
-   custom-installation
    quickstart
    run-sample-application
    configuration-index

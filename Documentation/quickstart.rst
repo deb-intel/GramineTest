@@ -21,7 +21,7 @@ There are three options to choose from when installing Gramine.
 Install Gramine  
 ---------------
 
-On Ubuntu 22.04 adn Debian 11::
+On Ubuntu 22.04 and Debian 11::
 
    sudo curl -fsSLo /usr/share/keyrings/gramine-keyring.gpg https://packages.gramineproject.io/gramine-keyring.gpg
    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/gramine-keyring.gpg] https://packages.gramineproject.io/ stable main' | sudo tee /etc/apt/sources.list.d/gramine.list
