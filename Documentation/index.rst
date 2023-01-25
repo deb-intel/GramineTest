@@ -2,21 +2,17 @@
 Gramine Documentation
 *********************
 
-Gramine is a lightweight guest OS that's designed to run a single Linux
-application with minimal host requirements. Gramine can run applications in an
-isolated environment with benefits comparable to running a complete OS in a
-virtual machine, including guest customization, ease of porting to
-different host OSs, and process migration.
+Gramine is a lightweight guest OS that's designed to run a single Linux application with minimal host requirements. Gramine can run applications in an isolated environment with benefits comparable to running a complete OS in a virtual machine, including guest customization, ease of porting to different host OSs, and process migration.
 
 Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. Refer to the :doc:`sgx-intro`.
 
 Gramine Deployment Options
 ------------------------------------
-There are three deployment options for Gramine. Each option is discussed below.
+There are three deployment options for Gramine - each option is described below.
 
 Ready-Made Protected Applications
 =====================================
-Images are ready-made for popular open source projects such as PyTorch and Redis. Customize your environment through Interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential compute images only run on machines that support Intel SGX.
+Images are ready-made for popular open source projects such as PyTorch and Redis. Customize your environment through interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential compute images only run on machines that support Intel SGX.
 
 **Select** :doc:`curated-installation`
 
@@ -34,9 +30,9 @@ This option requires you to install Gramine from binaries, setting up your envir
 
 Develop Gramine
 ========================
-This section contain information on how to assist in developing Gramine. You will find instructions for building Gramine from source files, installing dependencies, debugging Gramine, preparing signing keys, and information on the contribution guidelines for Gramine.
+This section contains information on how to assist in developing Gramine. You will find instructions for building Gramine from source files, installing dependencies, debugging Gramine, preparing signing keys, and information on the contribution guidelines for Gramine.
 
-**Select** :doc:`dev/builiding`
+**Select** :doc:`dev/building`
 
 Indices and tables
 ==================

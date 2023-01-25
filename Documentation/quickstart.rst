@@ -5,7 +5,7 @@ Install Gramine
 
 There are three options to choose from when installing Gramine. 
 
-**Option 1:** Install Gramine on your system and run your Gramine-protected application as a system process. 
+:ref `Install Gramine` This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
 
 **Option 2:** Put your application in a Prepared Docker image container with Gramine and run the container. 
 
