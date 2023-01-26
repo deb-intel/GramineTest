@@ -12,12 +12,12 @@ Gramine with SGX support requires several features from your system:
 
 - Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed.
 
-If your system doesn’t meet these requirements, please refer to more detailed descriptions in :doc:`devel/build`.
+If your system doesn’t meet these requirements, please refer to more detailed descriptions in :doc:`devel/building`.
 
 Check for SGX compatibility
 -----------------------------------
 
-We supply a tool, <a href=""https://deb-intel.github.io/GramineTest/manpages/is-sgx-available.html>is-sgx-available – Check environment for SGX compatibility</a>, which you can use to check your hardware and system. It’s installed together with the respective gramine package you install from the options below.
+We supply a tool, <a href=""https://deb-intel.github.io/GramineTest/manpages/is-sgx-available.html>is-sgx-available</a> – Check environment for SGX compatibility</a>, which you can use to check your hardware and system. It’s installed together with the respective gramine package you install from the options below.
 
 
 Prepare a signing key  
