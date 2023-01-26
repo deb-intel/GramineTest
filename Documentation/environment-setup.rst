@@ -12,7 +12,7 @@ Gramine with SGX support requires several features from your system:
 
 - Intel SGX SDK/PSW and (optionally) Intel DCAP must be installed.
 
-If your system doesn’t meet these requirements, please refer to more detailed descriptions in Custom-Build Gramine.
+If your system doesn’t meet these requirements, please refer to more detailed descriptions in :doc:`devel/build`.
 
 Check for SGX compatibility
 -----------------------------------
