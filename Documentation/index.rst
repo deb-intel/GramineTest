@@ -14,25 +14,25 @@ Ready-made protected applications
 =====================================
 Images are ready-made for popular open source projects such as PyTorch and Redis. Customize your environment through interactive scripts. The result is an image that includes your specific machine-learning application, common dependencies, and a manifest file. Note that these confidential compute images only run on machines that support Intel SGX.
 
-**Select** :doc:`curated-installation`
+:doc:`curated-installation`
 
 Protect your container
 ============================
 This option is used when you have an application enclosed in a Docker container and you want the to protect the Docker container. This option converts your Docker container in to a graminized Docker container otherwise known as Gramine Shielded Container (GCS). A Gramine Shielded GCS supplies the Gramine Library OS, the manifest files, and any related Intel® SGX information.
 
-**Select** :doc:`gsc-installation`
+:doc:`gsc-installation`
 
 Protect your application
 ==========================
 This option requires you to install Gramine from binaries, setting up your environment to run Gramine, preparing a signing key to ensure your applications are protected, and instructions for running sample applications to test your environment. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
 
-**Select** :doc:`custom-installation` to select the custom installation that best matches your use case.
+:doc:`custom-installation`
 
 Develop Gramine
 -----------------
 This section contains information on how to assist in developing Gramine. It contains instructions for building Gramine from source files, installing dependencies, debugging, preparing signing keys, and information on the contribution guidelines for Gramine.
 
-**Select** :doc:`dev/building`
+:doc:`devel/building`
 
 Indices and tables
 ==================
