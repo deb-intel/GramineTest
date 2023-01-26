@@ -9,10 +9,10 @@ There are three options to choose from when installing Gramine. Instructions for
 
 :ref:`Gramine Docker Image` - Put your application in a Prepared Docker image container with Gramine and run the container. 
 
-**Select** :doc:`devel/building` - Build Gramine from source files. This option is used to help develop Gramine.  
+:doc:`devel/building` - Build Gramine from source files. This option is used to help develop Gramine.  
 
 Install Gramine  
------------------
+================
 
 On Ubuntu 22.04 and Debian 11::
 
