@@ -37,7 +37,7 @@ This section describes how to develop Gramine. It contains instructions for inst
 
 If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
 
-:doc:`devel/contributing`
+:doc:`devel/contributor-index`
 
 Resources
 ===============
