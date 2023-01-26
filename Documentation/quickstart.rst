@@ -7,7 +7,7 @@ There are three options to choose from when installing Gramine.
 
 :ref:`Install Gramine` - This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
 
-:ref: `Gramine Docker Image` - Put your application in a Prepared Docker image container with Gramine and run the container. 
+:ref:`Gramine Docker Image` - Put your application in a Prepared Docker image container with Gramine and run the container. 
 
 **Option 3:** Build Gramine from source. See the Build Gramine from Source article for more information.  
 
@@ -64,7 +64,7 @@ Install Gramine on RHEL-8-like distributions (like AlmaLinux 8, CentOS 8, Rocky 
    sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
    sudo dnf install gramine          # only the default, distro-provided kernel is supported
 
-Gramine docker image
+Gramine Docker Image
 ====================
 
 The Gramine team publishes a base Gramine Docker image at DockerHub:
