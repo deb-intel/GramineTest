@@ -1,15 +1,15 @@
 .. _quickstart_installation
 
-Gramine Installation Options
+Gramine installation options
 ============================
 
-There are three options to choose from when installing Gramine. 
+There are three options to choose from when installing Gramine. Instructions for the first two options, Install Gramine and Gramine Docker, are listed below.  
 
 :ref:`Install Gramine` - This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
 
 :ref:`Gramine Docker Image` - Put your application in a Prepared Docker image container with Gramine and run the container. 
 
-**Option 3:** Build Gramine from source. See the Build Gramine from Source article for more information.  
+:ref:`Build Gramine from Source files<Build and install Gramine from source>`` - Build Gramine from source files. This option is used to help develop Gramine.  
 
 Install Gramine  
 -----------------
