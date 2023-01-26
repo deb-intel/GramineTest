@@ -1,17 +1,17 @@
 .. _quickstart_installation
 
 Gramine installation options
-============================
+----------------------------
 
-There are three options to choose from when installing Gramine. Instructions for the first two options, Install Gramine and Gramine Docker, are listed below.  
+There are two options to choose from when installing Gramine. Instructions for the first two options, Install Gramine and Gramine Docker, are listed below.  
 
-:ref:`Install Gramine` - This option provides instructions for installing Gramine on Ubuntu. There several version to choose from. 
+:ref:`Install Gramine` - This option provides instructions for installing Gramine on Ubuntu. There several version from which to choose. 
 
-:ref:`Gramine Docker Image` - Put your application in a Prepared Docker image container with Gramine and run the container. 
+:ref:`Gramine Docker Image` - This option provides instructions for installing a prepared Docker image with Gramine and running the container. 
 
 :doc:`devel/building` - Build Gramine from source files. This option is used to help develop Gramine.  
 
-Install Gramine  
+Install Gramine 
 ================
 
 On Ubuntu 22.04 and Debian 11::
@@ -65,7 +65,7 @@ Install Gramine on RHEL-8-like distributions (like AlmaLinux 8, CentOS 8, Rocky 
    sudo dnf install gramine          # only the default, distro-provided kernel is supported
 
 Gramine Docker image
-====================
+========================
 
 The Gramine team publishes a base Gramine Docker image at DockerHub:
 https://hub.docker.com/r/gramineproject/gramine.
