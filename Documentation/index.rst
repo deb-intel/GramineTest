@@ -46,14 +46,14 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Ready Made Protected Applications 
-   :maxdepth: 2
+   :maxdepth: 0
 
    curated-installation
 
 .. toctree::
    :hidden:
    :caption: Protect your container 
-   :maxdepth: 2
+   :maxdepth: 0
 
    gsc-installation
 
@@ -61,7 +61,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Protect your application
-   :maxdepth: 2
+   :maxdepth: 0
 
    quickstart
    environment-setup
@@ -73,7 +73,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Develop Gramine 
-   :maxdepth: 2
+   :maxdepth: 0
 
    devel/building
    devel/debugging
@@ -86,7 +86,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Resource
-   :maxdepth: 1
+   :maxdepth: 0
 
    management-team
    gramine-users
