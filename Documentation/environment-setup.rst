@@ -1,8 +1,7 @@
 .. _environment_setup
 
-Prerequisites
----------------------------
-entation
+Set up the Gramine environment
+-------------------------------
 Gramine without SGX has no special requirements.
 
 Gramine with SGX support requires several features from your system:
