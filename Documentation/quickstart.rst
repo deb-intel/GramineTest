@@ -64,7 +64,7 @@ Install Gramine on RHEL-8-like distributions (like AlmaLinux 8, CentOS 8, Rocky 
    sudo curl -fsSLo /etc/yum.repos.d/gramine.repo https://packages.gramineproject.io/rpm/gramine.repo
    sudo dnf install gramine          # only the default, distro-provided kernel is supported
 
-Gramine Docker Image
+Gramine Docker image
 ====================
 
 The Gramine team publishes a base Gramine Docker image at DockerHub:
