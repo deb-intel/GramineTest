@@ -32,6 +32,8 @@ Develop Gramine
 -----------------
 This section contains information on how to assist in developing Gramine. It contains instructions for building Gramine from source files, installing dependencies, debugging, preparing signing keys, and information on the contribution guidelines for Gramine.
 
+
+
 :doc:`devel/building`
 
 Indices and tables
@@ -44,14 +46,14 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Ready Made Protected Applications 
-   :maxdepth: 1
+   :maxdepth: 2
 
    curated-installation
 
 .. toctree::
    :hidden:
    :caption: Protect your container 
-   :maxdepth: 1
+   :maxdepth: 2
 
    gsc-installation
 
@@ -59,7 +61,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Protect your application
-   :maxdepth: 1
+   :maxdepth: 2
 
    quickstart
    environment-setup
@@ -71,7 +73,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Develop Gramine 
-   :maxdepth: 1
+   :maxdepth: 2
 
    devel/building
    devel/debugging
