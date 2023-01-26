@@ -70,16 +70,7 @@ Gramine Docker Image
 The Gramine team publishes a base Gramine Docker image at DockerHub:
 https://hub.docker.com/r/gramineproject/gramine.
 
-This Gramine image is a minimal distribution of Gramine: it contains only
-Gramine binaries and tools, as well as the pre-requisite packages to run
-applications under Gramine. The only currently available Gramine image is based
-on Ubuntu 20.04. The only requirement on the host system is a Linux kernel with
-in-kernel SGX driver (available from version 5.11 onward).
-
-This Gramine image can be used as a disposable playground environment, to
-quickly test Gramine with your applications and workloads. This image can also
-be used as a base for your workflows to produce production-ready Docker images
-for your SGX applications.
+This Gramine image is a minimal distribution of Gramine. It contains only Gramine binaries and tools, as well as the pre-requisite packages to run applications under Gramine. The only currently available Gramine image is based on Ubuntu 20.04. The only requirement on the host system is a Linux kernel with in-kernel SGX driver (available from version 5.11 onward). This Gramine image can be used as a disposable playground environment, to quickly test Gramine with your applications and workloads. This image can also be used as a base for your workflows to produce production-ready Docker images for your SGX applications. 
 
 To run the Gramine image via Docker, the recommended command is::
 
