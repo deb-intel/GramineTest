@@ -29,12 +29,21 @@ This option requires you to install Gramine from binaries, setting up your envir
 :doc:`custom-installation`
 
 Develop Gramine
------------------
-This section contains information on how to assist in developing Gramine. It contains instructions for building Gramine from source files, installing dependencies, debugging, preparing signing keys, and information on the contribution guidelines for Gramine.
+===================================
 
-
+This section describes how to develop Gramine. It contains instructions for installing dependencies, building Gramine from source files, preparing signing keys, and if needed, installing a Linux kernel with FSBSBASE patches. 
 
 :doc:`devel/building`
+
+If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
+
+:doc:`contributing`
+
+Resources
+===============
+The Gramine project provides resources to help you understand and develop it. The resources page contains a list of maintainers, users, and a glossary to help you with any questions you may have. 
+
+:doc:`management-team`
 
 Indices and tables
 ==================
