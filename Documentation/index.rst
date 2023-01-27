@@ -18,7 +18,7 @@ Images are ready-made for popular open source projects such as PyTorch and Redis
 
 Protect your container
 ============================
-This option is used when you have an application enclosed in a Docker container and you want the to protect the Docker container. This option converts your Docker container in to a graminized Docker container otherwise known as Gramine Shielded Container (GCS). A Gramine Shielded GCS supplies the Gramine Library OS, the manifest files, and any related Intel® SGX information.
+Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS, and Intel SGX relation information. It enables you to run a an application an Docker image and keep it protected. 
 
 :doc:`gsc-installation`
 
