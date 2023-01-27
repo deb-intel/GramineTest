@@ -1,4 +1,4 @@
-Debugging Gramine with GDB
+Debugging Gramine with Gnu DeBugger (GDB)
 ==========================
 
 .. highlight:: sh

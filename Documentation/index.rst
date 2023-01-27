@@ -25,20 +25,22 @@ This option is used when you have an application enclosed in a Docker container 
 Protect your application
 ==========================
 
-This section contains instructions and processes for protecting an application with Gramine. In this section, we will explain how to:
+If you have an existing application you would like to protect with Gramine, this is the option to implement. Little to no addition modification of your application is needed. To protect your application with Gramine, these are the processes to follow:
 
- - :doc:`Install Gramine<quickstart>` - Several version of Ubuntu are supported. Each verison version has installation instructions. 
- - :doc:`Setup your environment<environment-setup>` - Ensure the environment in which Gramine is running has all fo the dependencies and packages required. 
- - :doc:`Run sample applications<run-sample-application>` - Sample application are provided ot ensure your Gramine environment is running correctly. 
+- :doc:`Install Gramine<devel/building>` - Install Gramine from binaries on to the various supported versions of Ubuntu or install a Docker image with Gramine included. 
+- :doc:`Set up the environment<environment-setup>` - Set up the Gramine environment to work with or without SGX and prepare a signing key.
+- :doc:`Run a sample applicaiton` - Run a sample application to ensure your environment is running correctly. 
+- :doc:`Configure ` - Configuring Gramine involves creating a manifest file, setting up attestation,  and performance tuning.
 
-:doc:`custom-installation`
 
 Develop Gramine
 ===================================
 
-This section describes how to develop Gramine. It contains instructions to :doc:`devel/building`` which includes preparing signing keys. It also includes instructions for :doc:`devel/debugging`.  , and if needed, installing a Linux kernel with FSBSBASE patches. 
+This section describes how to develop Gramine. It contains instructions to:
 
-:doc:`devel/building`
+ - :doc:`Build Gramine from Source files<Install Gramine<devel/building>` - Build Gramine and ensure all the dependencies installed with proper drivers. This option requires a more work but allows you to chose build options. 
+ - :doc:`Set up Debugging<devel/debugging>` - Configure Gramine with Gnu Debugger (GDB) and setup compiling optimizations.
+ - :doc:`Implement a new system call<new0syscall>` - Define the interface of the system call, add, emport, and Implement new PAL calls if needed. 
 
 If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
 
