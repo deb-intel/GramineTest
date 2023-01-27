@@ -24,14 +24,16 @@ This option is used when you have an application enclosed in a Docker container 
 
 Protect your application
 ==========================
-This option requires you to install Gramine from binaries, setting up your environment to run Gramine, preparing a signing key to ensure your applications are protected, and instructions for running sample applications to test your environment. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
+This section contains :doc:`quickstart`. It explains how to install Gramine on several different version so Ubuntu. It provides instructions on how to :doc:`enviornment-setup` and :doc:`run-sample-aaplicaiton`. 
+
+ plains how to install Gramine from binaries. In this section you find instructions on how to  requires you to install Gramine from binaries, setting up your environment to run Gramine, preparing a signing key to ensure your applications are protected, and instructions for running sample applications to test your environment. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
 
 :doc:`custom-installation`
 
 Develop Gramine
 ===================================
 
-This section describes how to develop Gramine. It contains instructions for installing dependencies, building Gramine from source files, preparing signing keys, and if needed, installing a Linux kernel with FSBSBASE patches. 
+This section describes how to develop Gramine. It contains instructions to :doc:`devel/building`` which includes preparing signing keys. It also includes instructions for :doc:`devel/debugging`.  , and if needed, installing a Linux kernel with FSBSBASE patches. 
 
 :doc:`devel/building`
 
@@ -49,20 +51,19 @@ Indices and tables
 ==================
 
 - :ref:`genindex`
-- :ref:`modindex`
 - :ref:`search`
 
 .. toctree::
    :hidden:
    :caption: Ready Made Protected Applications 
-   :maxdepth: 0
+   :maxdepth: 1
 
    curated-installation
 
 .. toctree::
    :hidden:
    :caption: Protect your container 
-   :maxdepth: 0
+   :maxdepth: 1
 
    gsc-installation
 
@@ -70,7 +71,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Protect your application
-   :maxdepth: 0
+   :maxdepth: 1
 
    quickstart
    environment-setup
@@ -82,7 +83,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Develop Gramine 
-   :maxdepth: 0
+   :maxdepth: 1
 
    devel/building
    devel/debugging
