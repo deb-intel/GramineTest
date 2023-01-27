@@ -24,12 +24,12 @@ This option is used when you have an application enclosed in a Docker container 
 
 Protect your application
 ==========================
-This section contains instrucstion and processes for protecing an application with Gramine. In this section, we will explain how to:
- - :doc:`Install<quickstart>` - Installation instructions for severl version of Ubuntu.
- - :doc:`Setup your environment<environment-stup>` - Explains how to setup your environment to accomodate Gramine and it's dependencies. 
- - :doc:`Run sample applications<run-sample-application>` - Configure your Gramine environment to best suit your needs. 
-  
-plains how to install Gramine from binaries. In this section you find instructions on how to  requires you to install Gramine from binaries, setting up your environment to run Gramine, preparing a signing key to ensure your applications are protected, and instructions for running sample applications to test your environment. This option enables you to take advantage of SGX without having to make modifications to an existing application. However, using this option requires you to manually create a manifest file. 
+
+This section contains instructions and processes for protecting an application with Gramine. In this section, we will explain how to:
+
+ - :doc:`Install Gramine<quickstart>` - Several version of Ubuntu are supported. Each verison version has installation instructions. 
+ - :doc:`Setup your environment<environment-setup>` - Ensure the environment in which Gramine is running has all fo the dependencies and packages required. 
+ - :doc:`Run sample applications<run-sample-application>` - Sample application are provided ot ensure your Gramine environment is running correctly. 
 
 :doc:`custom-installation`
 
