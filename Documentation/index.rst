@@ -45,7 +45,7 @@ This section describes how to develop Gramine. It contains instructions to:
 
 - :doc:`Build Gramine from source files<devel/building>` - Build Gramine and ensure all the dependencies installed with proper drivers. This option requires a more work but allows you to chose build options. 
 - :doc:`Set up Debugging<devel/debugging>` - Configure Gramine with Gnu Debugger (GDB) and setup compiling optimizations.
-- :doc:`Implement a new system call<new-syscall>` - Define the interface of the system call, add, import, and Implement new PAL calls if needed. 
+- :doc:`Implement a new system call<devel/new-syscall>` - Define the interface of the system call, add, import, and Implement new PAL calls if needed. 
 
 If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
 
