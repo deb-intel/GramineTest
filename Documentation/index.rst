@@ -34,8 +34,8 @@ If you have an existing application you would like to protect with Gramine, this
 
 - :doc:`Install Gramine<devel/building>` - Install Gramine from binaries on to the various supported versions of Ubuntu or install a Docker image with Gramine included. 
 - :doc:`Set up the environment<environment-setup>` - Set up the Gramine environment to work with or without SGX and prepare a signing key.
-- :doc:`Run a sample application` - Run a sample application to ensure your environment is running correctly. 
-- :doc:`Configure` - Configuring Gramine involves creating a manifest file, setting up attestation, and performance tuning.
+- :doc:`Run a sample application<run-sample-application>` - Run a sample application to ensure your environment is running correctly. 
+- :doc:`Configure<configuration-index>` - Configuring Gramine involves creating a manifest file, setting up attestation, and performance tuning.
 
 
 Develop Gramine
