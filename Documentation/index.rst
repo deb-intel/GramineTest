@@ -21,7 +21,7 @@ Confidential compute images are ready-made solutions for popular open source pro
 
 Protect your container
 ============================
-Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS, and Intel SGX related information. It enables you to run a an application an Docker image and keep it protected. 
+Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS and Intel SGX related information. It enables you to run a an application an Docker image and keep it protected. 
 
 - :doc:`gsc-installation` - Get an overview of the installation process of a Gramine Shielded Container.
 -  `Build a Gramine Docker image <https://gramine.readthedocs.io/projects/gsc/en/latest/>`_ - Run a graminized Docker image. 
