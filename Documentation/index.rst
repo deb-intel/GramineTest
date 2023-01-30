@@ -56,6 +56,8 @@ Resources
 The Gramine project provides resources to help you understand and develop it. The resources page contains a list of maintainers, users, and a glossary to help you with any questions you may have. 
 
 :doc:`management-team`
+:doc:`gramine-users`
+:doc:`glossary`
 
 Indices and tables
 ==================
