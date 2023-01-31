@@ -108,7 +108,7 @@ Indices and tables
 .. toctree::
    :hidden:
    :caption: Resource
-   :maxdepth: 0
+   :maxdepth: 1
 
    management-team
    gramine-users
