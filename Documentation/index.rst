@@ -6,7 +6,7 @@ Gramine is a lightweight guest OS that's designed to run a single Linux applicat
 
 Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`sgx-intro`article.
 
-Gramine Deployment Options
+Gramine deployment options
 ------------------------------------
 There are three deployment options for Gramine- each option is described below. There is also one option to help develop Gramine.
 
@@ -49,7 +49,7 @@ This section describes how to develop Gramine. It contains instructions to:
 
 If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
 
-:doc:`devel/contributor-index`
+:doc:`devel/contributing`
 
 Resources
 ===============
@@ -67,7 +67,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Ready Made Protected Applications 
+   :caption: Ready-made protected applications 
    :maxdepth: 1
 
    curated-installation
@@ -107,7 +107,7 @@ Indices and tables
 
 .. toctree::
    :hidden:
-   :caption: Resource
+   :caption: Resources
    :maxdepth: 1
 
    management-team
