@@ -47,17 +47,22 @@ This section describes how to develop Gramine. It contains instructions to:
 - :doc:`Set up Debugging<devel/debugging>` - Configure Gramine with Gnu Debugger (GDB) and setup compiling optimizations.
 - :doc:`Implement a new system call<devel/new-syscall>` - Define the interface of the system call, add, import, and Implement new PAL calls if needed. 
 
-If you would like to contribute to the Gramine project, follow the link below. We welcome your involvement and appreciate new ideas. The link below provides information on how to go about contributing to Gramine. 
 
-:doc:`devel/contributing`
+Contribute to Gramine
+===================================
+We encourage anyone who is interested to contribute to Gramine. We offer procedures and user groups that could help you get started. 
+
+- :doc:`devel/onboarding` - Read the Onboarding section to get an understanding of what you need to know to contribute to Gramine.
+- :doc:`devel/contributing` - The Contributing to Gramine page outlines the procedures for performing pull requests, reviews, and regression tests. 
+- `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user groups pages lists the user groups you can join to help you get up to speed with developing Gramine.
 
 Resources
 ===============
 The Gramine project provides resources to help you understand and develop it. The resources page contains a list of maintainers, users, and a glossary to help you with any questions you may have. 
 
-- :doc:`management-team`  
-- :doc:`gramine-users`  
-- :doc:`glossary`  
+- :doc:`management-team` - This page list the people managing the maintenance of Gramine
+- :doc:`gramine-users` - See what companies are using Gramine for their confidential computing needs 
+- :doc:`glossary` - Become familiar with the terms used for Gramine  
   
 Indices and tables
 ==================
