@@ -3,9 +3,9 @@
 Gramine installation options
 ----------------------------
 
-There are two options to choose from when installing Gramine. These option are listed below.. The option you choose depends on how you are running your application. 
+There are three options to choose from when using Gramine to protect your application. The option you choose depends on how you are running your application. installing Gramine. These option are listed below.. The option you choose depends on how you are running your application. 
 
-:ref:`Install Gramine on your system <>` - This option provides instructions for installing Gramine on various version of Ubuntu or Red Hat Enterprise Linux 8.  
+:ref:`Install Gramine on your system <Install Gramine>` - This option provides instructions for installing Gramine on various version of Ubuntu or Red Hat Enterprise Linux 8.  
 
 :ref:`Gramine Docker Image` - This option provides instructions for installing a prepared Docker image with Gramine and running the container. This option enables you to protect an application running in the cloud. 
 

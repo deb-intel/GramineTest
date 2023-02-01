@@ -41,7 +41,7 @@ If you have an existing application you would like to protect with Gramine, this
 Develop Gramine
 ===================================
 
-This section describes how to develop Gramine. It contains instructions on how to install Gramine from binaries, install dependencies, set up debugging and other processes necessary to for Gramine development.
+This section describes how to develop Gramine. It contains instructions on how to install Gramine from binaries, install dependencies, set up debugging and other processes necessary for Gramine development.
 
 - :doc:`Build Gramine from source files<devel/building>` - Build Gramine and ensure all the dependencies installed with proper drivers. This option requires a more work but allows you to chose build options. 
 - :doc:`Set up Debugging<devel/debugging>` - Configure Gramine with Gnu Debugger (GDB) and setup compiling optimizations.
@@ -50,7 +50,7 @@ This section describes how to develop Gramine. It contains instructions on how t
 
 Contribute to Gramine
 ===================================
-We encourage anyone who is interested to contribute to Gramine. We offer procedures and user groups that could help you get started. 
+We encourage anyone who is interested to contribute to Gramine. We offer procedures and user groups that to help you get started. 
 
 - :doc:`devel/onboarding` - Read the Onboarding section to get an understanding of what you need to know to contribute to Gramine.
 - :doc:`devel/contributing` - The Contributing to Gramine page outlines the procedures for performing pull requests, reviews, and regression tests. 
