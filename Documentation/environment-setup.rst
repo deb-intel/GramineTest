@@ -17,7 +17,7 @@ If your system doesn’t meet these requirements, please refer to more detailed 
 Check for SGX compatibility
 ==============================
 
-We supply a tool, <a href=""https://deb-intel.github.io/GramineTest/manpages/is-sgx-available.html>is-sgx-available</a> – Check environment for SGX compatibility</a>, which you can use to check your hardware and system. It’s installed together with the respective gramine package you install from the options below.
+We supply a tool, `is-sgx-available <https://deb-intel.github.io/GramineTest/manpages/is-sgx-available.html>`_ – Check environment for SGX compatibility, which you can use to check your hardware and system. It’s installed together with the respective gramine package you install from the options below.
 
 
 Prepare a signing key  
