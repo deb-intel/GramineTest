@@ -115,6 +115,14 @@ Indices and tables
    :maxdepth: 1
 
    contributor-index
+   onboarding
+   devel/DCO/index 
+   devel/setup
+   devel/howto-doc
+   devel/coding-syle
+
+
+
 
 .. toctree::
    :hidden:
