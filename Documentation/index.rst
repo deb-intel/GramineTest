@@ -109,7 +109,7 @@ Indices and tables
    python/api
    concepts-index
 
-   .. toctree::
+.. toctree::
    :hidden:
    :caption: Contribute to Gramine
    :maxdepth: 1
