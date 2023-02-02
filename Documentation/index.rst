@@ -108,7 +108,6 @@ Indices and tables
    pal/host-abi
    python/api
    concepts-index
-   contributor-index
 
    .. toctree::
    :hidden:
