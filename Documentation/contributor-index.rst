@@ -8,7 +8,7 @@ Helpful material for users who want to contribute to Gramine development.
 
 :doc:`devel/contributing` - Learn about how to report bugs, security vulnerabilities and perform pull requests. This section contain information for working with the Gramine project.
 
-:doc:`devel/Onboarding` - This page describes the knowledge needed to efficiently contribute high-quality PRs to the Gramine project. This page also describes typical flows that Gramine developers should follow to make the process of PR review pleasant to everyone involved. 
+:doc:`devel/onboarding` - This page describes the knowledge needed to efficiently contribute high-quality PRs to the Gramine project. This page also describes typical flows that Gramine developers should follow to make the process of PR review pleasant to everyone involved. 
 
 :doc:`devel/DCO/index` - Affirm tha the source code you will submit was originated by you and/or that you have permission to submit the code to the Gramine project. 
 
