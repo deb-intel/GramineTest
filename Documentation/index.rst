@@ -115,7 +115,7 @@ Indices and tables
    :maxdepth: 1
 
    contributor-index
-   onboarding
+   devel/onboarding
    devel/DCO/index 
    devel/setup
    devel/howto-doc
