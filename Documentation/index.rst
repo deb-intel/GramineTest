@@ -110,6 +110,13 @@ Indices and tables
    concepts-index
    contributor-index
 
+   .. toctree::
+   :hidden:
+   :caption: Contribute to Gramine
+   :maxdepth: 1
+
+   contributor-index
+
 .. toctree::
    :hidden:
    :caption: Resources
