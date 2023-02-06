@@ -4,11 +4,11 @@ Gramine Documentation
 
 Gramine is a lightweight guest OS that's designed to run a single Linux application with minimal host requirements. Gramine can run applications in an isolated environment with benefits comparable to running a complete OS in a virtual machine, including guest customization, ease of porting to different host OSs, and process migration.
 
-Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`curated-installation` article. :doc:`sgs-intro`
+Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`sgx-intro` article.
 
 Gramine deployment options
 ------------------------------------
-There are three deployment options for Gramine- each option is described below. There is also one option to help develop Gramine.
+There are three deployment options for Gramine—each option is described below. There is also one option to help develop Gramine.
 
 Ready-made protected applications
 =====================================
@@ -20,7 +20,7 @@ Confidential compute images are ready-made solutions for popular open source pro
 
 Protect your container
 ============================
-Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS and Intel SGX related information. It enables you to run a an application an Docker image and keep it protected. 
+Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS and Intel SGX related information. It enables you to run a an application on a Docker image and keep it protected. 
 
 - :doc:`gsc-installation` - Get an overview of the installation process of a Gramine Shielded Container.
 -  `Build a Gramine Docker image <https://gramine.readthedocs.io/projects/gsc/en/latest/>`_ - Run a graminized Docker image. 
