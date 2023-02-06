@@ -4,7 +4,7 @@ Gramine Documentation
 
 Gramine is a lightweight guest OS that's designed to run a single Linux application with minimal host requirements. Gramine can run applications in an isolated environment with benefits comparable to running a complete OS in a virtual machine, including guest customization, ease of porting to different host OSs, and process migration.
 
-Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`sgx-intro`article.
+Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`sgx-intro` article.
 
 Gramine deployment options
 ------------------------------------
@@ -54,7 +54,7 @@ We encourage anyone who is interested to contribute to Gramine. We offer procedu
 
 - :doc:`devel/onboarding` - Read the Onboarding section to get an understanding of what you need to know to contribute to Gramine.
 - :doc:`devel/contributing` - The Contributing to Gramine page outlines the procedures for performing pull requests, reviews, and regression tests. 
-- `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user groups pages lists the user groups you can join to help you get up to speed with developing Gramine.
+- `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user-groups page lists the user groups you can join to help you get up to speed with developing Gramine.
 
 Resources
 ===============
