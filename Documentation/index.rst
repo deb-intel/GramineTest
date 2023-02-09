@@ -65,7 +65,7 @@ The Gramine project provides resources to help you understand and develop it. Th
 - :doc:`management-team` - This page list the people managing the maintenance of Gramine
 - :doc:`gramine-users` - See what companies are using Gramine for their confidential computing needs 
 - :doc:`glossary` - Become familiar with the terms used for Gramine  
-- Gramine Usergroup <users@gramineproject.io>
+- Send questions to - users@gramineproject.io
   
 Indices and tables
 ==================
