@@ -137,8 +137,7 @@ Indices and tables
    :caption: Contribute to Gramine
    :maxdepth: 1
 
-   CONTRIBUTING
-   contributor-index
+   devel/contributing
    devel/onboarding
    devel/DCO/index 
    devel/setup
