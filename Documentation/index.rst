@@ -16,26 +16,28 @@ Confidential compute images are ready-made solutions for popular open source pro
 
 .. note::  These confidential compute images only run on machines that support Intel SGX.
 
-:doc:`curated-installation`
+See the :doc:`curated-installation` article for more information.
 
 Protect your container
 ============================
-Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS and Intel SGX related information. It enables you to run a an application on a Docker image and keep it protected. 
+Docker images are used to run applications in the cloud. The Gramine Shielded Container tool transforms a Docker image into a graminized image that includes the Gramine Library OS and Intel SGX related information. It enables you to run an application on a Docker image and keep it protected. 
 
 - :doc:`gsc-installation` - Get an overview of the installation process of a Gramine Shielded Container.
--  `Build a Gramine Docker image <https://gramine.readthedocs.io/projects/gsc/en/latest/>`_ - Run a graminized Docker image. 
--  `Download the Gramine Shielded Container tool <https://github.com/gramineproject/gsc>`_ - 
+-  `Build a Gramine Docker image <https://gramine.readthedocs.io/projects/gsc/en/latest/>`_ - Build a Docker image that contains the Gramine functionality. 
+-  `Download the Gramine Shielded Container tool <https://github.com/gramineproject/gsc>`_ - Protect the Docker image containing the application you want to protect. 
 
 
 Protect your application
 ==========================
 
-If you have an existing application you would like to protect with Gramine, this is the option to implement. Little to no addition modification of your application is needed. To protect your application with Gramine, these are the processes to follow:
+Use this option to protect an exiting application with Gramine. Little to no addition modification of your application is needed. 
 
-- :doc:`Install Gramine<devel/building>` - Install Gramine from binaries on to the various supported versions of Ubuntu or install a Docker image with Gramine included. 
+These are the processes to follow protect your application with Gramine: 
+
+- :doc:`Install Gramine<quickstart>` - Install Gramine from binaries on to the various supported versions of Ubuntu or RHEL 8. 
 - :doc:`Set up the environment<environment-setup>` - Set up the Gramine environment to work with or without SGX and prepare a signing key.
 - :doc:`Run a sample application<run-sample-application>` - Run a sample application to ensure your environment is running correctly. 
-- :doc:`Configure<configuration-index>` - Configuring Gramine involves creating a manifest file, setting up attestation, and performance tuning.
+- :doc:`configuration-index` - Configure Gramine by doing the following: create  a manifest file, set up attestation, and performance tuning.
 
 
 Develop Gramine
@@ -63,6 +65,7 @@ The Gramine project provides resources to help you understand and develop it. Th
 - :doc:`management-team` - This page list the people managing the maintenance of Gramine
 - :doc:`gramine-users` - See what companies are using Gramine for their confidential computing needs 
 - :doc:`glossary` - Become familiar with the terms used for Gramine  
+- Gramine Usergroup <users@gramineproject.io>
   
 Indices and tables
 ==================
@@ -132,4 +135,5 @@ Indices and tables
    management-team
    gramine-users
    glossary
+
 
