@@ -1,4 +1,4 @@
-Contributing to Gramine Overview
+Overview
 =======================
 
 .. highlight:: sh
