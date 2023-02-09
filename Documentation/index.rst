@@ -64,9 +64,10 @@ These articles contain helpful material for users who want to contribute to Gram
 
 - :doc:`devel/setup` - Learn the Emacs and Vim configurations used for Gramine. 
 
+- :doc:`devel/coding-style` - This document describes coding conventions and formatting styles we use in Gramine. All newly committed code must conform to them to pass a review.
+
 - :doc:`devel/howto-doc` - This section describes how the Gramine documentation is constructed and provides directions on how to contribute to it.
 
-- :doc:`devel/coding-style` - This document describes coding conventions and formatting styles we use in Gramine. All newly committed code must conform to them to pass a review.
 
 - `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user-groups page lists the user groups you can join to help you get up to speed with developing Gramine.
 
