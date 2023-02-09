@@ -54,8 +54,20 @@ Contribute to Gramine
 ===================================
 We encourage anyone who is interested to contribute to Gramine. We offer procedures and user groups that to help you get started. 
 
-- :doc:`devel/onboarding` - Read the Onboarding section to get an understanding of what you need to know to contribute to Gramine.
+These articles contain helpful material for users who want to contribute to Gramine development. 
+
 - :doc:`devel/contributing` - The Contributing to Gramine page outlines the procedures for performing pull requests, reviews, and regression tests. 
+
+- :doc:`devel/onboarding` - This page describes the knowledge needed to efficiently contribute high-quality PRs to the Gramine project. This page also describes typical flows that Gramine developers should follow to make the process of PR review consistent for everyone involved. 
+
+- :doc:`devel/DCO/index` - Affirm that the source code you will submit was originated by you and/or that you have permission to submit it to the Gramine project. 
+
+- :doc:`devel/setup` - Learn the Emacs and Vim configurations used for Gramine. 
+
+- :doc:`devel/howto-doc` - This section describes how the Gramine documentation is constructed and provides directions on how to contribute to it.
+
+- :doc:`devel/coding-style` - This document describes coding conventions and formatting styles we use in Gramine. All newly committed code must conform to them to pass a review.
+
 - `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user-groups page lists the user groups you can join to help you get up to speed with developing Gramine.
 
 Resources
@@ -125,12 +137,14 @@ Indices and tables
    :caption: Contribute to Gramine
    :maxdepth: 1
 
+   CONTRIBUTING
    contributor-index
    devel/onboarding
    devel/DCO/index 
    devel/setup
+   devel/coding-style
    devel/howto-doc
-   devel/coding-syle
+
 
 
 
