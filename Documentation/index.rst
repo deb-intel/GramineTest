@@ -66,6 +66,14 @@ The Gramine project provides resources to help you understand and develop it. Th
 - :doc:`gramine-users` - See what companies are using Gramine for their confidential computing needs 
 - :doc:`glossary` - Become familiar with the terms used for Gramine  
 - Send questions to - users@gramineproject.io
+
+Getting help
+============
+
+For any questions, please send an email to users@gramineproject.io
+(`public archive <https://groups.google.com/g/gramine-users>`__) or join us on
+our `Gitter chat <https://gitter.im/gramineproject/community>`__.
+
   
 Indices and tables
 ==================
