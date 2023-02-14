@@ -160,6 +160,12 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'logo_only': True,
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 2,
+    'includehidden': True,
+    'titles_only': False    
 }
 html_logo = 'gramine_logo.svg'
 

@@ -41,7 +41,7 @@ These are the processes to follow protect your application with Gramine:
 
 
 Develop Gramine
-===================================
+------------------------------------
 
 This section describes how to develop Gramine. It contains instructions on how to install Gramine from binaries, install dependencies, set up debugging and other processes necessary for Gramine development.
 
@@ -51,7 +51,7 @@ This section describes how to develop Gramine. It contains instructions on how t
 
 
 Contribute to Gramine
-===================================
+------------------------------------
 We encourage anyone who is interested to contribute to Gramine. We offer procedures and user groups that to help you get started. 
 
 These articles contain helpful material for users who want to contribute to Gramine development. 
@@ -72,7 +72,7 @@ These articles contain helpful material for users who want to contribute to Gram
 - `Gramine User Groups <https://groups.google.com/g/gramine-users>`_ - The Gramine user-groups page lists the user groups you can join to help you get up to speed with developing Gramine.
 
 Resources
-===============
+------------------------------------
 The Gramine project provides resources to help you understand and develop it. The resources page contains a list of maintainers, users, and a glossary to help you with any questions you may have. 
 
 - :doc:`management-team` - This page list the people managing the maintenance of Gramine
@@ -80,7 +80,7 @@ The Gramine project provides resources to help you understand and develop it. Th
 - :doc:`glossary` - Become familiar with the terms used for Gramine  
 
 Getting help
-============
+------------------------------------
 
 For any questions, please send an email to users@gramineproject.io
 or join us on our `Gitter chat <https://gitter.im/gramineproject/community>`__.
@@ -89,7 +89,7 @@ For bug reports, post an issue on our GitHub repository:
 https://github.com/gramineproject/gramine/issues.
   
 Indices and tables
-==================
+------------------------------------
 
 - :ref:`genindex`
 - :ref:`search`
