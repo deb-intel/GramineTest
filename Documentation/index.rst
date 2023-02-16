@@ -39,7 +39,6 @@ These are the processes to follow protect your application with Gramine:
 - :doc:`Install Gramine<quickstart>` - Install Gramine from binaries on to the various supported versions of Ubuntu or RHEL 8. 
 - :doc:`Set up the environment<environment-setup>` - Set up the Gramine environment to work with or without SGX and prepare a signing key.
 - :doc:`Run a sample application<run-sample-application>` - Run a sample application to ensure your environment is running correctly. 
-- :doc:`configuration-index` - Configure Gramine by doing the following: create  a manifest file, set up attestation, and performance tuning.
 
 
 Develop Gramine
