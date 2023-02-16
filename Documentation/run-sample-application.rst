@@ -4,8 +4,7 @@
 Run a sample application
 =======================
 
-The core Gramine repository contains several sample applications to
-test the Gramine installation, clone the Gramine repo:
+The core Gramine repository contains sample applications to test the Gramine installation. To clone the Gramine repo, use the following command:
 
 .. parsed-literal::
 
