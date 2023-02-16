@@ -86,7 +86,7 @@ FSGSBASE is a feature in recent processors which allows direct access to the FS
 and GS segment base addresses. For more information about FSGSBASE and its
 benefits, see `this discussion <https://lwn.net/Articles/821719>`__. Note that
 if your kernel version is 5.9 or higher, then the FSGSBASE feature is already
-supported and you can skip this step. Kernel version can be checked using the
+supported, and you can skip this step. Kernel version can be checked using the
 following command::
 
        uname -r
@@ -94,7 +94,7 @@ following command::
 If your current kernel version is lower than 5.9, then you have two options:
 
 - Update the Linux kernel to at least 5.9 in your OS distro. If you use Ubuntu,
-  you can follow e.g. `this tutorial
+  you can follow e.g., `this tutorial
   <https://itsfoss.com/upgrade-linux-kernel-ubuntu/>`__.
 
 - Use our provided patches to the Linux kernel version 5.4. See section
@@ -104,7 +104,7 @@ If your current kernel version is lower than 5.9, then you have two options:
 """""""""""""""""""""""""""""""
 
 This step depends on your hardware and kernel version. Note that if your kernel
-version is 5.11 or higher, then the Intel SGX driver is already installed and
+version is 5.11 or higher, then the Intel SGX driver is already installed, and
 you can skip this step.
 
 If you have an older CPU without :term:`FLC` support, you need to download and
@@ -158,7 +158,7 @@ If you plan on enabling ``-Ddcap`` option, you need to install
 Build Gramine
 -------------
 
-In order to build Gramine, you need to first set up the build directory. In the
+To build Gramine, you need to first set up the build directory. In the
 root directory of Gramine repo, run the following command (recall that "direct"
 means non-SGX version)::
 
@@ -283,7 +283,7 @@ Additional build options
 
   .. _POSIX.1-2018 8.3: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_03
 
-  This very much depends on particular distribution, so please consult relevant
+  This very much depends on a particular distribution, so please consult relevant
   documentation provided by your distro.
 
 - To compile a patched version of GCC's OpenMP library (``libgomp``), install
@@ -323,7 +323,7 @@ Advanced: Install Linux kernel with FSGSBASE patches
 FSGSBASE patchset was merged in Linux kernel version 5.9. For older kernels it
 is available as `separate patches
 <https://github.com/oscarlab/graphene-sgx-driver/tree/master/fsgsbase_patches>`__.
-(Note that Gramine was prevously called *Graphene* and was hosted under a
+(Note that Gramine was previously called *Graphene* and was hosted under a
 different organization, hence the name of the linked repository.)
 
 The following instructions to patch and compile a Linux kernel with FSGSBASE

@@ -119,7 +119,6 @@ Indices and tables
    quickstart
    environment-setup
    run-sample-application
-   configuration-index
    tutorials-index
 
 
