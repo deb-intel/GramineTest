@@ -6,7 +6,7 @@ Gramine is a lightweight guest OS that's designed to run a single Linux applicat
 
 Gramine supports running Linux applications using the Intel Software Guard Extensions, or Intel SGX. For mor information, refer to the :doc:`sgx-intro` article.
 
-This page provides an overview of the this site. Each section is outlined below with a brief explanation and links to specific sections. This page mimics the table of contents in the left column. 
+This page provides an overview of this site. Each section is outlined below with a brief explanation and links to specific sections. This page mimics the table of contents in the left column. 
 
 Gramine deployment options
 ------------------------------------
@@ -47,7 +47,7 @@ Develop Gramine
 
 This section describes how to develop Gramine. It contains instructions on how to install Gramine from binaries, install dependencies, set up debugging and other processes necessary for Gramine development.
 
-- :doc:`Build Gramine from source files<devel/building>` - Build Gramine and ensure all the dependencies installed with proper drivers. This option requires a more work but allows you to chose build options. 
+- :doc:`Build Gramine from source files<devel/building>` - Build Gramine and ensure all the dependencies installed with proper drivers. This option requires a more work but allows you to choose build options. 
 - :doc:`Set up Debugging<devel/debugging>` - Configure Gramine with Gnu Debugger (GDB) and setup compiling optimizations.
 - :doc:`Implement a new system call<devel/new-syscall>` - Define the interface of the system call, add, import, and Implement new PAL calls if needed. 
 

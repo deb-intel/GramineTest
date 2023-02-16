@@ -22,7 +22,7 @@ A typical integer entry looks similar to the above but without double quotes::
 
    [Key][.Key][.Key] = [Value]
 
-Comments can be inlined in a |~| manifest by starting them with a |~| hash sign
+Comments can be in line in a |~| manifest by starting them with a |~| hash sign
 (``# comment...``).
 
 There is also a |~| preprocessor available: :ref:`gramine-manifest
@@ -94,7 +94,7 @@ path inside Gramine pointing to a mounted file. Relative paths will be
 interpreted as starting from the current working directory (i.e. from ``/`` by
 default, or ``fs.start_dir`` if specified).
 
-The recommended usage is to provide an absolute path, and mount the executable
+The recommended usage is to provide an absolute path and mount the executable
 at that path. For example::
 
    libos.entrypoint = "/usr/bin/python3.8"
@@ -215,7 +215,7 @@ User ID and Group ID
    (Default: 0)
 
 This specifies the initial, Gramine emulated user/group ID and effective
-user/group ID. It must be non-negative. By default Gramine emulates the
+user/group ID. It must be non-negative. By default, Gramine emulates the
 user/group ID and effective user/group ID as the root user (uid = gid = 0).
 
 
@@ -260,9 +260,9 @@ internal use (e.g., metadata for trusted files, internal handles,
 etc.). By default, Gramine pre-allocates 64MB of internal memory for this
 metadata, but for huge workloads this limit may be not enough. In this case,
 Gramine loudly fails with "out of PAL memory" error. To run huge workloads,
-increase this limit by setting this option to e.g. ``64M`` (this would result in
+increase this limit by setting this option to e.g., ``64M`` (this would result in
 a total of 128MB used by Gramine for internal metadata). Note that this limit
-is included in ``sgx.enclave_size``, so if your enclave size is e.g. 512MB and
+is included in ``sgx.enclave_size``, so if your enclave size is e.g., 512MB and
 you specify ``loader.pal_internal_mem_size = "64M"``, then your application is
 left with 384MB of usable memory.
 
@@ -366,7 +366,7 @@ will be mounted in the order in which they appear in the manifest.
    ``{ path = "...", uri = "...", }`` is a syntax error.
 
 The ``type`` parameter specifies the mount point type. If omitted, it defaults
-to ``"chroot"``. The ``path`` parameter must be an absolute path (i.e. must
+to ``"chroot"``. The ``path`` parameter must be an absolute path (i.e., must
 begin with ``/``).
 
 Gramine currently supports the following types of mount points:
@@ -386,12 +386,12 @@ Gramine currently supports the following types of mount points:
 * ``tmpfs``: Temporary in-memory-only files. These files are *not* backed by
   host-level files. The tmpfs files are created under ``[PATH]`` (this path is
   empty on Gramine instance startup) and are destroyed when a Gramine instance
-  terminates. The ``[URI]`` parameter is always ignored, and can be omitted.
+  terminates. The ``[URI]`` parameter is always ignored and can be omitted.
 
   ``tmpfs`` is especially useful in trusted environments (like Intel SGX) for
   securely storing temporary files. This concept is similar to Linux's tmpfs.
   Files under ``tmpfs`` mount points currently do *not* support mmap and each
-  process has its own, non-shared tmpfs (i.e. processes don't see each other's
+  process has its own, non-shared tmpfs (i.e., processes don't see each other's
   files).
 
 Start (current working) directory
@@ -521,8 +521,8 @@ threads. This allows "exitless" design when application threads never leave
 the enclave (except for a few syscalls where there is no benefit, e.g.,
 ``nanosleep()``).
 
-If user specifies ``0`` or omits this directive, then no RPC threads are
-created and all system calls perform an enclave exit ("normal" execution).
+If the user specifies ``0`` or omits this directive, then no RPC threads are
+created, and all system calls perform an enclave exit ("normal" execution).
 
 Note that the number of created RPC threads must match the maximum number of
 simultaneous enclave threads. If there are more RPC threads, then CPU time is
@@ -622,7 +622,7 @@ Trusted files
     uri = "[URI]"
     sha256 = "[HASH]"
 
-This syntax specifies the files to be cryptographically hashed at build time,
+This syntax specifies the files to be cryptographically hashed at build time
 and allowed to be accessed by the app in runtime only if their hashes match.
 This implies that trusted files can be only opened for reading (not for writing)
 and cannot be created if they do not exist already. The signer tool will
@@ -730,7 +730,7 @@ Attestation and quotes
     sgx.ra_client_spid     = "[HEX]"
     (Only for EPID based attestation)
 
-This syntax specifies the parameters for remote attestation. By default it is
+This syntax specifies the parameters for remote attestation. By default, it is
 not enabled.
 
 For :term:`EPID` based attestation, ``remote_attestation`` must be set to
@@ -826,7 +826,7 @@ Specifies what events to record:
 
 * ``ocall_inner``: Records enclave state during OCALL.
 
-* ``ocall_outer``: Records the outer OCALL function, i.e. what OCALL handlers
+* ``ocall_outer``: Records the outer OCALL function, i.e., what OCALL handlers
   are going to be executed. Does not include stack information (cannot be used
   with ``sgx.profile.with_stack = true``).
 
@@ -926,7 +926,7 @@ replaced with ``type = "encrypted"`` mounts (see :ref:`encrypted-files`).
 
 .. warning::
    Gramine will attempt to convert this syntax to mounted filesystems, but might
-   fail to do so correctly in more complicated cases (e.g. when a single host
+   fail to do so correctly in more complicated cases (e.g., when a single host
    file belongs to multiple mounts). It is recommended to rewrite all usages of
    this syntax to ``type = "encrypted"`` mounts.
 

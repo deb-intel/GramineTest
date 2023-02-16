@@ -2,7 +2,7 @@
 
 Configure Gramine
 =================
-
+This page contains links to information to help you configure your Gramine environment. 
 .. toctree::
    :maxdepth: 1
 

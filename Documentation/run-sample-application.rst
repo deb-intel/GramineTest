@@ -4,7 +4,7 @@
 Run a sample application
 =======================
 
-The core Gramine repository contains several sample application to
+The core Gramine repository contains several sample applications to
 test the Gramine installation, clone the Gramine repo:
 
 .. parsed-literal::
