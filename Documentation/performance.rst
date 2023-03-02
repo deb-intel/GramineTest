@@ -178,22 +178,22 @@ system call and exit the enclave. The feature can be disabled by specifying
 ``sgx.rpc_thread_num = 0``.
 
 You must decide how many untrusted helper RPC threads your application needs. A
-rule of thumb: specify ``sgx.rpc_thread_num == sgx.thread_num``, i.e., the
-number of untrusted RPC threads should be the same as the number of enclave
-threads. For example, native Redis 6.0 uses 3-4 enclave threads during its
-execution, plus Gramine uses another 1-2 helper enclave threads. So Redis
-manifest has an over-approximation of this number: ``sgx.thread_num = 8``. Thus,
+rule of thumb: specify ``sgx.insecure__rpc_thread_num == sgx.max_threads``,
+i.e., the number of untrusted RPC threads should be the same as the number of
+enclave threads. For example, native Redis 6.0 uses 3-4 enclave threads during
+its execution, plus Gramine uses another 1-2 helper enclave threads. So Redis
+manifest has an over-approximation of this number: ``sgx.max_threads = 8``. Thus,
 to correctly enable the Exitless feature, specify ``sgx.rpc_thread_num = 8``.
 Here is an example:
 
 ::
 
-   # exitless disabled: `sgx.thread_num = 8` and `sgx.rpc_thread_num = 0`
+   # exitless disabled: `sgx.max_threads = 8` and `sgx.insecure__rpc_thread_num = 0`
    CI-Examples/redis$ gramine-sgx redis-server --save '' --protected-mode no &
    CI-Examples/redis$ src/src/redis-benchmark -t set
    43010.75 requests per second
 
-   # exitless enabled: `sgx.thread_num = 8` and `sgx.rpc_thread_num = 8`
+    # exitless enabled: `sgx.max_threads = 8` and `sgx.insecure__rpc_thread_num = 8`
    CI-Examples/redis$ gramine-sgx redis-server --save '' --protected-mode no &
    CI-Examples/redis$ src/src/redis-benchmark -t set
    68119.89 requests per second
@@ -407,7 +407,8 @@ workloads. The manifest options include:
 - ``sgx.preheat_enclave = true`` -- pre-fault all enclave pages during enclave
   initialization. This shifts the overhead of page faults on non-present enclave
   pages from runtime to enclave startup time. Using this option makes sense only
-  if the whole enclave memory fits into :term:`EPC`.
+  if the whole enclave memory fits into :term:`EPC` and if :term:`EDMM` is not
+  used (``sgx.edmm_enable = false``).
 
 If your application periodically fails and complains about seemingly irrelevant
 things, it may be due to insufficient enclave memory. Please try to increase
@@ -416,8 +417,8 @@ enclave size by tweaking ``sgx.enclave_size = "512M"``,
 doesn't help, it could be due to insufficient stack size: in this case try to
 increase ``sys.stack.size = "256K"``, ``sys.stack.size = "2M"``,
 ``sys.stack.size = "4M"`` and so on. Finally, if Gramine complains about
-insufficient number of TCSs or threads, increase ``sgx.thread_num = 4``,
-``sgx.thread_num = 8``, ``sgx.thread_num = 16``, and so on.
+insufficient number of TCSs or threads, increase ``sgx.max_threads = 4``,
+``sgx.max_threads = 8``, ``sgx.max_threads = 16``, and so on.
 
 Do not forget about the cost of software encryption! Gramine transparently
 encrypts many means of communication:
@@ -557,6 +558,9 @@ use it:
    (optimizations enabled) makes Gramine performance more similar to release
    build.
 
+#. Profiling can be done only on debug enclaves. Add ``sgx.debug = true`` to
+   manifest.
+
 #. Add ``sgx.profile.enable = "main"`` to manifest (to collect data for the main
    process), or ``sgx.profile.enable = "all"`` (to collect data for all
    processes).
@@ -568,6 +572,12 @@ use it:
    multiple files will be written).
 
 #. Run ``perf report -i <data file>`` (see :ref:`perf` above).
+
+Some applications might run for a long time or forever (e.g. Redis), generating
+too much perf data. In such cases, user may want to terminate the application
+prematurely. Killing the application abruptly via SIGKILL will result in incorrect
+perf data. Instead, add ``sys.enable_sigterm_injection = true`` to manifest and
+terminate the application using command ``kill <pid>`` (i.e. send SIGTERM).
 
 *Note*: The accuracy of this tool is unclear (though we had positive experiences
 using the tool so far). The SGX profiling works by measuring the value of

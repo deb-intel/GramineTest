@@ -1,8 +1,8 @@
 .. _index_configuration
 
-Configure Gramine
-=================
-This page contains links to information to help you configure your Gramine environment. 
+Configuration
+=============
+
 .. toctree::
    :maxdepth: 1
 

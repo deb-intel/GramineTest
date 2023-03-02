@@ -97,7 +97,7 @@ default, or ``fs.start_dir`` if specified).
 The recommended usage is to provide an absolute path and mount the executable
 at that path. For example::
 
-   libos.entrypoint = "/usr/bin/python3.8"
+   libos.entrypoint = "/usr/bin/python3.8"Optional CPU 
 
    fs.mounts = [
      { path = "/usr/bin/python3.8", uri = "file:/usr/bin/python3.8" },
@@ -124,26 +124,59 @@ or
 
    loader.argv_src_file = "file:file_with_serialized_argv"
 
-If you want your application to use commandline arguments you need to either set
-``loader.insecure__use_cmdline_argv`` (insecure in almost all cases), put them
-into ``loader.argv`` array or point ``loader.argv_src_file`` to a file
-containing output of :ref:`gramine-argv-serializer<gramine-argv-serializer>`.
+If you want your application to use commandline arguments, you must choose one of the three mutually exclusive options:
+- set ``loader.insecure__use_cmdline_argv`` (insecure in almost all cases),
+- put commandline arguments into ``loader.argv`` array,
+- point ``loader.argv_src_file`` to a file containing output of :ref:`gramine-argv-serializer<gramine-argv-serializer>`.
+
+If none of the above arguments-handling manifest options is specified in the manifest, the application will get ``argv = [ <libos.entrypoint value> ]``.
 
 ``loader.argv_src_file`` is intended to point to either a trusted file or an
-encrypted file. The former allows to securely hardcode arguments (current
-manifest syntax doesn't allow to include them inline), the latter allows the
-arguments to be provided at runtime from an external (trusted) source.
+encrypted file. The former allows to securely hardcode arguments, the latter
+allows the arguments to be provided at runtime from an external (trusted)
+source.
+
 
 .. note ::
    Pointing to an encrypted file is currently not supported, due to the fact
    that encryption key provisioning currently happens after setting up
    arguments.
 
-The ``loader.insecure__use_cmdline_argv``, ``loader.argv``, and
-``loader.argv_src_file`` options are mutually exclusive.
+Domain names configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If none of the above arguments-handling manifest options is specified in the
-manifest, the application will get ``argv = [ <libos.entrypoint value> ]``.
+::
+
+    sys.enable_extra_runtime_domain_names_conf = [true|false]
+    (Default: false)
+
+This option will generate the following extra configuration:
+
+- Hostname (obtained by apps via `nodename` field in `uname` syscall),
+  set to the host's hostname at initialization.
+- Pseudo-file ``/etc/resolv.conf``, with keywords:
+
+   - ``nameserver``
+   - ``search``
+   - ``options`` [``edns0``] [``inet6``] [``rotate``] [``use-vc``]
+
+  Unsupported keywords and malformed lines from ``/etc/resolv.conf`` are ignored.
+
+The functionality is achieved by taking the host's configuration via various
+APIs and reading the host's configuration files. In the case of Linux PAL,
+most information comes from the host's ``/etc``. The gathered information is
+used to create ``/etc`` files inside Gramine's file system, or change Gramine
+process configuration. For security-enforcing modes (such as SGX), Gramine
+additionally sanitizes the information gathered from the host. Invalid host's
+configuration is reported as an error (e.g. invalid hostname, or invalid IPv4
+address in ``nameserver`` keyword).
+
+Note that Gramine supports only a subset of the configuration.
+Refer to the list of supported keywords.
+
+This option takes precedence over ``fs.mounts``.
+This means that etc files provided via ``fs.mounts`` will be overridden with
+the ones added via this option.
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
@@ -247,25 +280,6 @@ may improve performance for certain workloads but may also generate
 ``SIGSEGV/SIGBUS`` exceptions for some applications that specifically use
 invalid pointers (though this is not expected for most real-world applications).
 
-Gramine internal metadata size
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    loader.pal_internal_mem_size = "[SIZE]"
-    (default: "0")
-
-This syntax specifies how much additional memory Gramine reserves for its
-internal use (e.g., metadata for trusted files, internal handles,
-etc.). By default, Gramine pre-allocates 64MB of internal memory for this
-metadata, but for huge workloads this limit may be not enough. In this case,
-Gramine loudly fails with "out of PAL memory" error. To run huge workloads,
-increase this limit by setting this option to e.g., ``64M`` (this would result in
-a total of 128MB used by Gramine for internal metadata). Note that this limit
-is included in ``sgx.enclave_size``, so if your enclave size is e.g., 512MB and
-you specify ``loader.pal_internal_mem_size = "64M"``, then your application is
-left with 384MB of usable memory.
-
 Stack size
 ^^^^^^^^^^
 
@@ -319,6 +333,28 @@ into Gramine. Could be useful to handle graceful shutdown.
 Be careful! In SGX environment, the untrusted host could inject that signal in
 an arbitrary moment. Examine what your application's `SIGTERM` handler does and
 whether it poses any security threat.
+
+Disallowing subprocesses (fork)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    sys.disallow_subprocesses = [true|false]
+    (Default: false)
+
+This specifies whether to block applications from creating child processes (e.g.
+via ``fork()`` or ``clone()`` system calls). The intuition is that many
+applications have fallbacks when they fail to spawn a child process (e.g.
+Python). Could be useful in SGX environments: child processes consume
+:term:`EPC` memory which is a limited resource.
+
+.. note ::
+   This option is *not* a security feature - Gramine by-design is only a one-way
+   sandbox, which doesn't protect the host from the enclave. Don't use this
+   option if you want to somehow mitigate running untrusted enclaves. Instead,
+   to achieve this, you need to run the whole Gramine inside a proper security
+   sandbox.
+
 
 Root FS mount point
 ^^^^^^^^^^^^^^^^^^^
@@ -421,6 +457,31 @@ Debug/production enclave
 This syntax specifies whether the enclave can be debugged. Set it to ``true``
 for a |~| debug enclave and to ``false`` for a |~| production enclave.
 
+EDMM
+^^^^
+
+::
+
+    sgx.edmm_enable = [true|false]
+    (Default: false)
+
+This setting enables the :term:`EDMM` feature (after-enclave-creation memory
+management). If set to ``true``, Gramine will refuse to start on CPUs which do
+not support :term:`EDMM` feature.
+
+When this feature is enabled, Gramine does not add heap pages (uninitialized
+memory) to the enclave at creation time. Instead, memory is added to the enclave
+on demand. This can greatly reduce startup time for bigger enclaves, reduce
+the :term:`EPC` usage (as only actually allocated memory is used) and allow for
+changing memory permissions (without this Gramine allocates all dynamic memory
+as RWX). Unfortunately it can negatively impact performance, as adding a page
+to the enclave at runtime is a more expensive operation than adding the page
+before enclave creation (because it involves more enclave exits and syscalls).
+
+.. note::
+   Support for EDMM first appeared in Linux 6.0.
+
+
 Enclave size
 ^^^^^^^^^^^^
 
@@ -430,13 +491,16 @@ Enclave size
     (default: "256M")
 
 This syntax specifies the size of the enclave set during enclave creation time
-(recall that SGX |~| v1 requires a predetermined maximum size of the enclave).
+if :term:`EDMM` is not enabled (``sgx.edmm_enable = false``) or the maximal
+size that the enclave can grow to if :term:`EDMM` is enabled
+(``sgx.edmm_enable = true``).
+
 The PAL and library OS code/data count towards this size value, as well as the
 application memory itself: application's code, stack, heap, loaded application
 libraries, etc. The application cannot allocate memory that exceeds this limit.
 
-Be careful when setting the enclave size to large values: on systems where the
-:term:`EDMM` feature is not enabled, Gramine not only reserves
+Be careful when setting the enclave size to large values: when creating enclaves
+which do not have the :term:`EDMM` feature enabled, Gramine not only reserves
 ``sgx.enclave_size`` bytes of virtual address space but also *commits* them to
 the backing store (EPC, RAM and/or swap file). For example, if
 ``sgx.enclave_size = "4G"``, then 4GB of EPC/RAM will be immediately allocated
@@ -461,7 +525,9 @@ runs in its own SGX enclave and thus requires an additional ``sgx.enclave_size``
 amount of RAM. For example, if you run ``bash -c ls`` and your manifest contains
 ``sgx.enclave_size = "4G"``, then two SGX enclaves (bash and ls processes) will
 consume 8GB of RAM in total. If there is less than 8GB of RAM (+ swap file) on
-your system, such ``bash -c ls`` SGX workload will fail.
+your system, such ``bash -c ls`` SGX workload will fail. Note this does not
+apply to the enclaves with :term:`EDMM` enabled, where memory is not reserved
+upfront and is allocated on demand.
 
 Non-PIE binaries
 ^^^^^^^^^^^^^^^^
@@ -479,7 +545,7 @@ Number of threads
 
 ::
 
-    sgx.thread_num = [NUM]
+    sgx.max_threads = [NUM]
     (Default: 4)
 
 This syntax specifies the maximum number of threads that can be created inside
@@ -501,9 +567,9 @@ Note that Gramine uses several helper threads internally:
   each time a new pipe is created. It terminates itself immediately after the
   TLS handshake is performed.
 
-Given these internal threads, ``sgx.thread_num`` should be set to at least ``4``
-even for single-threaded applications (to accommodate for the main thread, the
-IPC thread, the Async thread and one TLS-handshake thread).
+Given these internal threads, ``sgx.max_threads`` should be set to at least
+``4`` even for single-threaded applications (to accommodate for the main thread,
+the IPC thread, the Async thread and one TLS-handshake thread).
 
 
 Number of RPC threads (Exitless feature)
@@ -535,8 +601,8 @@ more CPU cores and burning more CPU cycles. For example, a single-threaded
 Redis instance on Linux becomes 5-threaded on Gramine with Exitless. Thus,
 Exitless may negatively impact throughput but may improve latency.
 
-Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Optional CPU features (AVX, AVX512, MPX, PKRU, AMX, EXINFO)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -545,6 +611,7 @@ Optional CPU features (AVX, AVX512, MPX, PKRU, AMX)
     sgx.require_mpx    = [true|false]
     sgx.require_pkru   = [true|false]
     sgx.require_amx    = [true|false]
+    sgx.require_exinfo = [true|false]
     (Default: false)
 
 This syntax ensures that the CPU features are available and enabled for the
@@ -552,6 +619,10 @@ enclave. If the options are set in the manifest but the features are unavailable
 on the platform, enclave initialization will fail. If the options are unset,
 enclave initialization will succeed even if these features are unavailable on
 the platform.
+
+If ``require_exinfo`` is set, user application can retrieve faulting address in
+signal handler in case of a page fault. Otherwise (set to ``false``),
+the faulting address will always be provided as ``0``.
 
 ISV Product ID and SVN
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -759,6 +830,9 @@ predictable.
 Please note that using this option makes sense only when the :term:`EPC` is
 large enough to hold the whole heap area.
 
+This option is invalid (i.e. must be ``false``) if specified together with
+``sgx.edmm_enable``, as there are no heap pages to pre-fault.
+
 Enabling per-thread and process-wide SGX stats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -797,8 +871,9 @@ SGX profiling
     (Default: "none")
 
 This syntax specifies whether to enable SGX profiling. Gramine must be compiled
-with ``DEBUG=1`` or ``DEBUGOPT=1`` for this option to work (the latter is
-advised).
+with ``--buildtype=debug`` or ``--buildtype=debugoptimized`` for this option to
+work (the latter is advised). In addition, the manifest must contain
+``sgx.debug = true``.
 
 If this option is set to ``main``, the main process will collect IP samples and
 save them as ``sgx-perf.data``. If it is set to ``all``, all processes will
@@ -867,9 +942,9 @@ SGX profiling with Intel VTune Profiler
     (Default: false)
 
 This syntax specifies whether to enable SGX profiling with Intel VTune Profiler.
-Gramine must be compiled with ``DEBUG=1`` or ``DEBUGOPT=1`` for this option to
-work (the latter is advised). In addition, the application manifest must also
-contain ``sgx.debug = true``.
+Gramine must be compiled with ``--buildtype=debug`` or
+``--buildtype=debugoptimized`` for this option to work (the latter is advised).
+In addition, the application manifest must also contain ``sgx.debug = true``.
 
 .. note::
    The manifest options ``sgx.vtune_profile`` and ``sgx.profile.*`` can work
@@ -950,3 +1025,25 @@ value has been replaced with the string value. The ``none`` value in the new
 syntax corresponds to the ``false`` boolean value in the deprecated syntax. The
 explicit ``epid`` and ``dcap`` values in the new syntax replace the ambiguous
 ``true`` boolean value in the deprecated syntax.
+
+Gramine internal metadata size (deprecated syntax)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    loader.pal_internal_mem_size = "[SIZE]"
+    (default: "0")
+
+This syntax specified how much additional memory Gramine used to reserve for its
+internal use (e.g., metadata for trusted files, internal handles,
+etc.). Currently Gramine correctly tracks all internal memory allocations and
+does not require this workaround.
+
+Number of threads (deprecated syntax)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    sgx.thread_num = [NUM]
+
+This name was ambiguous and was replaced with ``sgx.max_threads``.

@@ -19,7 +19,7 @@ PAL as loader
 -------------
 
 Regardless of the actual implementation, we require PAL to be able to load ELF-format binaries
-as executables or dynamic libraries, and perform the necessary dynamic relocation. PAL needs
+as executables or dynamic libraries and perform the necessary dynamic relocation. PAL needs
 to look up all unresolved symbols in loaded binaries and resolve the ones matching the names of
 PAL APIs. PAL does not and will not resolve other unresolved symbols, so the loaded libraries and
 executables must resolve them afterwards.
@@ -111,10 +111,12 @@ memory.
 .. doxygenfunction:: PalVirtualMemoryFree
    :project: pal
 
-.. doxygentypedef:: pal_alloc_flags_t
-   :project: pal
 .. doxygentypedef:: pal_prot_flags_t
    :project: pal
+
+   .. doxygenstruct:: pal_initial_mem_range
+   :project: pal
+   :members:
 
 .. doxygenfunction:: PalVirtualMemoryProtect
    :project: pal
@@ -241,7 +243,7 @@ Socket handling
 .. doxygenstruct:: pal_socket_addr
    :project: pal
 
-.. doxygenstruct:: pal_iovec
+.. doxygenstruct:: iovec
    :project: pal
 
 .. doxygenfunction:: PalSocketCreate
@@ -356,9 +358,6 @@ and to obtain an attestation report and quote.
    :project: pal
 
 .. doxygenenum:: pal_segment_reg
-   :project: pal
-
-.. doxygenfunction:: PalMemoryAvailableQuota
    :project: pal
 
 .. doxygenfunction:: PalCpuIdRetrieve

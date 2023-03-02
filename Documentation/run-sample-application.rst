@@ -17,7 +17,7 @@ access the ``gcc`` compiler and the ``make`` build system by entering the
 following::
 
    sudo apt-get install gcc make  # for Ubuntu distribution
-   sudo dnf install gcc make      # for RHEL-8-like distribution
+   sudo dnf install gcc make      # for RHEL-like distribution
 
 Go to the HelloWorld example directory::
 
@@ -45,12 +45,12 @@ understand manifest options and Gramine features.
 Additional sample configurations for applications enabled in Gramine are
 available in a separate repository https://github.com/gramineproject/examples.
 
-Note that these sample applications are tested on Ubuntu 18.04 and 20.04.
-Most of these applications run correctly on 
-Fedora/RHEL/CentOS, but with caveats. One caveat is that Makefiles should be
-invoked with ``ARCH_LIBDIR=/lib64 make``. Another caveat is that applications
-that rely on specific versions/builds of Glibc may break (our GCC example is
-known to work only on Ubuntu).
+Please note that these sample applications are tested on Ubuntu. Most of these
+applications are also known to run correctly on Fedora/RHEL/AlmaLinux/Rocky
+Linux, but with caveats. One caveat is that Makefiles should be invoked with
+``ARCH_LIBDIR=/lib64 make``. Another caveat is that applications that rely on
+specific versions/builds of Glibc may break (our GCC example is known to work
+only on Ubuntu).
 
 glibc vs musl
 ------------------------------------

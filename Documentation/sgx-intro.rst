@@ -37,6 +37,8 @@ Features which might be considered part of SGX2:
 - :term:`EDMM` (Enclave Dynamic Memory Management) is part of SGX2
 - :term:`FLC` (Flexible Launch Control), not strictly part of SGX2, but was not
   part of original SGX hardware either
+- :term:`KSS` (Key Separation and Sharing), also not part of SGX2, but was not
+  part of original SGX hardware either
 
 As of now there is hardware support (on a |~| limited set of CPUs) for FLC and
 (on an even more limited set of CPUs) SGX2/EDMM. Most of the literature
@@ -97,9 +99,10 @@ For historical reasons, there are three SGX drivers currently (January 2021):
   deprecated
 
 - https://github.com/intel/SGXDataCenterAttestationPrimitives/tree/master/driver
-  -- new one, out-of-tree, supports both non-DCAP software infrastructure (with
-  old EPID remote-attestation technique) and the new DCAP (with new ECDSA and
-  more "normal" PKI infrastructure).
+  -- out-of-tree, supports both non-DCAP software infrastructure (with old EPID
+  remote-attestation technique) and the new DCAP (with new ECDSA and
+  more "normal" PKI infrastructure). Deprecated in favor of the upstreamed
+  driver (see below).
 
 - SGX support was upstreamed to the Linux mainline starting from 5.11.
   It currently supports only DCAP attestation. The driver is accessible through
@@ -279,8 +282,9 @@ SGX terminology
 
    Enclave Dynamic Memory Management
    EDMM
-      A |~| hardware feature of :term:`SGX2`, allows dynamic memory allocation,
-      which in turn allows dynamic thread creation.
+      A |~| hardware feature of :term:`SGX2`, allows for dynamic (in enclave
+      runtime) addition and removal of enclave memory, as well as changing
+      memory permissions and type. This in turn allows dynamic thread creation.
 
    Enclave Page Cache
    EPC
@@ -355,6 +359,38 @@ SGX terminology
             Announcement
 
          :term:`DCAP`
+
+Key Separation and Sharing
+   KSS
+      A feature that lets developer define additional enclave identity
+      attributes and configuration identifier. Extended enclave identity
+      is defined by the developer on enclave build. Enclave configuration is
+      defined on enclave launch and cannot be modified afterwards.
+
+      In addition to the calculated enclave and signer measurements, developer
+      is expected to define a product ID and :term:`SVN` for her enclaves.
+      These identifiers are part of the :term:`SGX Report` and are expected to
+      be used in :term:`Attestation`. They are also used by SGX key derivation
+      to derive different keys per configuration.
+
+      KSS adds two more attributes for enclave build and two new ones for
+      enclave launch, which are part of the :term:`SGX Report`.
+      Additionally, key policy attributes are extended to provide fine-grained
+      control over key derivation.
+
+      New build attributes:
+
+      - Extended product ID
+      - Family ID
+
+      New enclave launch attributes:
+
+      - Config ID
+      - Config SVN
+
+      This feature was not part of original SGX and therefore not supported by
+      all SGX-enabled hardware.
+
 
    Launch Enclave
    LE
