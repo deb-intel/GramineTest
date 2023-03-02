@@ -12,7 +12,7 @@ There are three options to choose from when using Gramine to protect your applic
 :doc:`devel/building` - This option is mainly used for assisting in helping the development of Gramine. This option is much more involved. The instructions for this option are listed on another page.
 
 ..role:: h1Install Gramine 
-
+ 
 
 Debian 11
 ^^^^^^^^^

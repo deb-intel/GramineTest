@@ -529,23 +529,13 @@ your system, such ``bash -c ls`` SGX workload will fail. Note this does not
 apply to the enclaves with :term:`EDMM` enabled, where memory is not reserved
 upfront and is allocated on demand.
 
-Non-PIE binaries
-^^^^^^^^^^^^^^^^
-
-::
-
-    sgx.nonpie_binary = [true|false]
-    (Default: false)
-
-This setting tells Gramine whether to use a specially crafted memory layout,
-which is required to support non-relocatable binaries (non-PIE).
 
 Number of threads
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    sgx.max_threads = [NUM]
+    sgx.insecure__rpc_thread_num = [NUM]
     (Default: 4)
 
 This syntax specifies the maximum number of threads that can be created inside
@@ -590,7 +580,7 @@ the enclave (except for a few syscalls where there is no benefit, e.g.,
 If the user specifies ``0`` or omits this directive, then no RPC threads are
 created, and all system calls perform an enclave exit ("normal" execution).
 
-Note that the number of created RPC threads must match the maximum number of
+Note that the number of created RPC threads should match the maximum number of
 simultaneous enclave threads. If there are more RPC threads, then CPU time is
 wasted. If there are less RPC threads, some enclave threads may starve,
 especially if there are many blocking system calls by other enclave threads.
@@ -600,6 +590,9 @@ OCALLs/ECALLs for fast shared-memory communication at the cost of occupying
 more CPU cores and burning more CPU cycles. For example, a single-threaded
 Redis instance on Linux becomes 5-threaded on Gramine with Exitless. Thus,
 Exitless may negatively impact throughput but may improve latency.
+
+This feature is currently marked as insecure, because it reads untrusted memory
+in potentially insecure manner - susceptible to CVE-2022-21233 (INTEL-SA-00657).
 
 Optional CPU features (AVX, AVX512, MPX, PKRU, AMX, EXINFO)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
