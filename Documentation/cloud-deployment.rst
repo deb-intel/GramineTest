@@ -34,7 +34,6 @@ On Ubuntu 20.04 LTS and 18.04 LTS::
    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-sgx-deb.asc] https://download.01.org/intel-sgx/sgx_repo/ubuntu $(lsb_release -sc) main" \
    | sudo tee /etc/apt/sources.list.d/intel-sgx.list
 
-
    sudo apt-get update
    sudo apt-get install gramine
 
@@ -66,3 +65,5 @@ Run the HelloWorld example with SGX::
    cd gramine/CI-Examples/helloworld
    make SGX=1
    gramine-sgx helloworld
+
+   

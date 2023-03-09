@@ -22,7 +22,7 @@ A typical integer entry looks similar to the above but without double quotes::
 
    [Key][.Key][.Key] = [Value]
 
-Comments can be in line in a |~| manifest by starting them with a |~| hash sign
+Comments can be inlined in a |~| manifest by starting them with a |~| hash sign
 (``# comment...``).
 
 There is also a |~| preprocessor available: :ref:`gramine-manifest
@@ -97,7 +97,7 @@ default, or ``fs.start_dir`` if specified).
 The recommended usage is to provide an absolute path and mount the executable
 at that path. For example::
 
-   libos.entrypoint = "/usr/bin/python3.8"Optional CPU 
+   libos.entrypoint = "/usr/bin/python3.8"
 
    fs.mounts = [
      { path = "/usr/bin/python3.8", uri = "file:/usr/bin/python3.8" },
@@ -129,13 +129,12 @@ If you want your application to use commandline arguments, you must choose one o
 - put commandline arguments into ``loader.argv`` array,
 - point ``loader.argv_src_file`` to a file containing output of :ref:`gramine-argv-serializer<gramine-argv-serializer>`.
 
-If none of the above arguments-handling manifest options is specified in the manifest, the application will get ``argv = [ <libos.entrypoint value> ]``.
+If none of the above arguments-handling manifest options are specified in the manifest, the application will get ``argv = [ <libos.entrypoint value> ]``.
 
 ``loader.argv_src_file`` is intended to point to either a trusted file or an
 encrypted file. The former allows to securely hardcode arguments, the latter
 allows the arguments to be provided at runtime from an external (trusted)
 source.
-
 
 .. note ::
    Pointing to an encrypted file is currently not supported, due to the fact

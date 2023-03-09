@@ -48,7 +48,6 @@ Ubuntu 22.04 LTS, 20.04 LTS or 18.04 LTS
 
    sudo apt-get install gramine
 
-
 RHEL-like distributions version 8 (and experimentally also version 9)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
